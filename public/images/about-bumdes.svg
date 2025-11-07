@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="600px" viewBox="0 0 800 600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>About BUMDes Illustration</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Background -->
+        <rect fill="#F5F5F5" x="0" y="0" width="800" height="600"></rect>
+        
+        <!-- Main BUMDes Building -->
+        <rect fill="#E8D8C3" x="250" y="200" width="300" height="200"></rect>
+        <polygon fill="#8B4513" points="250,200 400,100 550,200"></polygon>
+        
+        <!-- Door -->
+        <rect fill="#8B4513" x="375" y="300" width="50" height="100"></rect>
+        <circle fill="#DAA520" cx="415" cy="350" r="5"></circle>
+        
+        <!-- Windows -->
+        <rect fill="#87CEEB" x="300" y="250" width="40" height="40"></rect>
+        <line stroke="#8B4513" stroke-width="2" x1="320" y1="250" x2="320" y2="290"></line>
+        <line stroke="#8B4513" stroke-width="2" x1="300" y1="270" x2="340" y2="270"></line>
+        
+        <rect fill="#87CEEB" x="460" y="250" width="40" height="40"></rect>
+        <line stroke="#8B4513" stroke-width="2" x1="480" y1="250" x2="480" y2="290"></line>
+        <line stroke="#8B4513" stroke-width="2" x1="460" y1="270" x2="500" y2="270"></line>
+        
+        <!-- Sign -->
+        <rect fill="#FFFFFF" x="325" y="150" width="150" height="40"></rect>
+        <text font-family="Arial" font-size="16" font-weight="bold" fill="#006400" x="345" y="175">BUMDes Juron</text>
+        
+        <!-- People -->
+        <!-- Person 1 -->
+        <circle fill="#FFD700" cx="200" cy="350" r="20"></circle>
+        <rect fill="#228B22" x="190" y="370" width="20" height="40"></rect>
+        <line stroke="#000000" stroke-width="2" x1="200" y1="410" x2="180" y2="440"></line>
+        <line stroke="#000000" stroke-width="2" x1="200" y1="410" x2="220" y2="440"></line>
+        <line stroke="#000000" stroke-width="2" x1="190" y1="380" x2="170" y2="400"></line>
+        <line stroke="#000000" stroke-width="2" x1="210" y1="380" x2="230" y2="400"></line>
+        
+        <!-- Person 2 -->
+        <circle fill="#FFD700" cx="600" cy="350" r="20"></circle>
+        <rect fill="#4682B4" x="590" y="370" width="20" height="40"></rect>
+        <line stroke="#000000" stroke-width="2" x1="600" y1="410" x2="580" y2="440"></line>
+        <line stroke="#000000" stroke-width="2" x1="600" y1="410" x2="620" y2="440"></line>
+        <line stroke="#000000" stroke-width="2" x1="590" y1="380" x2="570" y2="400"></line>
+        <line stroke="#000000" stroke-width="2" x1="610" y1="380" x2="630" y2="400"></line>
+        
+        <!-- Trees -->
+        <circle fill="#228B22" cx="150" cy="300" r="30"></circle>
+        <rect fill="#8B4513" x="145" y="300" width="10" height="50"></rect>
+        
+        <circle fill="#228B22" cx="650" cy="300" r="30"></circle>
+        <rect fill="#8B4513" x="645" y="300" width="10" height="50"></rect>
+        
+        <!-- Ground -->
+        <rect fill="#8FBC8F" x="0" y="450" width="800" height="150"></rect>
+        
+        <!-- Path -->
+        <path d="M375,400 C375,425 375,450 375,450" stroke="#D2B48C" stroke-width="15" fill="none"></path>
+        <path d="M425,400 C425,425 425,450 425,450" stroke="#D2B48C" stroke-width="15" fill="none"></path>
+        <path d="M375,450 C300,475 200,500 100,500" stroke="#D2B48C" stroke-width="15" fill="none"></path>
+        <path d="M425,450 C500,475 600,500 700,500" stroke="#D2B48C" stroke-width="15" fill="none"></path>
+        
+        <!-- Icons representing BUMDes activities -->
+        <!-- Agriculture -->
+        <circle fill="#FFFFFF" cx="150" cy="500" r="30"></circle>
+        <path d="M140,500 C140,490 160,490 160,500" stroke="#006400" stroke-width="2" fill="none"></path>
+        <path d="M145,500 C145,485 155,485 155,500" stroke="#006400" stroke-width="2" fill="none"></path>
+        <path d="M150,500 C150,480 150,480 150,500" stroke="#006400" stroke-width="2" fill="none"></path>
+        <rect fill="#8B4513" x="148" y="500" width="4" height="15"></rect>
+        
+        <!-- Commerce -->
+        <circle fill="#FFFFFF" cx="250" cy="500" r="30"></circle>
+        <rect fill="#4682B4" x="235" y="490" width="30" height="20"></rect>
+        <line stroke="#000000" stroke-width="2" x1="235" y1="495" x2="265" y2="495"></line>
+        <polygon fill="#DAA520" points="240,490 245,485 250,490"></polygon>
+        <polygon fill="#DAA520" points="250,490 255,485 260,490"></polygon>
+        
+        <!-- Tourism -->
+        <circle fill="#FFFFFF" cx="350" cy="500" r="30"></circle>
+        <polygon fill="#1E90FF" points="350,480 340,500 360,500"></polygon>
+        <rect fill="#8B4513" x="348" y="500" width="4" height="10"></rect>
+        <path d="M330,500 C330,510 370,510 370,500" stroke="#1E90FF" stroke-width="2" fill="none"></path>
+        
+        <!-- Savings -->
+        <circle fill="#FFFFFF" cx="450" cy="500" r="30"></circle>
+        <rect fill="#DAA520" x="435" y="490" width="30" height="20" rx="5" ry="5"></rect>
+        <line stroke="#000000" stroke-width="2" x1="450" y1="490" x2="450" y2="510"></line>
+        <line stroke="#000000" stroke-width="2" x1="440" y1="500" x2="460" y2="500"></line>
+        
+        <!-- Crafts -->
+        <circle fill="#FFFFFF" cx="550" cy="500" r="30"></circle>
+        <path d="M535,500 C535,490 565,490 565,500" stroke="#A0522D" stroke-width="4" fill="none"></path>
+        <path d="M540,495 C540,485 560,485 560,495" stroke="#A0522D" stroke-width="3" fill="none"></path>
+        <path d="M545,490 C545,480 555,480 555,490" stroke="#A0522D" stroke-width="2" fill="none"></path>
+        
+        <!-- Technology -->
+        <circle fill="#FFFFFF" cx="650" cy="500" r="30"></circle>
+        <rect fill="#4682B4" x="635" y="485" width="30" height="20" rx="2" ry="2"></rect>
+        <rect fill="#87CEEB" x="638" y="488" width="24" height="14"></rect>
+        <rect fill="#4682B4" x="645" y="505" width="10" height="5"></rect>
+        <rect fill="#4682B4" x="640" y="510" width="20" height="2"></rect>
+    </g>
+</svg>
