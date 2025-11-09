@@ -1,0 +1,462 @@
+/* Village Theme Custom Styles */
+
+/* Village Shadows */
+.village-shadow-sm { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06); }
+.village-shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+.village-shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+.village-shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+
+/* Village Transitions */
+.village-transition { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.village-transition-fast { transition: all 0.15s ease-out; }
+.village-transition-slow { transition: all 0.5s ease-out; }
+
+/* Village Background Patterns */
+.village-bg-pattern {
+    background-image: 
+        radial-gradient(circle at 25px 25px, rgba(34, 197, 94, 0.1) 2px, transparent 0),
+        radial-gradient(circle at 75px 75px, rgba(34, 197, 94, 0.1) 2px, transparent 0);
+    background-size: 100px 100px;
+}
+
+.village-bg-pattern-light {
+    background-image: 
+        radial-gradient(circle at 20px 20px, rgba(34, 197, 94, 0.05) 1px, transparent 0),
+        radial-gradient(circle at 60px 60px, rgba(34, 197, 94, 0.05) 1px, transparent 0);
+    background-size: 80px 80px;
+}
+
+/* Village Floating Animation */
+@keyframes village-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes village-float-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes village-float-fast {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.village-float { animation: village-float 3s ease-in-out infinite; }
+.village-float-slow { animation: village-float-slow 4s ease-in-out infinite; }
+.village-float-fast { animation: village-float-fast 2s ease-in-out infinite; }
+
+/* Village Pulse Animation */
+@keyframes village-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.village-pulse { animation: village-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+/* Village Gradient Text */
+.village-gradient-text {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.village-gradient-text-gold {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Village Glass Effect */
+.village-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.village-glass-dark {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Village Hover Effects */
+.village-hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.village-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.village-hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.village-hover-scale:hover {
+    transform: scale(1.02);
+}
+
+/* Village Button Effects */
+.village-btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.village-btn-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.village-btn-glow:hover::before {
+    left: 100%;
+}
+
+/* Village Card Styles */
+.village-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.village-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+/* Village Icon Effects */
+.village-icon-bounce {
+    animation: village-bounce 1s infinite;
+}
+
+@keyframes village-bounce {
+    0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+}
+
+/* Village Loading Animation */
+@keyframes village-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.village-spin { animation: village-spin 1s linear infinite; }
+
+/* Village Fade In Animation */
+@keyframes village-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.village-fade-in { animation: village-fade-in 0.6s ease-out; }
+
+.village-fade-in-delay-1 { animation: village-fade-in 0.6s ease-out 0.1s both; }
+.village-fade-in-delay-2 { animation: village-fade-in 0.6s ease-out 0.2s both; }
+.village-fade-in-delay-3 { animation: village-fade-in 0.6s ease-out 0.3s both; }
+.village-fade-in-delay-4 { animation: village-fade-in 0.6s ease-out 0.4s both; }
+
+/* Village Responsive Grid */
+.village-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 640px) {
+    .village-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Village Status Badges */
+.village-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.village-badge-success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.village-badge-warning {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.village-badge-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.village-badge-info {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+/* Village Progress Bar */
+.village-progress {
+    width: 100%;
+    height: 0.5rem;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.village-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #059669 0%, #10b981 100%);
+    border-radius: 9999px;
+    transition: width 0.3s ease;
+}
+
+/* Village Form Styles */
+.village-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.village-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.village-form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.village-form-input:focus {
+    outline: none;
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* Village Modal Styles */
+.village-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.village-modal-content {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    animation: village-fade-in 0.3s ease-out;
+}
+
+/* Village Navigation */
+.village-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.village-nav-item {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    color: #6b7280;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.village-nav-item:hover {
+    color: #059669;
+    background-color: #f0fdf4;
+}
+
+.village-nav-item.active {
+    color: #059669;
+    background-color: #dcfce7;
+}
+
+/* Village Hero Section */
+.village-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%);
+    overflow: hidden;
+}
+
+.village-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+/* Village Card Grid */
+.village-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .village-card-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Village Stats */
+.village-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.village-stat-item {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    backdrop-filter: blur(10px);
+}
+
+.village-stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.village-stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Village Footer */
+.village-footer {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+    color: white;
+    padding: 3rem 0 1rem;
+}
+
+.village-footer-section {
+    margin-bottom: 2rem;
+}
+
+.village-footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #d1fae5;
+}
+
+.village-footer-link {
+    display: block;
+    padding: 0.25rem 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.village-footer-link:hover {
+    color: #d1fae5;
+}
+
+/* Village Social Icons */
+.village-social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.village-social-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.village-social-icon:hover {
+    background: #10b981;
+    transform: translateY(-2px);
+}
+
+/* Village Responsive Utilities */
+@media (max-width: 640px) {
+    .village-hidden-mobile {
+        display: none !important;
+    }
+    
+    .village-text-center-mobile {
+        text-align: center !important;
+    }
+    
+    .village-full-width-mobile {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 641px) {
+    .village-hidden-desktop {
+        display: none !important;
+    }
+}
+
+/* Village Print Styles */
+@media print {
+    .village-no-print {
+        display: none !important;
+    }
+    
+    .village-print-only {
+        display: block !important;
+    }
+    
+    .village-card {
+        box-shadow: none !important;
+        border: 1px solid #e5e7eb !important;
+    }
+}

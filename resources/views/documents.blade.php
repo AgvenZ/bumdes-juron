@@ -1,299 +1,286 @@
 @extends('layouts.app')
 
-@section('title', 'Dokumen BUMDes')
+@section('title', 'Dokumentasi Kegiatan - BUMDes Juron')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="bg-village-green-700 text-white py-12">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4 font-poppins">Dokumen BUMDes</h1>
-            <p class="text-xl text-village-green-100">Akses dokumen resmi dan surat keputusan BUMDes Juron</p>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="relative py-20 bg-gradient-to-br from-village-green-600 via-village-green-700 to-village-green-800 overflow-hidden">
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 left-20 w-32 h-32 bg-white rounded-full animate-pulse"></div>
+        <div class="absolute top-40 right-32 w-24 h-24 bg-village-cream-200 rounded-full animate-bounce" style="animation-delay: 1s;"></div>
+        <div class="absolute bottom-32 left-1/4 w-40 h-40 bg-white rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="absolute inset-0 pointer-events-none">
+        <i class="fas fa-file-alt absolute top-1/4 left-10 text-white text-4xl opacity-20 animate-float"></i>
+        <i class="fas fa-folder-open absolute top-1/3 right-16 text-white text-3xl opacity-20 animate-float" style="animation-delay: 1.5s;"></i>
+        <i class="fas fa-certificate absolute bottom-1/3 left-20 text-white text-5xl opacity-20 animate-float" style="animation-delay: 2.5s;"></i>
+        <i class="fas fa-scroll absolute bottom-1/4 right-12 text-white text-4xl opacity-20 animate-float" style="animation-delay: 3.5s;"></i>
+    </div>
 
-    <!-- Documents Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="mb-10">
-                    <h2 class="text-2xl font-bold text-village-green-800 mb-6 font-poppins">Dokumen Resmi</h2>
-                    
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full bg-white">
-                            <thead>
-                                <tr>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">No</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Judul Dokumen</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Jenis</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                @if(isset($documents) && $documents->count() > 0)
-                                    @foreach($documents as $index => $document)
-                                        <tr>
-                                            <td class="py-4 px-4 text-sm text-gray-500">{{ $index + 1 }}</td>
-                                            <td class="py-4 px-4 text-sm text-gray-900">{{ $document->title }}</td>
-                                            <td class="py-4 px-4 text-sm text-gray-500">{{ $document->doc_type }}</td>
-                                            <td class="py-4 px-4 text-sm">
-                                                <a href="{{ asset('storage/' . $document->doc_path) }}" target="_blank" class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                    </svg>
-                                                    Lihat
-                                                </a>
-                                                <a href="{{ asset('storage/' . $document->doc_path) }}" download class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                    </svg>
-                                                    Unduh
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <!-- Placeholder Documents -->
-                                    <tr>
-                                        <td class="py-4 px-4 text-sm text-gray-500">1</td>
-                                        <td class="py-4 px-4 text-sm text-gray-900">SK Pembentukan BUMDes Juron</td>
-                                        <td class="py-4 px-4 text-sm text-gray-500">Surat Keputusan</td>
-                                        <td class="py-4 px-4 text-sm">
-                                            <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                                Lihat
-                                            </button>
-                                            <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                                Unduh
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 px-4 text-sm text-gray-500">2</td>
-                                        <td class="py-4 px-4 text-sm text-gray-900">Anggaran Dasar BUMDes Juron</td>
-                                        <td class="py-4 px-4 text-sm text-gray-500">Anggaran Dasar</td>
-                                        <td class="py-4 px-4 text-sm">
-                                            <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                                Lihat
-                                            </button>
-                                            <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                                Unduh
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 px-4 text-sm text-gray-500">3</td>
-                                        <td class="py-4 px-4 text-sm text-gray-900">Laporan Keuangan Tahunan 2023</td>
-                                        <td class="py-4 px-4 text-sm text-gray-500">Laporan Keuangan</td>
-                                        <td class="py-4 px-4 text-sm">
-                                            <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                                Lihat
-                                            </button>
-                                            <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                                Unduh
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 px-4 text-sm text-gray-500">4</td>
-                                        <td class="py-4 px-4 text-sm text-gray-900">SK Pengangkatan Pengurus BUMDes</td>
-                                        <td class="py-4 px-4 text-sm text-gray-500">Surat Keputusan</td>
-                                        <td class="py-4 px-4 text-sm">
-                                            <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                                Lihat
-                                            </button>
-                                            <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                                Unduh
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="py-4 px-4 text-sm text-gray-500">5</td>
-                                        <td class="py-4 px-4 text-sm text-gray-900">Rencana Kerja BUMDes 2024</td>
-                                        <td class="py-4 px-4 text-sm text-gray-500">Rencana Kerja</td>
-                                        <td class="py-4 px-4 text-sm">
-                                            <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                </svg>
-                                                Lihat
-                                            </button>
-                                            <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                                </svg>
-                                                Unduh
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div class="mb-10">
-                    <h2 class="text-2xl font-bold text-village-green-800 mb-6 font-poppins">Peraturan Desa</h2>
-                    
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full bg-white">
-                            <thead>
-                                <tr>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">No</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Judul Dokumen</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Jenis</th>
-                                    <th class="py-3 px-4 bg-village-green-100 text-left text-xs font-semibold text-village-green-800 uppercase tracking-wider">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                <!-- Placeholder Peraturan Desa -->
-                                <tr>
-                                    <td class="py-4 px-4 text-sm text-gray-500">1</td>
-                                    <td class="py-4 px-4 text-sm text-gray-900">Perdes No. 5 Tahun 2022 tentang BUMDes</td>
-                                    <td class="py-4 px-4 text-sm text-gray-500">Peraturan Desa</td>
-                                    <td class="py-4 px-4 text-sm">
-                                        <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                            Lihat
-                                        </button>
-                                        <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg>
-                                            Unduh
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-4 px-4 text-sm text-gray-500">2</td>
-                                    <td class="py-4 px-4 text-sm text-gray-900">Perdes No. 7 Tahun 2022 tentang Pengelolaan Aset Desa</td>
-                                    <td class="py-4 px-4 text-sm text-gray-500">Peraturan Desa</td>
-                                    <td class="py-4 px-4 text-sm">
-                                        <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                            Lihat
-                                        </button>
-                                        <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg>
-                                            Unduh
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="py-4 px-4 text-sm text-gray-500">3</td>
-                                    <td class="py-4 px-4 text-sm text-gray-900">Perdes No. 3 Tahun 2023 tentang Alokasi Dana Desa</td>
-                                    <td class="py-4 px-4 text-sm text-gray-500">Peraturan Desa</td>
-                                    <td class="py-4 px-4 text-sm">
-                                        <button class="bg-village-green-600 hover:bg-village-green-700 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                            Lihat
-                                        </button>
-                                        <button class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-3 py-1 rounded text-xs font-medium transition-colors inline-flex items-center ml-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg>
-                                            Unduh
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <div>
-                    <h2 class="text-2xl font-bold text-village-green-800 mb-6 font-poppins">Permintaan Dokumen</h2>
-                    
-                    <div class="bg-village-cream-100 p-6 rounded-lg">
-                        <p class="text-gray-700 mb-4">
-                            Jika Anda membutuhkan dokumen resmi BUMDes yang tidak tersedia di halaman ini, silakan isi formulir permintaan dokumen di bawah ini.
-                        </p>
-                        
-                        <form class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-village-green-500 focus:border-village-green-500">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-village-green-500 focus:border-village-green-500">
-                            </div>
-                            
-                            <div>
-                                <label for="document" class="block text-sm font-medium text-gray-700 mb-1">Dokumen yang Diminta</label>
-                                <input type="text" id="document" name="document" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-village-green-500 focus:border-village-green-500">
-                            </div>
-                            
-                            <div>
-                                <label for="purpose" class="block text-sm font-medium text-gray-700 mb-1">Tujuan Penggunaan</label>
-                                <textarea id="purpose" name="purpose" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-village-green-500 focus:border-village-green-500"></textarea>
-                            </div>
-                            
-                            <div>
-                                <button type="submit" class="bg-village-green-600 hover:bg-village-green-700 text-white px-6 py-3 rounded-md font-medium transition-colors">
-                                    Kirim Permintaan
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-white/20 backdrop-blur-sm rounded-3xl shadow-2xl mb-8 village-transition hover:scale-110">
+                <i class="fas fa-folder-open text-white text-5xl"></i>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 font-poppins village-text-shadow animate-fade-in">
+                Dokumentasi Kegiatan
+            </h1>
+            <p class="text-xl text-village-green-100 max-w-3xl mx-auto leading-relaxed animate-fade-in-delay">
+                Arsip dokumen resmi dan transparansi kegiatan BUMDes Juron untuk kemandirian desa
+            </p>
+            <div class="mt-8 flex justify-center animate-fade-in-delay-2">
+                <div class="bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
+                    <span class="text-white font-medium flex items-center">
+                        <i class="fas fa-file-contract mr-2"></i>
+                        {{ $documents->count() }} Dokumen Tersedia
+                    </span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Document Categories -->
+<section class="py-16 bg-gradient-to-br from-village-cream-50 to-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-village-green-800 mb-4 font-poppins">Kategori Dokumen</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Dokumen-dokumen penting yang dikelola oleh BUMDes Juron untuk transparansi dan akuntabilitas
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <!-- SK Kemenham -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl village-card hover:shadow-2xl border border-village-green-100">
+                <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 village-transition hover:scale-110">
+                    <i class="fas fa-certificate text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">SK Kemenham</h3>
+                <p class="text-gray-600 text-center mb-4">Surat Keputusan Kementerian Hukum dan HAM</p>
+                <div class="text-center">
+                    <span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                        Dokumen Resmi
+                    </span>
+                </div>
+            </div>
+
+            <!-- Anggaran Dasar -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl village-card hover:shadow-2xl border border-village-green-100">
+                <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 village-transition hover:scale-110">
+                    <i class="fas fa-file-contract text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Anggaran Dasar</h3>
+                <p class="text-gray-600 text-center mb-4">Panduan dasar pengelolaan BUMDes</p>
+                <div class="text-center">
+                    <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">
+                        Peraturan
+                    </span>
+                </div>
+            </div>
+
+            <!-- Laporan Keuangan -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl village-card hover:shadow-2xl border border-village-green-100">
+                <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center mx-auto mb-6 village-transition hover:scale-110">
+                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Laporan Keuangan</h3>
+                <p class="text-gray-600 text-center mb-4">Transparansi keuangan BUMDes</p>
+                <div class="text-center">
+                    <span class="bg-amber-100 text-amber-800 text-sm font-medium px-3 py-1 rounded-full">
+                        Keuangan
+                    </span>
+                </div>
+            </div>
+
+            <!-- Peraturan Desa -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl village-card hover:shadow-2xl border border-village-green-100">
+                <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 village-transition hover:scale-110">
+                    <i class="fas fa-scroll text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-3 text-center">Peraturan Desa</h3>
+                <p class="text-gray-600 text-center mb-4">Peraturan yang mengatur BUMDes</p>
+                <div class="text-center">
+                    <span class="bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full">
+                        Perdes
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Documents List -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold text-village-green-800 mb-4 font-poppins">Arsip Dokumen</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Semua dokumen tersedia dalam format PDF dan dapat diunduh secara gratis
+            </p>
+        </div>
+
+        @if($documents->count() > 0)
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($documents as $document)
+                    <div class="bg-gradient-to-br from-village-cream-50 to-white rounded-2xl p-6 shadow-lg village-card hover:shadow-2xl border border-village-green-100 group">
+                        <!-- Document Icon -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-village-green-500 to-village-green-600 rounded-xl flex items-center justify-center village-transition group-hover:scale-110">
+                                <i class="fas fa-file-pdf text-white text-lg"></i>
+                            </div>
+                            <span class="bg-village-green-100 text-village-green-800 text-xs font-medium px-2 py-1 rounded-full">
+                                {{ $document->created_at->format('d M Y') }}
+                            </span>
+                        </div>
+
+                        <!-- Document Info -->
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-village-green-700 transition-colors">
+                            {{ $document->title }}
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+                            {{ $document->description }}
+                        </p>
+
+                        <!-- Document Details -->
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-tag mr-2 text-village-green-500"></i>
+                                <span>{{ $document->category }}</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-hdd mr-2 text-village-green-500"></i>
+                                <span>{{ number_format($document->size / 1024, 1) }} KB</span>
+                            </div>
+                        </div>
+
+                        <!-- Download Button -->
+                        <a href="{{ asset('storage/' . $document->doc_path) }}" 
+                           target="_blank"
+                           class="w-full bg-gradient-to-r from-village-green-600 to-village-green-700 hover:from-village-green-700 hover:to-village-green-800 text-white font-medium py-3 px-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-download mr-2"></i>
+                            Unduh Dokumen
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <div class="text-center py-16">
+                <div class="w-24 h-24 bg-village-green-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-folder-open text-village-green-600 text-3xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Belum Ada Dokumen</h3>
+                <p class="text-gray-600">Dokumen akan segera ditambahkan oleh admin BUMDes.</p>
+            </div>
+        @endif
+    </div>
+</section>
+
+<!-- Transparency Section -->
+<section class="py-16 bg-gradient-to-br from-village-green-600 to-village-green-800">
+    <div class="container mx-auto px-4">
+        <div class="text-center">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl shadow-2xl mb-8 village-transition hover:scale-110">
+                <i class="fas fa-eye text-white text-3xl"></i>
+            </div>
+            <h2 class="text-4xl font-bold text-white mb-6 font-poppins">Transparansi untuk Desa</h2>
+            <p class="text-xl text-village-green-100 max-w-3xl mx-auto mb-8">
+                Kami percaya bahwa transparansi adalah kunci kepercayaan masyarakat. Semua dokumen tersedia untuk dilihat dan diunduh secara gratis.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 village-transition hover:scale-110">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Akuntabilitas</h3>
+                    <p class="text-village-green-100">Setiap kegiatan tercatat dan didokumentasikan dengan baik</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 village-transition hover:scale-110">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Partisipatif</h3>
+                    <p class="text-village-green-100">Masyarakat dapat mengakses informasi kapan saja</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 village-transition hover:scale-110">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Berkelanjutan</h3>
+                    <p class="text-village-green-100">Pertumbuhan desa yang terencana dan berkelanjutan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Custom CSS -->
+<style>
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-delay {
+    0% { opacity: 0; transform: translateY(30px); }
+    50% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-delay-2 {
+    0% { opacity: 0; transform: translateY(30px); }
+    60% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+.animate-fade-in-delay {
+    animation: fade-in-delay 1.5s ease-out;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fade-in-delay-2 2s ease-out;
+}
+</style>
 @endsection
 
-@section('scripts')
+@push('scripts')
 <script>
-    // Script untuk menangani formulir permintaan dokumen
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Terima kasih! Permintaan dokumen Anda telah dikirim. Kami akan menghubungi Anda melalui email.');
-                form.reset();
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
-        }
+        });
     });
+
+    // Add loading animation for download links
+    document.querySelectorAll('a[href*="storage"]').forEach(link => {
+        link.addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memuat...';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 2000);
+        });
+    });
+});
 </script>
-@endsection
+@endpush

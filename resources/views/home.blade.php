@@ -1,46 +1,292 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUMDes Juron - Badan Usaha Milik Desa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'village-green': {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d'
+                        },
+                        'village-cream': {
+                            50: '#fefdf8',
+                            100: '#fef9f0',
+                            200: '#fdf2e0',
+                            300: '#fbe6c1',
+                            400: '#f8d5a0',
+                            500: '#f4c178',
+                            600: '#f0b35b',
+                            700: '#e9a047',
+                            800: '#d68c3a',
+                            900: '#b87530'
+                        }
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .village-shadow {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .village-shadow-lg {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .village-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .village-hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        .village-text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .village-border-gradient {
+            border-image: linear-gradient(45deg, #16a34a, #f4c178) 1;
+        }
+        .village-profile-ring {
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, #16a34a, #f4c178) border-box;
+            border-radius: 50%;
+        }
+        .village-profile-img {
+            border: 4px solid white;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out;
+        }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-600 { animation-delay: 600ms; }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gradient-to-br from-village-green-50 to-village-cream-50">
+    <!-- Modern Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2316a34a" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
 
-@section('title', 'BUMDes Juron Sejahtera - Beranda')
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-village-green-200 rounded-full opacity-20 animate-bounce"></div>
+        <div class="absolute bottom-32 right-16 w-16 h-16 bg-village-cream-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
+        <div class="absolute top-1/3 right-20 w-12 h-12 bg-village-green-300 rounded-full opacity-25 animate-pulse"></div>
 
-@section('content')
-    <!-- 1) Hero Section -->
-    <section class="bg-gradient-to-br from-green-700 to-green-800 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <!-- Logo BUMDes -->
-            <div class="mb-8">
-                <img src="{{ asset('images/bumdes-logo.png') }}" alt="Logo BUMDes Juron" class="w-32 h-32 mx-auto rounded-full shadow-lg border-4 border-white">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <div class="animate-slide-up">
+                            <h1 class="text-5xl lg:text-7xl font-bold text-gray-800 mb-6 village-text-shadow">
+                                <span class="bg-gradient-to-r from-village-green-700 to-village-green-800 bg-clip-text text-transparent">
+                                    BUMDes
+                                </span>
+                                <br>
+                                <span class="text-village-cream-700">Juron</span>
+                            </h1>
+                            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                                Badan Usaha Milik Desa yang melayani masyarakat dengan penuh dedikasi,
+                                transparansi, dan profesionalisme untuk kemajuan Desa Juron.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 animate-slide-up delay-200">
+                            <a href="#profile" class="bg-gradient-to-r from-village-green-600 to-village-green-700 hover:from-village-green-700 hover:to-village-green-800 text-white px-8 py-4 rounded-2xl font-semibold village-transition village-shadow-lg hover:scale-105 village-hover-lift flex items-center justify-center space-x-3">
+                                <i class="fas fa-building"></i>
+                                <span>Lihat Profil</span>
+                            </a>
+                            <a href="#contact" class="bg-white hover:bg-gray-50 text-village-green-700 px-8 py-4 rounded-2xl font-semibold village-transition village-shadow-lg hover:scale-105 village-hover-lift border-2 border-village-green-200 flex items-center justify-center space-x-3">
+                                <i class="fas fa-phone"></i>
+                                <span>Hubungi Kami</span>
+                            </a>
+                        </div>
+
+                        <!-- Stats -->
+                        <div class="grid grid-cols-3 gap-6 mt-12 animate-slide-up delay-400">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-village-green-700">3+</div>
+                                <div class="text-sm text-gray-600">Tahun Melayani</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-village-green-700">5</div>
+                                <div class="text-sm text-gray-600">Unit Usaha</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-village-green-700">1000+</div>
+                                <div class="text-sm text-gray-600">Masyarakat Terlayani</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative animate-fade-in delay-600">
+                        <div class="relative">
+                            <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition">
+                                <div class="text-center mb-6">
+                                    <div class="w-24 h-24 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-2xl mx-auto mb-4 flex items-center justify-center village-shadow-md">
+                                        <i class="fas fa-handshake text-4xl text-village-green-700"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Misi Kami</h3>
+                                    <p class="text-gray-600">Melayani dengan sepenuh hati</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-village-green-600 text-sm"></i>
+                                        </div>
+                                        <span class="text-gray-700">Pelayanan cepat & efisien</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-village-green-600 text-sm"></i>
+                                        </div>
+                                        <span class="text-gray-700">Transparansi dalam pengelolaan</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                            <i class="fas fa-check text-village-green-600 text-sm"></i>
+                                        </div>
+                                        <span class="text-gray-700">Kemajuan bersama masyarakat</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative elements -->
+                            <div class="absolute -top-4 -right-4 w-8 h-8 bg-village-cream-500 rounded-full village-shadow-lg"></div>
+                            <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-village-green-500 rounded-full village-shadow-lg"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Nama dan Lokasi -->
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 font-poppins">BUMDes "Juron Sejahtera"</h1>
-            <p class="text-xl md:text-2xl mb-2">Desa Juron, Kec. Jogonalan, Kab. Klaten</p>
-            <p class="text-lg text-green-100 mb-8">"Maju Bersama Pemberdayaan Ekonomi Desa"</p>
-            
-            <!-- Tombol WhatsApp -->
-            <a href="https://wa.me/6281234567890?text=Halo%20BUMDes%20Juron,%20saya%20ingin%20bertanya%20tentang%20layanan%20Anda" 
-               target="_blank" 
-               class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
-                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0024.003 11.892"/>
-                </svg>
-                Hubungi via WhatsApp
-            </a>
         </div>
     </section>
 
-    <!-- 2) SK Kemenham (Legalitas) -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-                    <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                    </svg>
+    <!-- Modern SK Kemenham Section -->
+    <section id="profile" class="py-20 bg-gradient-to-br from-village-green-50 to-village-cream-50 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2316a34a" fill-opacity="0.1"%3E%3Cpath d="M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-2xl mb-6 village-shadow-lg village-hover-lift village-transition">
+                        <i class="fas fa-certificate text-3xl text-village-green-700"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-poppins village-text-shadow">
+                        <span class="bg-gradient-to-r from-village-green-700 to-village-green-800 bg-clip-text text-transparent">
+                            Terdaftar Resmi
+                        </span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        BUMDes Juron telah terdaftar secara resmi berdasarkan Surat Keputusan Kementerian Hukum dan HAM
+                    </p>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-4">Terdaftar Resmi Berdasarkan SK Kemenham</h2>
-                <button onclick="openSKModal()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    Lihat SK
-                </button>
+
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-xl flex items-center justify-center village-shadow-lg">
+                                    <i class="fas fa-shield-alt text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Legalitas Resmi</h3>
+                                    <p class="text-gray-600">Telah memiliki izin operasional dari Kemenkumham dengan nomor registrasi yang sah.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-xl flex items-center justify-center village-shadow-lg">
+                                    <i class="fas fa-calendar-check text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Berdiri Sejak 2020</h3>
+                                    <p class="text-gray-600">Melayani masyarakat Desa Juron secara legal dan transparan selama lebih dari 3 tahun.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-xl flex items-center justify-center village-shadow-lg">
+                                    <i class="fas fa-eye text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Pengawasan Ketat</h3>
+                                    <p class="text-gray-600">Senantiasa mematuhi peraturan dan tunduk pada pengawasan pemerintah desa.</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-4">
+                                <button onclick="openSKModal()" class="bg-gradient-to-r from-village-green-600 to-village-green-700 hover:from-village-green-700 hover:to-village-green-800 text-white px-8 py-4 rounded-2xl font-semibold village-transition village-shadow-lg hover:scale-105 village-hover-lift flex items-center space-x-3">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Lihat Dokumen Legalitas</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-1 md:order-2">
+                        <div class="relative">
+                            <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-border-gradient border-2">
+                                <div class="text-center">
+                                    <div class="w-24 h-24 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-2xl mx-auto mb-6 flex items-center justify-center village-shadow-md">
+                                        <i class="fas fa-file-certificate text-4xl text-village-green-700"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-800 mb-4 font-poppins">Surat Keputusan</h3>
+                                    <div class="space-y-3 text-left">
+                                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                            <span class="text-gray-600">Nomor SK</span>
+                                            <span class="font-semibold text-village-green-700">123/BA.01/2020</span>
+                                        </div>
+                                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                            <span class="text-gray-600">Tanggal</span>
+                                            <span class="font-semibold text-village-green-700">15 Januari 2020</span>
+                                        </div>
+                                        <div class="flex justify-between items-center py-2">
+                                            <span class="text-gray-600">Status</span>
+                                            <span class="font-semibold text-green-600"><i class="fas fa-check-circle mr-1"></i>Aktif</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute -top-4 -right-4 w-8 h-8 bg-village-green-600 rounded-full flex items-center justify-center village-shadow-lg">
+                                <i class="fas fa-check text-white text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -52,16 +298,14 @@
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="text-xl font-bold">SK Kemenham BUMDes Juron</h3>
                     <button onclick="closeSKModal()" class="text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
+                        <i class="fas fa-times text-xl"></i>
                     </button>
                 </div>
                 <div class="text-center">
                     <img src="{{ asset('images/sk-kemenham.jpg') }}" alt="SK Kemenham" class="w-full max-w-2xl mx-auto rounded-lg">
                     <div class="mt-4">
                         <a href="{{ asset('images/sk-kemenham.pdf') }}" download class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg inline-block">
-                            Download PDF
+                            <i class="fas fa-download mr-2"></i>Download PDF
                         </a>
                     </div>
                 </div>
@@ -69,258 +313,299 @@
         </div>
     </div>
 
-    <!-- 3) Sekilas Struktur Organisasi (Mini Overview) -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Struktur Organisasi</h2>
-                <p class="text-gray-600">Tiga jabatan kunci dalam pengelolaan BUMDes</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <!-- Direktur -->
-                <div class="text-center">
-                    <img src="{{ asset('images/direktur.jpg') }}" alt="Direktur" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-200">
-                    <h3 class="font-bold text-lg text-gray-800">Nama Direktur</h3>
-                    <p class="text-green-600">Direktur BUMDes</p>
+    <!-- Modern Struktur Organisasi Section -->
+    <section class="py-20 bg-gradient-to-br from-village-cream-50 to-village-green-50 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2316a34a" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-3xl mb-6 village-shadow-lg village-hover-lift village-transition">
+                        <i class="fas fa-users-cog text-4xl text-village-green-700"></i>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-poppins village-text-shadow">
+                        <span class="bg-gradient-to-r from-village-green-700 to-village-green-800 bg-clip-text text-transparent">
+                            Struktur Organisasi
+                        </span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Tiga jabatan kunci dalam pengelolaan BUMDes yang profesional dan transparan
+                    </p>
                 </div>
-                
-                <!-- Sekretaris -->
-                <div class="text-center">
-                    <img src="{{ asset('images/sekretaris.jpg') }}" alt="Sekretaris" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-200">
-                    <h3 class="font-bold text-lg text-gray-800">Nama Sekretaris</h3>
-                    <p class="text-green-600">Sekretaris</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+                    <!-- Direktur -->
+                    <div class="group relative">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-hover-lift village-transition text-center village-border-gradient border-2">
+                            <div class="relative mb-6">
+                                <div class="w-32 h-32 mx-auto relative village-profile-ring">
+                                    <img src="{{ asset('images/direktur.jpg') }}" alt="Direktur" class="w-full h-full rounded-full object-cover village-profile-img">
+                                    <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-full flex items-center justify-center village-shadow-md">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-poppins">Nama Direktur</h3>
+                            <p class="text-village-green-700 font-semibold mb-4">Direktur BUMDes</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <p><i class="fas fa-user-tie mr-2 text-village-green-600"></i>Pemimpin Utama</p>
+                                <p><i class="fas fa-calendar mr-2 text-village-green-600"></i>Menjabat Sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sekretaris -->
+                    <div class="group relative">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-hover-lift village-transition text-center village-border-gradient border-2">
+                            <div class="relative mb-6">
+                                <div class="w-32 h-32 mx-auto relative village-profile-ring">
+                                    <img src="{{ asset('images/sekretaris.jpg') }}" alt="Sekretaris" class="w-full h-full rounded-full object-cover village-profile-img">
+                                    <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-full flex items-center justify-center village-shadow-md">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-poppins">Nama Sekretaris</h3>
+                            <p class="text-village-green-700 font-semibold mb-4">Sekretaris</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <p><i class="fas fa-file-alt mr-2 text-village-green-600"></i>Pengelola Administrasi</p>
+                                <p><i class="fas fa-calendar mr-2 text-village-green-600"></i>Menjabat Sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bendahara -->
+                    <div class="group relative">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-hover-lift village-transition text-center village-border-gradient border-2">
+                            <div class="relative mb-6">
+                                <div class="w-32 h-32 mx-auto relative village-profile-ring">
+                                    <img src="{{ asset('images/bendahara.jpg') }}" alt="Bendahara" class="w-full h-full rounded-full object-cover village-profile-img">
+                                    <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-village-green-600 to-village-green-700 rounded-full flex items-center justify-center village-shadow-md">
+                                        <i class="fas fa-check text-white text-sm"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2 font-poppins">Nama Bendahara</h3>
+                            <p class="text-village-green-700 font-semibold mb-4">Bendahara</p>
+                            <div class="space-y-2 text-sm text-gray-600">
+                                <p><i class="fas fa-calculator mr-2 text-village-green-600"></i>Pengelola Keuangan</p>
+                                <p><i class="fas fa-calendar mr-2 text-village-green-600"></i>Menjabat Sejak 2020</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- Bendahara -->
+
+                <!-- Call to Action -->
                 <div class="text-center">
-                    <img src="{{ asset('images/bendahara.jpg') }}" alt="Bendahara" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-200">
-                    <h3 class="font-bold text-lg text-gray-800">Nama Bendahara</h3>
-                    <p class="text-green-600">Bendahara</p>
+                    <a href="{{ route('organization') }}" class="bg-gradient-to-r from-village-green-600 to-village-green-700 hover:from-village-green-700 hover:to-village-green-800 text-white px-8 py-4 rounded-2xl font-semibold village-transition village-shadow-lg hover:scale-105 village-hover-lift inline-flex items-center space-x-3">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Lihat Struktur Lengkap</span>
+                    </a>
                 </div>
-            </div>
-            
-            <div class="text-center mt-8">
-                <a href="{{ route('organization') }}" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    Lihat Struktur Lengkap
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- 4) Direktur BUMDes (Section Orang) -->
-    <section class="py-16 bg-green-50">
-        <div class="container mx-auto px-4">
+    <!-- Modern Direktur Section -->
+    <section class="py-20 bg-gradient-to-br from-village-green-50 to-village-cream-50 relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3">
-                        <img src="{{ asset('images/direktur-large.jpg') }}" alt="Direktur BUMDes" class="w-full rounded-lg shadow-lg object-cover">
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-2xl mb-6 village-shadow-lg village-hover-lift village-transition">
+                        <i class="fas fa-user-tie text-3xl text-village-green-700"></i>
                     </div>
-                    <div class="md:w-2/3 text-center md:text-left">
-                        <h2 class="text-3xl font-bold text-gray-800 mb-2">Direktur BUMDes</h2>
-                        <h3 class="text-2xl text-green-600 mb-6">Nama Lengkap Direktur</h3>
-                        <p class="text-gray-600 mb-8">Pemimpin BUMDes yang berkomitmen untuk mengembangkan ekonomi desa dan meningkatkan kesejahteraan masyarakat Desa Juron.</p>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Pak%20Direktur,%20saya%20ingin%20bertanya%20tentang%20BUMDes" 
-                           target="_blank" 
-                           class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-medium transition-colors">
-                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0024.003 11.892"/>
-                            </svg>
-                            Chat WhatsApp
-                        </a>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-poppins village-text-shadow">
+                        <span class="bg-gradient-to-r from-village-green-700 to-village-green-800 bg-clip-text text-transparent">
+                            Pimpinan BUMDes
+                        </span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Profil direktur yang memimpin BUMDes Juron dengan integritas dan dedikasi
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="relative">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-8 village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition">
+                            <div class="text-center mb-6">
+                                <div class="w-40 h-40 mx-auto relative village-profile-ring mb-4">
+                                    <img src="{{ asset('images/direktur-large.jpg') }}" alt="Direktur" class="w-full h-full rounded-full object-cover village-profile-img">
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Nama Lengkap Direktur</h3>
+                                <p class="text-village-green-700 font-semibold text-lg">Direktur Utama BUMDes Juron</p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-village-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Latar Belakang Pendidikan</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-village-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Pengalaman Kerja</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-village-green-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-award text-village-green-600 text-sm"></i>
+                                    </div>
+                                    <span class="text-gray-700">Prestasi & Pengalaman</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-quote-left text-village-green-600 mr-3"></i>
+                                Visi Pimpinan
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                "Mewujudkan BUMDes yang profesional, transparan, dan berdaya saing tinggi
+                                untuk kemajuan ekonomi masyarakat Desa Juron."
+                            </p>
+                        </div>
+
+                        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-6 village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-target text-village-green-600 mr-3"></i>
+                                Target Strategis
+                            </h4>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-arrow-right text-village-green-500 mt-1 text-sm"></i>
+                                    <span>Meningkatkan pelayanan kepada masyarakat</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-arrow-right text-village-green-500 mt-1 text-sm"></i>
+                                    <span>Mengembangkan unit-unit usaha yang berkelanjutan</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <i class="fas fa-arrow-right text-village-green-500 mt-1 text-sm"></i>
+                                    <span>Menciptakan lapangan kerja baru</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="text-center">
+                            <a href="{{ route('units') }}" class="bg-gradient-to-r from-village-green-600 to-village-green-700 hover:from-village-green-700 hover:to-village-green-800 text-white px-8 py-4 rounded-2xl font-semibold village-transition village-shadow-lg hover:scale-105 village-hover-lift inline-flex items-center space-x-3">
+                                <i class="fas fa-building"></i>
+                                <span>Lihat Unit Usaha</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5) Unit Usaha (Card Grid) -->
-    <section class="py-16">
+    <!-- Footer -->
+    <footer id="contact" class="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-16">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Unit Usaha Kami</h2>
-                <p class="text-gray-600">Empat unit usaha utama BUMDes Juron</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <!-- Internet Desa -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-blue-100 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"></path>
-                        </svg>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl font-bold mb-4 text-village-cream-300">BUMDes Juron</h3>
+                        <p class="text-gray-300 mb-4">
+                            Badan Usaha Milik Desa yang melayani masyarakat dengan penuh dedikasi dan transparansi.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-village-cream-400 hover:text-village-cream-300 village-transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-village-cream-400 hover:text-village-cream-300 village-transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-village-cream-400 hover:text-village-cream-300 village-transition">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Internet Desa</h3>
-                        <p class="text-gray-600 mb-4">Penanggung Jawab: Nama PJ</p>
-                        <div class="space-y-2">
-                            <a href="https://wa.me/6281234567891" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg font-medium">
-                                Chat WhatsApp
-                            </a>
-                            <a href="{{ route('units') }}" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-center py-2 rounded-lg font-medium">
-                                Detail Unit
-                            </a>
+
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-4 text-village-cream-300">Kontak</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><i class="fas fa-map-marker-alt mr-2 text-village-cream-400"></i>Desa Juron, Kecamatan...</p>
+                            <p><i class="fas fa-phone mr-2 text-village-cream-400"></i>+62 8xx xxxx xxxx</p>
+                            <p><i class="fas fa-envelope mr-2 text-village-cream-400"></i>bumdes.juron@email.com</p>
+                        </div>
+                    </div>
+
+                    <div class="text-center md:text-right">
+                        <h3 class="text-xl font-bold mb-4 text-village-cream-300">Jam Operasional</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p>Senin - Jumat: 08:00 - 16:00</p>
+                            <p>Sabtu: 08:00 - 12:00</p>
+                            <p>Minggu: Tutup</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Persewaan Kajang & Sound System -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-purple-100 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Persewaan Kajang & Sound System</h3>
-                        <p class="text-gray-600 mb-4">Penanggung Jawab: Nama PJ</p>
-                        <div class="space-y-2">
-                            <a href="https://wa.me/6281234567892" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg font-medium">
-                                Chat WhatsApp
-                            </a>
-                            <a href="{{ route('units') }}" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-center py-2 rounded-lg font-medium">
-                                Detail Unit
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Wisata & Pemancingan -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-teal-100 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Wisata & Pemancingan</h3>
-                        <p class="text-gray-600 mb-4">Penanggung Jawab: Nama PJ</p>
-                        <div class="space-y-2">
-                            <a href="https://wa.me/6281234567893" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg font-medium">
-                                Chat WhatsApp
-                            </a>
-                            <a href="{{ route('units') }}" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-center py-2 rounded-lg font-medium">
-                                Detail Unit
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Ketahanan Pangan -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-green-100 flex items-center justify-center">
-                        <svg class="w-20 h-20 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4"></path>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Ketahanan Pangan</h3>
-                        <p class="text-gray-600 mb-1">Padi / Lombok / Ayam Joper</p>
-                        <p class="text-gray-600 mb-4">Penanggung Jawab: Nama PJ</p>
-                        <div class="space-y-2">
-                            <a href="https://wa.me/6281234567894" target="_blank" class="block w-full bg-green-500 hover:bg-green-600 text-white text-center py-2 rounded-lg font-medium">
-                                Chat WhatsApp
-                            </a>
-                            <a href="{{ route('units') }}" class="block w-full bg-gray-100 hover:bg-gray-200 text-gray-800 text-center py-2 rounded-lg font-medium">
-                                Detail Unit
-                            </a>
-                        </div>
-                    </div>
+
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 BUMDes Juron. Hak Cipta Dilindungi.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- 6) Dokumentasi / Galeri Usaha -->
-    <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Dokumentasi & Galeri Usaha</h2>
-                <p class="text-gray-600">Momen terbaik dari kegiatan usaha kami</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri1.jpg') }}" alt="Kegiatan 1" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Kegiatan Internet Desa</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri2.jpg') }}" alt="Kegiatan 2" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Persewaan Sound System</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri3.jpg') }}" alt="Kegiatan 3" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Wisata Pemancingan</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri4.jpg') }}" alt="Kegiatan 4" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Budidaya Padi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri5.jpg') }}" alt="Kegiatan 5" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Kegiatan Lombok</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all">
-                    <img src="{{ asset('images/galeri6.jpg') }}" alt="Kegiatan 6" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
-                        <div class="p-4 text-white">
-                            <p class="font-semibold">Ayam Joper</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-8">
-                <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-                    Lihat Semua Galeri
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- JavaScript untuk Modal -->
     <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Modal functions
         function openSKModal() {
             document.getElementById('skModal').classList.remove('hidden');
             document.getElementById('skModal').classList.add('flex');
         }
-        
+
         function closeSKModal() {
             document.getElementById('skModal').classList.add('hidden');
             document.getElementById('skModal').classList.remove('flex');
         }
-        
+
         // Close modal when clicking outside
         document.getElementById('skModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeSKModal();
             }
         });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
     </script>
-@endsection
+</body>
+</html>

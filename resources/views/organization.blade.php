@@ -1,278 +1,187 @@
 @extends('layouts.app')
 
-@section('title', 'Struktur Organisasi')
+@section('title', 'Struktur Organisasi - BUMDes Juron')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="bg-village-green-700 text-white py-12">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4 font-poppins">Struktur Organisasi</h1>
-            <p class="text-xl text-village-green-100">Pengelola BUMDes Juron yang Profesional dan Berdedikasi</p>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-green-50 to-emerald-100 py-20">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-green-800 mb-4">Struktur Organisasi</h1>
+            <p class="text-lg text-green-600 max-w-2xl mx-auto">Susunan organisasi BUMDes Juron yang menggambarkan hierarki dan tanggung jawab setiap posisi</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Organization Structure Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-village-green-800 mb-2 font-poppins">Pengurus BUMDes Juron</h2>
-                <div class="w-24 h-1 bg-village-brown-500 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Struktur organisasi BUMDes Juron terdiri dari individu-individu yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <!-- Komisaris -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-64 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-40 h-40 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-1">Budi Santoso</h3>
-                        <p class="text-village-brown-600 font-medium mb-4">Komisaris</p>
-                        <p class="text-gray-600 mb-4">
-                            Bertanggung jawab untuk mengawasi kinerja BUMDes dan memberikan arahan strategis.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567890')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Direktur -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-64 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-40 h-40 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-1">Siti Rahayu</h3>
-                        <p class="text-village-brown-600 font-medium mb-4">Direktur</p>
-                        <p class="text-gray-600 mb-4">
-                            Memimpin operasional BUMDes dan bertanggung jawab atas pengelolaan seluruh unit usaha.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567891')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Sekretaris -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-64 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-40 h-40 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-1">Ahmad Fauzi</h3>
-                        <p class="text-village-brown-600 font-medium mb-4">Sekretaris</p>
-                        <p class="text-gray-600 mb-4">
-                            Mengelola administrasi dan dokumentasi BUMDes serta membantu direktur dalam koordinasi.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567892')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Bendahara -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-48 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-28 h-28 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-village-green-800 mb-1">Dewi Lestari</h3>
-                        <p class="text-village-brown-600 font-medium mb-3">Bendahara</p>
-                        <p class="text-gray-600 mb-3 text-sm">
-                            Mengelola keuangan BUMDes dan membuat laporan keuangan.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567893')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Manajer Unit Pasar -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-48 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-28 h-28 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-village-green-800 mb-1">Hendra Wijaya</h3>
-                        <p class="text-village-brown-600 font-medium mb-3">Manajer Unit Pasar</p>
-                        <p class="text-gray-600 mb-3 text-sm">
-                            Mengelola operasional pasar desa dan pengembangan usaha.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567894')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Manajer Unit Simpan Pinjam -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-48 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-28 h-28 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-village-green-800 mb-1">Rina Wati</h3>
-                        <p class="text-village-brown-600 font-medium mb-3">Manajer Unit Simpan Pinjam</p>
-                        <p class="text-gray-600 mb-3 text-sm">
-                            Mengelola layanan keuangan mikro untuk masyarakat desa.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567895')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Manajer Unit Wisata -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center transform transition-transform hover:scale-105">
-                    <div class="h-48 bg-village-green-100 flex items-center justify-center">
-                        <div class="w-28 h-28 rounded-full bg-village-green-200 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-village-green-800 mb-1">Agus Purnomo</h3>
-                        <p class="text-village-brown-600 font-medium mb-3">Manajer Unit Wisata</p>
-                        <p class="text-gray-600 mb-3 text-sm">
-                            Mengembangkan dan mengelola potensi wisata desa.
-                        </p>
-                        <button onclick="openWhatsApp('6281234567896')" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center text-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                            Hubungi
-                        </button>
-                    </div>
-                </div>
-            </div>
+<!-- Organization Chart Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Susunan Pengurus</h2>
+            <div class="w-24 h-1 bg-green-500 mx-auto rounded-full"></div>
         </div>
-    </section>
 
-    <!-- Organization Chart Section -->
-    <section class="py-16 bg-village-cream-100">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-village-green-800 mb-2 font-poppins">Bagan Organisasi</h2>
-                <div class="w-24 h-1 bg-village-brown-500 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Struktur organisasi BUMDes Juron dirancang untuk memastikan pengelolaan yang efektif dan profesional.
-                </p>
+        <div class="max-w-6xl mx-auto">
+            <!-- Top Level - Direktur -->
+            <div class="flex justify-center mb-8">
+                @php
+                    $director = $positions->where('title', 'Direktur')->first();
+                @endphp
+                @if($director)
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-green-100">
+                        <div class="text-center">
+                            <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-green-200 bg-gradient-to-br from-green-100 to-emerald-100 flex items-center justify-center">
+                                @if($director->photo_path)
+                                    <img src="{{ asset('storage/' . $director->photo_path) }}" alt="{{ $director->name }}" class="w-full h-full object-cover">
+                                @else
+                                    <div class="text-green-500 text-4xl">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <h3 class="text-xl font-bold text-green-800 mb-1">{{ $director->title }}</h3>
+                            <p class="text-lg text-gray-700 font-medium mb-2">{{ $director->name }}</p>
+                            @if($director->phone)
+                                <p class="text-sm text-gray-600">
+                                    <i class="fas fa-phone-alt text-green-500 mr-2"></i>
+                                    {{ $director->phone }}
+                                </p>
+                            @endif
+                        </div>
+                    </div>
+                @endif
             </div>
-            
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="flex flex-col items-center">
-                    <!-- Komisaris -->
-                    <div class="bg-village-green-600 text-white px-6 py-3 rounded-lg mb-4 w-64 text-center">
-                        <h3 class="font-semibold">Komisaris</h3>
-                        <p class="text-sm text-village-green-100">Budi Santoso</p>
-                    </div>
-                    
-                    <!-- Connecting Line -->
-                    <div class="w-1 h-8 bg-village-green-600"></div>
-                    
-                    <!-- Direktur -->
-                    <div class="bg-village-green-600 text-white px-6 py-3 rounded-lg mb-4 w-64 text-center">
-                        <h3 class="font-semibold">Direktur</h3>
-                        <p class="text-sm text-village-green-100">Siti Rahayu</p>
-                    </div>
-                    
-                    <!-- Connecting Lines -->
-                    <div class="w-1 h-8 bg-village-green-600"></div>
-                    <div class="w-3/4 h-1 bg-village-green-600"></div>
-                    <div class="flex justify-between w-3/4 mb-4">
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                    </div>
-                    
-                    <!-- Second Level -->
-                    <div class="flex flex-col md:flex-row justify-between w-full mb-8 space-y-4 md:space-y-0 md:space-x-4">
-                        <div class="bg-village-brown-500 text-white px-4 py-2 rounded-lg w-full md:w-1/3 text-center">
-                            <h3 class="font-semibold">Sekretaris</h3>
-                            <p class="text-sm text-village-brown-100">Ahmad Fauzi</p>
-                        </div>
-                        
-                        <div class="bg-village-brown-500 text-white px-4 py-2 rounded-lg w-full md:w-1/3 text-center">
-                            <h3 class="font-semibold">Bendahara</h3>
-                            <p class="text-sm text-village-brown-100">Dewi Lestari</p>
+
+            <!-- Connecting Line -->
+            <div class="flex justify-center mb-8">
+                <div class="w-px h-12 bg-green-300"></div>
+            </div>
+
+            <!-- Second Level -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                @php
+                    $secondLevel = $positions->where('title', '!=', 'Direktur')->where('order_num', '<=', 3);
+                @endphp
+                @foreach($secondLevel as $position)
+                    <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                        <div class="text-center">
+                            <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-3 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center">
+                                @if($position->photo_path)
+                                    <img src="{{ asset('storage/' . $position->photo_path) }}" alt="{{ $position->name }}" class="w-full h-full object-cover">
+                                @else
+                                    <div class="text-green-500 text-3xl">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <h4 class="text-lg font-bold text-green-700 mb-1">{{ $position->title }}</h4>
+                            <p class="text-gray-700 font-medium mb-2">{{ $position->name }}</p>
+                            @if($position->phone)
+                                <p class="text-sm text-gray-600">
+                                    <i class="fas fa-phone-alt text-green-500 mr-1"></i>
+                                    {{ $position->phone }}
+                                </p>
+                            @endif
                         </div>
                     </div>
-                    
-                    <!-- Connecting Lines -->
-                    <div class="w-3/4 h-1 bg-village-green-600 mb-4"></div>
-                    <div class="flex justify-between w-3/4 mb-4">
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                        <div class="w-1 h-8 bg-village-green-600"></div>
-                    </div>
-                    
-                    <!-- Third Level -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-                        <div class="bg-village-green-500 text-white px-4 py-2 rounded-lg text-center">
-                            <h3 class="font-semibold">Unit Pasar Desa</h3>
-                            <p class="text-sm text-village-green-100">Hendra Wijaya</p>
+                @endforeach
+            </div>
+
+            <!-- Third Level and Below -->
+            @php
+                $thirdLevel = $positions->where('title', '!=', 'Direktur')->where('order_num', '>', 3);
+            @endphp
+            @if($thirdLevel->count() > 0)
+                <!-- Connecting Line -->
+                <div class="flex justify-center mb-8">
+                    <div class="w-px h-12 bg-green-300"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    @foreach($thirdLevel as $position)
+                        <div class="bg-gray-50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                            <div class="text-center">
+                                <div class="w-16 h-16 mx-auto mb-3 rounded-full overflow-hidden border-2 border-green-200 bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center">
+                                    @if($position->photo_path)
+                                        <img src="{{ asset('storage/' . $position->photo_path) }}" alt="{{ $position->name }}" class="w-full h-full object-cover">
+                                    @else
+                                        <div class="text-green-500 text-xl">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                    @endif
+                                </div>
+                                <h5 class="text-sm font-bold text-green-700 mb-1">{{ $position->title }}</h5>
+                                <p class="text-xs text-gray-700 font-medium">{{ $position->name }}</p>
+                                @if($position->phone)
+                                    <p class="text-xs text-gray-600 mt-1">
+                                        <i class="fas fa-phone-alt text-green-500 mr-1"></i>
+                                        {{ $position->phone }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
-                        
-                        <div class="bg-village-green-500 text-white px-4 py-2 rounded-lg text-center">
-                            <h3 class="font-semibold">Unit Simpan Pinjam</h3>
-                            <p class="text-sm text-village-green-100">Rina Wati</p>
-                        </div>
-                        
-                        <div class="bg-village-green-500 text-white px-4 py-2 rounded-lg text-center">
-                            <h3 class="font-semibold">Unit Wisata Desa</h3>
-                            <p class="text-sm text-village-green-100">Agus Purnomo</p>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+
+        <!-- Legend -->
+        <div class="mt-12 text-center">
+            <div class="inline-flex items-center space-x-6 bg-green-50 rounded-lg px-6 py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+                    <span class="text-sm text-gray-700">Pimpinan</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-4 h-4 bg-green-300 rounded-full"></div>
+                    <span class="text-sm text-gray-700">Pengurus</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-4 h-4 bg-gray-300 rounded-full"></div>
+                    <span class="text-sm text-gray-700">Staf</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-16 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+        <p class="text-xl mb-8">Untuk informasi lebih lanjut tentang struktur organisasi kami</p>
+        <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-map-marker-alt text-2xl"></i>
+                <span>{{ $bumdes->address ?? 'Desa Juron' }}</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-phone text-2xl"></i>
+                <span>{{ $bumdes->phone ?? '-' }}</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-2xl"></i>
+                <span>{{ $bumdes->email ?? '-' }}</span>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
+
+@push('styles')
+<style>
+    .organization-card {
+        transition: all 0.3s ease;
+    }
+    .organization-card:hover {
+        transform: translateY(-5px);
+    }
+    .organization-card img {
+        transition: transform 0.3s ease;
+    }
+    .organization-card:hover img {
+        transform: scale(1.05);
+    }
+</style>
+@endpush

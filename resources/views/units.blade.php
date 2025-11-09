@@ -1,191 +1,194 @@
 @extends('layouts.app')
 
-@section('title', 'Unit Usaha')
+@section('title', 'Unit Usaha - BUMDes Juron')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="bg-village-green-700 text-white py-12">
-        <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold mb-4 font-poppins">Unit Usaha</h1>
-            <p class="text-xl text-village-green-100">Berbagai Bidang Usaha yang Dikelola oleh BUMDes Juron</p>
+<!-- Hero Section -->
+<section class="relative bg-gradient-to-br from-blue-50 to-cyan-100 py-20">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23007ACC\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-4">Unit Usaha Kami</h1>
+            <p class="text-lg text-blue-600 max-w-2xl mx-auto">Berbagai unit usaha yang dikelola oleh BUMDes Juron untuk kesejahteraan masyarakat desa</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Units Section -->
-    <section class="py-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-village-green-800 mb-2 font-poppins">Unit Usaha BUMDes Juron</h2>
-                <div class="w-24 h-1 bg-village-brown-500 mx-auto mb-4"></div>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    BUMDes Juron mengelola berbagai unit usaha untuk mengoptimalkan potensi desa dan meningkatkan kesejahteraan masyarakat.
-                </p>
-            </div>
-            
+<!-- Units Grid Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Daftar Unit Usaha</h2>
+            <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full mb-4"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">Setiap unit usaha dikelola secara profesional untuk memberikan pelayanan terbaik kepada masyarakat</p>
+        </div>
+
+        @if($units->count() > 0)
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Unit 1: Pasar Desa -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Pengelolaan Pasar Desa</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit usaha ini mengelola pasar desa yang menjadi pusat perdagangan produk-produk lokal. Pasar desa menyediakan tempat bagi para petani dan pengrajin lokal untuk menjual hasil produksi mereka secara langsung kepada konsumen.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Hendra Wijaya</span>
-                            <a href="{{ route('unit.detail', 1) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
+                @foreach($units as $unit)
+                    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                        <!-- Card Header -->
+                        <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-6 text-white">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="text-3xl">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-sm opacity-80">Unit Usaha</div>
+                                    <div class="text-xs opacity-70">#{{ $loop->iteration }}</div>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">{{ $unit->name }}</h3>
+                            <p class="text-blue-100 text-sm">{{ Str::limit($unit->description, 80) }}</p>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Unit 2: Simpan Pinjam -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Simpan Pinjam</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit simpan pinjam menyediakan layanan keuangan mikro bagi masyarakat desa. Unit ini membantu masyarakat untuk mengembangkan usaha dan memenuhi kebutuhan finansial dengan bunga yang terjangkau dan prosedur yang mudah.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Rina Wati</span>
-                            <a href="{{ route('unit.detail', 2) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Unit 3: Wisata Desa -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Wisata Desa</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit wisata desa mengembangkan dan mengelola potensi wisata yang ada di Desa Juron. Dengan keindahan alam dan kekayaan budaya yang dimiliki, unit ini berupaya menarik pengunjung dan meningkatkan pendapatan masyarakat lokal.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Agus Purnomo</span>
-                            <a href="{{ route('unit.detail', 3) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Unit 4: Pertanian -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Pertanian Terpadu</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit pertanian terpadu mengelola lahan pertanian milik desa dengan menerapkan sistem pertanian modern dan berkelanjutan. Unit ini juga memberikan pendampingan kepada petani lokal untuk meningkatkan hasil produksi.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Joko Susilo</span>
-                            <a href="{{ route('unit.detail', 4) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Unit 5: Kerajinan -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Kerajinan Desa</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit kerajinan desa memproduksi dan memasarkan berbagai kerajinan tangan yang dibuat oleh masyarakat Desa Juron. Produk kerajinan ini menjadi ciri khas desa dan memiliki nilai jual yang tinggi.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Sri Wahyuni</span>
-                            <a href="{{ route('unit.detail', 5) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Unit 6: Air Bersih -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="h-64 bg-village-green-200 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-village-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-village-green-800 mb-2">Pengelolaan Air Bersih</h3>
-                        <p class="text-gray-600 mb-4">
-                            Unit pengelolaan air bersih bertanggung jawab untuk menyediakan akses air bersih bagi seluruh masyarakat Desa Juron. Unit ini mengelola sumber air dan jaringan distribusi untuk memastikan ketersediaan air bersih.
-                        </p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-village-brown-600 font-medium">Manajer: Bambang Sutrisno</span>
-                            <a href="{{ route('unit.detail', 6) }}" class="text-village-green-600 hover:text-village-green-800 font-medium inline-flex items-center">
-                                Detail
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Call to Action Section -->
-    <section class="py-16 bg-village-green-700 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center justify-between">
-                <div class="md:w-2/3 mb-8 md:mb-0">
-                    <h2 class="text-3xl font-bold mb-4 font-poppins">Tertarik Bekerja Sama dengan BUMDes Juron?</h2>
-                    <p class="text-xl text-village-green-100">
-                        Kami terbuka untuk berbagai bentuk kerja sama yang saling menguntungkan. Hubungi kami untuk informasi lebih lanjut.
-                    </p>
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <!-- Manager Info -->
+                            <div class="mb-4">
+                                <h4 class="text-sm font-semibold text-gray-700 mb-2">Pengelola</h4>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user-tie text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-800">{{ $unit->manager_name }}</p>
+                                        <p class="text-sm text-gray-600">
+                                            <i class="fas fa-phone-alt text-blue-500 mr-1"></i>
+                                            {{ $unit->manager_phone }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Photos Preview -->
+                            @if($unit->photos->count() > 0)
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-semibold text-gray-700 mb-2">Galeri</h4>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        @foreach($unit->photos->take(3) as $photo)
+                                            <div class="aspect-square rounded-lg overflow-hidden">
+                                                <img src="{{ asset('storage/' . $photo->photo_path) }}" 
+                                                     alt="{{ $unit->name }}" 
+                                                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
+                                            </div>
+                                        @endforeach
+                                        @if($unit->photos->count() > 3)
+                                            <div class="aspect-square rounded-lg bg-gray-100 flex items-center justify-center">
+                                                <span class="text-xs text-gray-500">+{{ $unit->photos->count() - 3 }}</span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endif
+
+                            <!-- Action Buttons -->
+                            <div class="flex space-x-2">
+                                <a href="{{ route('unit.detail', $unit->id) }}" 
+                                   class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center py-2 px-4 rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 font-medium">
+                                    <i class="fas fa-eye mr-2"></i>
+                                    Detail
+                                </a>
+                                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $unit->manager_phone) }}" 
+                                   target="_blank"
+                                   class="bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 transition-colors duration-300">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer -->
+                        <div class="bg-gray-50 px-6 py-3 border-t border-gray-100">
+                            <div class="flex items-center justify-between text-xs text-gray-500">
+                                <span><i class="fas fa-calendar-alt mr-1"></i>{{ $unit->created_at->format('d M Y') }}</span>
+                                <span><i class="fas fa-images mr-1"></i>{{ $unit->photos->count() }} foto</span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <div class="text-center py-12">
+                <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-store-slash text-gray-400 text-3xl"></i>
                 </div>
-                <div>
-                    <a href="#" class="bg-village-brown-500 hover:bg-village-brown-600 text-white px-8 py-4 rounded-md font-medium text-lg transition-colors inline-block">
-                        Hubungi Kami
-                    </a>
+                <h3 class="text-xl font-semibold text-gray-700 mb-2">Belum ada unit usaha</h3>
+                <p class="text-gray-500">Unit usaha akan ditampilkan di sini setelah ditambahkan.</p>
+            </div>
+        @endif
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 to-cyan-700 text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ingin Bergabung atau Berkolaborasi?</h2>
+        <p class="text-xl mb-8">Kami terbuka untuk kemitraan dan kolaborasi dalam pengembangan unit usaha desa</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $bumdes->phone ?? '') }}" 
+               target="_blank"
+               class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
+                <i class="fab fa-whatsapp mr-2"></i>
+                Hubungi Kami via WhatsApp
+            </a>
+            <a href="mailto:{{ $bumdes->email ?? '' }}" 
+               class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+                <i class="fas fa-envelope mr-2"></i>
+                Kirim Email
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Info -->
+<section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
                 </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Alamat Kantor</h3>
+                <p class="text-gray-600">{{ $bumdes->address ?? 'Desa Juron' }}</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-phone text-green-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Telepon</h3>
+                <p class="text-gray-600">{{ $bumdes->phone ?? '-' }}</p>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-md">
+                <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                </div>
+                <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
+                <p class="text-gray-600">{{ $bumdes->email ?? '-' }}</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 @endsection
+
+@push('styles')
+<style>
+    .unit-card {
+        transition: all 0.3s ease;
+    }
+    .unit-card:hover {
+        transform: translateY(-8px);
+    }
+    .unit-card img {
+        transition: transform 0.3s ease;
+    }
+    .unit-card:hover img {
+        transform: scale(1.1);
+    }
+    .whatsapp-btn {
+        transition: all 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+        transform: scale(1.1);
+    }
+</style>
+@endpush

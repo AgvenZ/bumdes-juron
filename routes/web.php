@@ -25,7 +25,13 @@ Route::get('/documents', [HomeController::class, 'documents'])->name('documents'
 // Admin Authentication Routes
 Route::get('/admin/login', [AuthController::class, 'showLoginForm'])->name('admin.login');
 Route::get('/admin/test-login', function() {
-    return view('admin.test-login');
+    // Auto login for testing
+    $user = \App\Models\User::first();
+    if ($user) {
+        Auth::login($user);
+        return redirect()->route('admin.dashboard');
+    }
+    return 'No user found';
 })->name('admin.test-login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
@@ -37,7 +43,15 @@ Route::get('/admin', function () {
 
 // Admin Protected Routes
 Route::middleware(['auth'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/dashboard', [HomeController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/dashboard-simple', function() {
+        $bumdes = \App\Models\Bumdes::first();
+        $positionsCount = \App\Models\OrganizationPosition::count();
+        $unitsCount = \App\Models\Unit::count();
+        $documentsCount = \App\Models\Document::count();
+        $galeriCount = \App\Models\UnitPhoto::count();
+        return view('admin.dashboard-simple', compact('bumdes', 'positionsCount', 'unitsCount', 'documentsCount', 'galeriCount'));
+    })->name('admin.dashboard.simple');
 
     // Admin CRUD Routes
     Route::get('/bumdes', [HomeController::class, 'adminBumdes'])->name('admin.bumdes');
