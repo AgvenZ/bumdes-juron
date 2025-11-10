@@ -16,7 +16,13 @@ use App\Http\Controllers\AuthController;
 */
 
 // Public Routes
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', function() {
+    return view('home-redesign');
+})->name('home');
+Route::get('/redesign', function() {
+    return view('home-redesign');
+})->name('home.redesign');
+Route::get('/home-old', [HomeController::class, 'index'])->name('home.old');
 Route::get('/organization', [HomeController::class, 'organization'])->name('organization');
 Route::get('/units', [HomeController::class, 'units'])->name('units');
 Route::get('/units/{id}', [HomeController::class, 'unitDetail'])->name('unit.detail');
