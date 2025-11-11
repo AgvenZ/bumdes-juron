@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 
@@ -42,9 +43,9 @@ Route::get('/admin/test-login', function() {
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
-// Redirect /admin to /admin/dashboard
-Route::get('/admin', function () {
-    return redirect()->route('admin.dashboard');
+// Handle double slash /admin
+Route::get('//admin', function () {
+    return redirect('/admin');
 });
 
 // Admin Protected Routes
@@ -80,4 +81,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/documents', [HomeController::class, 'adminDocuments'])->name('admin.documents');
     Route::post('/documents', [HomeController::class, 'adminDocumentsStore'])->name('admin.documents.store');
     Route::delete('/documents/{id}', [HomeController::class, 'adminDocumentsDestroy'])->name('admin.documents.destroy');
+});
+
+// Redirect /admin ke login page - ditaruh di paling akhir untuk menghindari konflik
+Route::get('/admin', function () {
+    return redirect('/admin/login');
 });

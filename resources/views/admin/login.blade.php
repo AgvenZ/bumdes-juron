@@ -4,67 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin - BUMDes Juron</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Premium Admin Login Styles */
-        .admin-login-gradient {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            --accent-gradient: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
             overflow: hidden;
         }
 
-        .admin-login-gradient::before {
+        /* Premium Background Effects */
+        .premium-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .premium-bg::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-            animation: admin-float 6s ease-in-out infinite;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: float 8s ease-in-out infinite;
         }
 
-        .admin-login-glass {
-            background: rgba(15, 23, 42, 0.8);
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        /* Premium Login Container */
+        .premium-login-container {
+            width: 100%;
+            max-width: 440px;
+            margin: 20px;
+            position: relative;
+        }
+
+        .premium-glass {
+            background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
         }
 
-        .admin-login-glass-light {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        .premium-glass::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            opacity: 0.2;
+            z-index: -1;
         }
 
-        .admin-text-gradient {
-            background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+        /* Header Section */
+        .login-header {
+            padding: 40px 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-container {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(59, 130, 246, 0.2));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 19px;
+        }
+
+        .logo-container i {
+            font-size: 2.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: var(--accent-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .admin-floating {
-            animation: admin-float 6s ease-in-out infinite;
+        .subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1rem;
+            margin-bottom: 20px;
         }
 
-        @keyframes admin-float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
         }
 
-        .admin-input-group {
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-text {
+            color: #10b981;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Form Section */
+        .login-form {
+            padding: 0 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
             position: relative;
-            margin-bottom: 1.5rem;
         }
 
-        .admin-input {
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .input-container {
+            position: relative;
+        }
+
+        .form-input {
             width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
+            padding: 16px 16px 16px 48px;
             background: rgba(30, 41, 59, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
@@ -73,219 +211,389 @@
             transition: all 0.3s ease;
         }
 
-        .admin-input:focus {
+        .form-input:focus {
             outline: none;
             border-color: rgba(16, 185, 129, 0.5);
             background: rgba(30, 41, 59, 0.6);
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .admin-input::placeholder {
+        .form-input::placeholder {
             color: rgba(255, 255, 255, 0.4);
         }
 
-        .admin-input-icon {
+        .input-icon {
             position: absolute;
-            left: 1rem;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: rgba(255, 255, 255, 0.6);
             transition: color 0.3s ease;
         }
 
-        .admin-input:focus + .admin-input-icon {
+        .form-input:focus + .input-icon {
             color: #10b981;
         }
 
-        .admin-btn-glow {
+        .toggle-password {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-password:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #10b981;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            color: rgba(16, 185, 129, 0.8);
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password:hover {
+            color: #10b981;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent-gradient);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
 
-        .admin-btn-glow::before {
+        .submit-btn::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-            opacity: 0;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
         }
 
-        .admin-btn-glow:hover::before {
-            opacity: 1;
-            animation: admin-glow 0.5s ease;
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
-        @keyframes admin-glow {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .admin-error-shake {
-            animation: admin-shake 0.5s ease-in-out;
+        .submit-btn:active {
+            transform: translateY(0);
         }
 
-        @keyframes admin-shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+        .submit-btn i {
+            margin-right: 8px;
         }
 
-        .admin-pulse-dot {
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: admin-pulse 2s infinite;
+        /* Footer Section */
+        .login-footer {
+            padding: 24px 40px;
+            background: rgba(30, 41, 59, 0.6);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        @keyframes admin-pulse {
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .brand i {
+            color: #10b981;
+        }
+
+        .brand-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+        }
+
+        .security-info {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.75rem;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(239, 68, 68, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes pulse {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.2); opacity: 0.7; }
             100% { transform: scale(1); opacity: 1; }
         }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(16, 185, 129, 0.3);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .loading-text {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: 16px;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .loading-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .loading-dot:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .premium-login-container {
+                margin: 10px;
+            }
+
+            .login-header, .login-form, .login-footer {
+                padding: 30px 24px;
+            }
+
+            .title {
+                font-size: 1.75rem;
+            }
+        }
     </style>
 </head>
-<body class="font-poppins bg-gradient-to-br from-village-green-50 to-village-cream-50 min-h-screen flex items-center justify-center p-4 overflow-hidden">
-    <!-- Premium Loading Overlay -->
-    <div id="loading-overlay" class="fixed inset-0 bg-gradient-to-br from-village-green-50 to-village-cream-50 z-50 flex items-center justify-center">
-        <div class="text-center">
-            <div class="w-20 h-20 border-4 border-village-green-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p class="text-village-green-700 text-lg font-semibold">Memuat Login...</p>
-            <div class="flex space-x-2 mt-4 justify-center">
-                <div class="w-2 h-2 bg-village-green-600 rounded-full animate-bounce"></div>
-                <div class="w-2 h-2 bg-village-cream-600 rounded-full animate-bounce delay-100"></div>
-                <div class="w-2 h-2 bg-village-green-500 rounded-full animate-bounce delay-200"></div>
+<body>
+    <!-- Premium Background -->
+    <div class="premium-bg"></div>
+    <div class="floating-particles" id="particles-container"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Memuat Login...</p>
+            <div class="loading-dots">
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
+                <div class="loading-dot"></div>
             </div>
         </div>
     </div>
 
-    <!-- Modern Animated Background Elements (Sesuai Home) -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-20 left-10 w-20 h-20 bg-village-green-200 rounded-full opacity-20 animate-bounce"></div>
-        <div class="absolute bottom-32 right-16 w-16 h-16 bg-village-cream-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
-        <div class="absolute top-1/3 right-20 w-12 h-12 bg-village-green-300 rounded-full opacity-25 animate-pulse"></div>
+    <!-- Premium Login Container -->
+    <div class="premium-login-container">
+        <div class="premium-glass">
+            <!-- Header Section -->
+            <div class="login-header">
+                <div class="logo-container">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h1 class="title">Admin Login</h1>
+                <p class="subtitle">Masuk ke sistem manajemen BUMDes</p>
 
-        <!-- Additional floating elements -->
-        <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-village-green-200/30 to-village-cream-300/30 rounded-full animate-pulse"></div>
-        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-village-cream-200/30 to-village-green-300/30 rounded-full animate-pulse delay-2000"></div>
-    </div>
+                <div class="status-indicator">
 
-    <!-- Modern Login Container -->
-    <div class="bg-white/90 backdrop-blur-sm rounded-3xl village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition w-full max-w-md relative z-10">
-        <!-- Modern Header -->
-        <div class="text-center p-8 border-b border-village-green-100">
-            <div class="w-24 h-24 bg-gradient-to-br from-village-green-100 to-village-cream-100 rounded-2xl mx-auto mb-6 flex items-center justify-center village-shadow-md">
-                <i class="fas fa-building text-4xl text-village-green-700"></i>
+                </div>
             </div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-2 village-text-shadow">Admin Login</h2>
-            <p class="text-gray-600">Masuk ke sistem manajemen BUMDes</p>
-            <div class="w-16 h-1 bg-gradient-to-r from-village-green-500 to-village-cream-500 mx-auto mt-4 rounded-full"></div>
 
-            <!-- Status Indicator -->
-            <div class="mt-4 flex items-center justify-center space-x-2">
-                <div class="admin-pulse-dot"></div>
-                <span class="text-emerald-400 text-sm font-medium">Sistem Siap</span>
-            </div>
-        </div>
+            <!-- Form Section -->
+            <div class="login-form">
+                <!-- Error Message (if any) -->
+                <div class="error-message" id="error-message" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="error-text"></span>
+                </div>
 
-        <!-- Login Form -->
-            <div class="p-8">
-                @if($errors->any())
-                    <div class="admin-error-shake mb-6 bg-red-500/20 backdrop-blur-lg border border-red-500/30 text-red-100 px-4 py-3 rounded-xl text-sm">
-                        <div class="flex items-center">
-                            <i class="fas fa-exclamation-triangle text-red-400 mr-2"></i>
-                            <span>{{ $errors->first() }}</span>
-                        </div>
-                    </div>
-                @endif
-
-                <form method="POST" action="{{ route('admin.login') }}" class="p-8 space-y-6">
+                <form method="POST" action="{{ route('admin.login') }}" id="login-form">
                     @csrf
 
-                    <!-- Modern Email Input -->
-                    <div class="space-y-2">
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <div class="relative">
-                            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <input type="email" name="email" id="email" required
-                                   value="{{ old('email') }}"
-                                   class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-village-green-500 focus:border-village-green-500 transition-all duration-200 bg-gray-50 focus:bg-white village-transition"
-                                   placeholder="Masukkan email anda">
+                    <!-- Email Input -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="input-container">
+                            <input type="email" name="email" id="email" class="form-input" placeholder="Masukkan email anda" required value="{{ old('email') }}">
+                            <i class="fas fa-envelope input-icon"></i>
                         </div>
                     </div>
 
-                    <!-- Modern Password Input -->
-                    <div class="space-y-2">
-                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                        <div class="relative">
-                            <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                            <input type="password" name="password" id="password" required
-                                   class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-village-green-500 focus:border-village-green-500 transition-all duration-200 bg-gray-50 focus:bg-white village-transition"
-                                   placeholder="Masukkan password anda">
-                            <button type="button" id="toggle-password"
-                                    class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
+                    <!-- Password Input -->
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-container">
+                            <input type="password" name="password" id="password" class="form-input" placeholder="Masukkan password anda" required>
+                            <i class="fas fa-lock input-icon"></i>
+                            <button type="button" class="toggle-password" id="toggle-password">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
 
-                <!-- Remember Me -->
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center cursor-pointer">
-                        <input type="checkbox" name="remember" class="w-4 h-4 text-village-green-600 border-gray-300 rounded focus:ring-village-green-500">
-                        <span class="ml-2 text-sm text-gray-600">Ingat saya</span>
-                    </label>
-                    <a href="#" class="text-sm text-village-green-600 hover:text-village-green-700 transition-colors">Lupa password?</a>
-                </div>
 
-                <!-- Modern Login Button -->
-                <button type="submit"
-                        class="w-full py-3 bg-gradient-to-r from-village-green-600 to-green-700 text-white font-semibold rounded-xl hover:from-village-green-700 hover:to-green-800 focus:ring-4 focus:ring-village-green-500/50 focus:outline-none transition-all duration-200 transform hover:scale-[1.02] active:scale-98 village-shadow-lg village-hover-lift">
-                    <i class="fas fa-sign-in-alt mr-2"></i>
-                    Masuk
-                </button>
-            </form>
 
-            <!-- Modern Footer -->
-            <div class="text-center mt-8 space-y-3">
-                <div class="flex items-center justify-center space-x-2">
-                    <i class="fas fa-leaf text-village-green-600"></i>
-                    <span class="text-sm font-semibold text-gray-700 village-text-shadow">BUMDes Juron</span>
-                    <span class="text-xs text-gray-500">•</span>
-                    <span class="text-xs text-gray-600">Aman & Terpercaya</span>
-                </div>
-                <p class="text-xs text-gray-500 max-w-xs mx-auto">Dikelola oleh tim profesional untuk kesejahteraan masyarakat desa</p>
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Masuk
+                    </button>
+                </form>
             </div>
-        </div>
 
-        <!-- Premium Footer -->
-        <div class="admin-login-glass-light text-center py-6 px-8 rounded-b-3xl space-y-2">
-            <div class="flex items-center justify-center space-x-2">
-                <i class="fas fa-leaf text-emerald-400"></i>
-                <span class="text-gradient-premium font-semibold">BUMDes Juron</span>
-            </div>
-            <p class="text-white/60 text-sm">
-                &copy; {{ date('Y') }} - Meningkatkan Perekonomian Desa
-            </p>
-            <div class="flex justify-center space-x-2 text-xs text-white/40">
-                <span><i class="fas fa-shield-alt"></i> Aman</span>
-                <span>•</span>
-                <span><i class="fas fa-lock"></i> Terpercaya</span>
+            <!-- Footer Section -->
+            <div class="login-footer">
+                <div class="brand">
+                    <i class="fas fa-leaf"></i>
+                    <span class="brand-text">BUMDes Juron</span>
+                </div>
+                <p class="copyright">&copy; {{ date('Y') }} - Meningkatkan Perekonomian Desa</p>
+                <div class="security-info">
+                    <div class="security-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Aman</span>
+                    </div>
+                    <div class="security-item">
+                        <i class="fas fa-lock"></i>
+                        <span>Terpercaya</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Modern JavaScript -->
     <script>
         // Hide loading overlay when page loads
         window.addEventListener('load', function() {
@@ -297,10 +605,10 @@
                         loadingOverlay.style.display = 'none';
                     }, 500);
                 }
-            }, 1000);
+            }, 1500);
         });
 
-        // Modern Password Toggle
+        // Password toggle functionality
         document.getElementById('toggle-password').addEventListener('click', function() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = this.querySelector('i');
@@ -316,19 +624,27 @@
             }
         });
 
-        // Modern Form Validation
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Form validation
+        document.getElementById('login-form').addEventListener('submit', function(e) {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const errorText = document.getElementById('error-text');
+
+            // Hide error message initially
+            errorMessage.style.display = 'none';
 
             if (!email || !password) {
                 e.preventDefault();
 
-                // Modern shake animation
-                const form = this;
-                form.style.animation = 'none';
-                form.offsetHeight; // Trigger reflow
-                form.style.animation = 'shake 0.5s ease-in-out';
+                // Show error message
+                errorText.textContent = 'Harap isi semua field yang diperlukan.';
+                errorMessage.style.display = 'flex';
+
+                // Add shake animation to form
+                this.style.animation = 'none';
+                this.offsetHeight; // Trigger reflow
+                this.style.animation = 'shake 0.5s ease-in-out';
 
                 // Focus on empty field
                 if (!email) {
@@ -339,36 +655,53 @@
             }
         });
 
-        // Modern Shake Animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                20%, 40%, 60%, 80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 20;
 
-        // Modern Input Focus Effects
-        document.querySelectorAll('input[type="email"], input[type="password"]').forEach(input => {
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random properties
+                const size = Math.random() * 6 + 2;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                const opacity = Math.random() * 0.4 + 0.1;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                particle.style.opacity = opacity;
+
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Input focus effects
+        document.querySelectorAll('.form-input').forEach(input => {
             input.addEventListener('focus', function() {
                 this.parentElement.style.transform = 'translateY(-2px)';
-                this.parentElement.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
             });
 
             input.addEventListener('blur', function() {
                 this.parentElement.style.transform = 'translateY(0)';
-                this.parentElement.style.boxShadow = 'none';
             });
         });
 
-        // Modern Form Submit Animation
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Form submit animation
+        document.getElementById('login-form').addEventListener('submit', function(e) {
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
 
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memproses...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
             submitButton.disabled = true;
 
             // Re-enable after 3 seconds (for demo purposes)
@@ -378,37 +711,9 @@
             }, 3000);
         });
 
-        // Modern Floating Animation for Background Elements
-        function createFloatingElement() {
-            const element = document.createElement('div');
-            const colors = ['from-emerald-500/10', 'from-blue-500/10', 'from-purple-500/10'];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            const randomSize = Math.random() * 40 + 20;
-            const randomLeft = Math.random() * 100;
-            const randomDelay = Math.random() * 6;
-
-            element.className = `absolute bg-gradient-to-br ${randomColor} to-transparent rounded-full admin-floating`;
-            element.style.width = randomSize + 'px';
-            element.style.height = randomSize + 'px';
-            element.style.left = randomLeft + '%';
-            element.style.top = '-50px';
-            element.style.animationDelay = randomDelay + 's';
-            element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-
-            document.body.appendChild(element);
-
-            // Remove element after animation
-            setTimeout(() => {
-                element.remove();
-            }, 8000);
-        }
-
-        // Create floating elements periodically
-        setInterval(createFloatingElement, 3000);
-
         // Console welcome message
-        console.log('%c🌾 BUMDes Juron Modern Admin Dashboard', 'color: #10b981; font-size: 16px; font-weight: bold;');
-        console.log('%cSelamat datang di sistem administrasi modern!', 'color: #64748b; font-size: 12px;');
+        console.log('%c🌾 BUMDes Juron Premium Admin Dashboard', 'color: #10b981; font-size: 16px; font-weight: bold;');
+        console.log('%cSelamat datang di sistem administrasi premium!', 'color: #64748b; font-size: 12px;');
     </script>
 </body>
 </html>
