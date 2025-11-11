@@ -460,3 +460,87 @@
         border: 1px solid #e5e7eb !important;
     }
 }
+
+/* Village Luxury Button Styles */
+.village-btn-luxury {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.village-btn-luxury::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.village-btn-luxury:hover::before {
+    left: 100%;
+}
+
+.village-btn-luxury:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.village-btn-luxury:active {
+    transform: scale(0.98);
+}
+
+.village-btn-primary-luxury {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+    border: 2px solid transparent;
+}
+
+.village-btn-primary-luxury:hover {
+    background: linear-gradient(135deg, #047857 0%, #059669 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.village-btn-secondary-luxury {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    color: white;
+    border: 2px solid transparent;
+}
+
+.village-btn-secondary-luxury:hover {
+    background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.village-btn-luxury i {
+    font-size: 1.25rem;
+    margin-right: 0.75rem;
+}
+
+/* Button container spacing */
+.village-btn-container {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+/* Responsive button sizing */
+@media (max-width: 640px) {
+    .village-btn-luxury {
+        padding: 0.875rem 1.75rem;
+        font-size: 1rem;
+    }
+    
+    .village-btn-luxury i {
+        font-size: 1.125rem;
+        margin-right: 0.5rem;
+    }
+}
