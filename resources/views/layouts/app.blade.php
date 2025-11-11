@@ -124,8 +124,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('documents') }}" class="px-4 py-2 rounded-xl font-medium village-transition hover:bg-village-green-100 hover:text-village-green-700 {{ request()->routeIs('documents') ? 'bg-village-green-100 text-village-green-700 shadow-sm' : 'text-gray-700' }}">
-                                <i class="fas fa-file-alt mr-2"></i>Dokumen
+                            <a href="{{ route('home') }}#dokumentasi" class="px-4 py-2 rounded-xl font-medium village-transition hover:bg-village-green-100 hover:text-village-green-700 {{ request()->routeIs('home') ? 'bg-village-green-100 text-village-green-700 shadow-sm' : 'text-gray-700' }}">
+                                <i class="fas fa-file-alt mr-2"></i>Dokumentasi
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}#sk-kemenkumham" class="px-4 py-2 rounded-xl font-medium village-transition hover:bg-village-green-100 hover:text-village-green-700 {{ request()->routeIs('home') ? 'bg-village-green-100 text-village-green-700 shadow-sm' : 'text-gray-700' }}">
+                                <i class="fas fa-certificate mr-2"></i>Legalitas
                             </a>
                         </li>
                     </ul>
@@ -188,9 +193,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('documents') }}" class="flex items-center space-x-3 px-4 py-3 rounded-xl font-medium village-transition {{ request()->routeIs('documents') ? 'bg-village-green-100 text-village-green-700' : 'text-gray-700 hover:bg-village-green-100 hover:text-village-green-700' }}">
+                        <a href="{{ route('home') }}#dokumentasi" class="flex items-center space-x-3 px-4 py-3 rounded-xl font-medium village-transition {{ request()->routeIs('home') ? 'bg-village-green-100 text-village-green-700' : 'text-gray-700 hover:bg-village-green-100 hover:text-village-green-700' }}">
                             <i class="fas fa-file-alt w-5"></i>
-                            <span>Dokumen</span>
+                            <span>Dokumentasi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('home') }}#sk-kemenkumham" class="flex items-center space-x-3 px-4 py-3 rounded-xl font-medium village-transition {{ request()->routeIs('home') ? 'bg-village-green-100 text-village-green-700' : 'text-gray-700 hover:bg-village-green-100 hover:text-village-green-700' }}">
+                            <i class="fas fa-certificate w-5"></i>
+                            <span>Legalitas</span>
                         </a>
                     </li>
                     @auth
@@ -230,7 +241,7 @@
     <!-- Modern Footer -->
     <footer class="bg-gradient-to-br from-village-green-800 to-village-green-900 text-white py-16">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Brand Section -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center space-x-4 mb-6">
@@ -296,39 +307,21 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ route('documents') }}" class="flex items-center space-x-2 text-village-green-200 hover:text-white village-transition">
+                            <a href="{{ route('home') }}#dokumentasi" class="flex items-center space-x-2 text-village-green-200 hover:text-white village-transition">
                                 <i class="fas fa-chevron-right text-xs"></i>
-                                <span>Dokumen</span>
+                                <span>Dokumentasi</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('home') }}#sk-kemenkumham" class="flex items-center space-x-2 text-village-green-200 hover:text-white village-transition">
+                                <i class="fas fa-chevron-right text-xs"></i>
+                                <span>Legalitas</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-lg font-semibold mb-6 font-poppins">Kontak Kami</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-3">
-                            <i class="fas fa-map-marker-alt text-village-green-400 mt-1"></i>
-                            <div>
-                                <p class="text-village-green-200 text-sm">{{ $bumdes->address ?? 'Desa Juron' }}</p>
-                                <p class="text-village-green-300 text-xs">Kecamatan {{ $bumdes->district ?? 'Contoh' }}, Kabupaten {{ $bumdes->regency ?? 'Contoh' }}</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-phone text-village-green-400"></i>
-                            <a href="tel:{{ preg_replace('/[^0-9]/', '', $bumdes->phone ?? '081234567890') }}" class="text-village-green-200 hover:text-white village-transition">{{ $bumdes->phone ?? '0812-3456-7890' }}</a>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-envelope text-village-green-400"></i>
-                            <a href="mailto:{{ $bumdes->email ?? 'bumdes@desa.id' }}" class="text-village-green-200 hover:text-white village-transition">{{ $bumdes->email ?? 'bumdes@desa.id' }}</a>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <i class="fas fa-clock text-village-green-400"></i>
-                            <span class="text-village-green-200 text-sm">{{ $bumdes->operating_hours ?? 'Senin - Jumat: 08:00 - 16:00' }}</span>
-                        </div>
-                    </div>
-                </div>
+
             </div>
 
             <!-- Bottom Bar -->

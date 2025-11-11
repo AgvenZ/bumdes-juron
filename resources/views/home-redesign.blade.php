@@ -288,7 +288,7 @@
 </section>
 
 <!-- Dokumentasi Kegiatan -->
-        <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <section id="dokumentasi" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
             <!-- Background Pattern -->
             <div class="absolute inset-0 opacity-5">
                 <div class="absolute top-20 left-20 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
@@ -301,25 +301,6 @@
                     <h2 class="text-5xl font-bold text-primary mb-6 font-poppins gradient-text">Dokumentasi Kegiatan</h2>
                     <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 rounded-full"></div>
                     <p class="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">Momen-momen berharga dari kegiatan dan program BUMDes kami yang telah memberdayakan masyarakat desa.</p>
-                </div>
-
-                <!-- Filter Buttons -->
-                <div class="flex flex-wrap justify-center gap-4 mb-16" data-aos="fade-up" data-aos-delay="200">
-                    <button class="filter-btn active px-8 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-semibold transition-all transform hover:scale-105 shadow-lg" data-filter="all">
-                        <i class="fas fa-th-large mr-2"></i>Semua
-                    </button>
-                    <button class="filter-btn px-8 py-3 rounded-full bg-white text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all transform hover:scale-105 shadow-md font-semibold" data-filter="internet">
-                        <i class="fas fa-wifi mr-2"></i>Internet Desa
-                    </button>
-                    <button class="filter-btn px-8 py-3 rounded-full bg-white text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all transform hover:scale-105 shadow-md font-semibold" data-filter="sewa">
-                        <i class="fas fa-tent mr-2"></i>Persewaan
-                    </button>
-                    <button class="filter-btn px-8 py-3 rounded-full bg-white text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all transform hover:scale-105 shadow-md font-semibold" data-filter="wisata">
-                        <i class="fas fa-fish mr-2"></i>Wisata
-                    </button>
-                    <button class="filter-btn px-8 py-3 rounded-full bg-white text-gray-700 hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition-all transform hover:scale-105 shadow-md font-semibold" data-filter="pangan">
-                        <i class="fas fa-seedling mr-2"></i>Ketahanan Pangan
-                    </button>
                 </div>
 
                 <!-- Gallery Grid -->
