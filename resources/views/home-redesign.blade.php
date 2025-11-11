@@ -112,12 +112,13 @@
         }
 
         .hero-bg {
-            background: linear-gradient(135deg, rgba(139, 177, 143, 0.85) 0%, rgba(107, 139, 108, 0.9) 100%),
-                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background: linear-gradient(135deg, rgba(148, 168, 148, 0.75) 0%, rgba(120, 150, 121, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
             background-size: cover;
-            background-position: center;
+            background-position: center 30%;
             background-attachment: fixed;
             position: relative;
+            filter: contrast(1.1) brightness(1.1);
         }
 
         .hero-bg::before {
@@ -127,7 +128,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            background: linear-gradient(135deg, rgba(26, 77, 30, 0.2) 0%, rgba(13, 59, 15, 0.1) 100%);
+            backdrop-filter: blur(1px);
             opacity: 0.3;
         }
 
@@ -508,7 +510,7 @@
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    SK Kemenham
+                    SK Kemenkumham
                     <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
                 <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
@@ -579,7 +581,7 @@
     <section id="sk" class="nature-section section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">SK Kemenham</h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">SK Kemenkumham</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Badan Usaha Milik Desa (BUMDes) Maju Jaya telah terdaftar resmi dengan Surat Keputusan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia.</p>
             </div>
 
@@ -595,11 +597,11 @@
                     </div>
                     <div class="md:w-3/5 md:pl-12">
                         <h3 class="text-3xl font-bold text-primary mb-6 font-heading">Surat Keputusan Pendirian BUMDes</h3>
-                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">BUMDes Maju Jaya telah resmi didirikan berdasarkan Surat Keputusan Kemenham No. 123/AB/XII/2022 tanggal 15 Desember 2022.</p>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">BUMDes Maju Jaya telah resmi didirikan berdasarkan Surat Keputusan Kemenkumham No. 123/AB/XII/2022 tanggal 15 Desember 2022.</p>
                         <ul class="text-gray-600 mb-8 space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
-                                <span>Terdaftar secara resmi di Kemenham</span>
+                                <span>Terdaftar secara resmi di Kemenkumham</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
@@ -1002,7 +1004,7 @@
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Beranda
                         </a></li>
                         <li><a href="#sk" class="text-primary-light hover:text-white transition-colors flex items-center group">
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenham
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenkumham
                         </a></li>
                         <li><a href="#struktur" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Struktur Organisasi
