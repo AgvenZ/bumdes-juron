@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -39,6 +40,9 @@
                         'wave': 'wave 8s ease-in-out infinite',
                         'morph': 'morph 10s ease-in-out infinite',
                         'scroll': 'scroll 20s linear infinite',
+                        'gradient': 'gradient 3s ease infinite',
+                        'typewriter': 'typewriter 2s steps(20) 1s 1 normal both',
+                        'blink': 'blink 1s steps(2) infinite',
                     },
                     keyframes: {
                         fadeIn: {
@@ -81,6 +85,18 @@
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
                             '100%': { transform: 'translateX(-50%)' },
+                        },
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        typewriter: {
+                            from: { width: '0' },
+                            to: { width: '100%' },
+                        },
+                        blink: {
+                            '0%': { 'border-right-color': 'transparent' },
+                            '50%': { 'border-right-color': '#d4af37' },
                         }
                     },
                     backgroundImage: {
@@ -93,7 +109,18 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+        :root {
+            --primary: #1a4d1e;
+            --primary-light: #2e7d32;
+            --primary-dark: #0d3b0f;
+            --secondary: #FF9800;
+            --secondary-light: #ffb74d;
+            --accent: #8d6e63;
+            --light: #f8f9fa;
+            --gold: #d4af37;
+            --cream: #f5f1e6;
+            --nature-light: #f9f7f2;
+        }
 
         * {
             margin: 0;
@@ -105,6 +132,7 @@
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            background-color: var(--nature-light);
         }
 
         .section-padding {
@@ -112,13 +140,13 @@
         }
 
         .hero-bg {
-            background: linear-gradient(135deg, rgba(148, 168, 148, 0.75) 0%, rgba(120, 150, 121, 0.85) 100%),
+            background: linear-gradient(135deg, rgba(148, 168, 148, 0.85) 0%, rgba(120, 150, 121, 0.9) 100%),
                         url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
             background-size: cover;
             background-position: center 30%;
             background-attachment: fixed;
             position: relative;
-            filter: contrast(1.1) brightness(1.1);
+            filter: contrast(1.5) brightness(0.9);
         }
 
         .hero-bg::before {
@@ -134,14 +162,16 @@
         }
 
         .nature-section {
-            background-color: #f9f7f2;
+            background-color: var(--nature-light);
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238d6e63' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .card-hover {
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         .card-hover::before {
@@ -162,7 +192,7 @@
         }
 
         .card-hover:hover {
-            transform: translateY(-12px);
+            transform: translateY(-12px) scale(1.02);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
@@ -175,9 +205,10 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .scroll-down {
@@ -190,7 +221,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #1a4d1e 0%, #2e7d32 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
             font-weight: 600;
             padding: 0.75rem 2rem;
@@ -199,6 +230,11 @@
             box-shadow: 0 4px 15px rgba(26, 77, 30, 0.3);
             position: relative;
             overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary::before {
@@ -222,13 +258,18 @@
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #FF9800 0%, #ffb74d 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
             color: white;
             font-weight: 600;
             padding: 0.75rem 2rem;
             border-radius: 50px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -237,17 +278,21 @@
         }
 
         .btn-outline {
-            border: 2px solid #1a4d1e;
-            color: #1a4d1e;
+            border: 2px solid var(--primary);
+            color: var(--primary);
             font-weight: 600;
             padding: 0.75rem 2rem;
             border-radius: 50px;
             transition: all 0.3s ease;
             background: transparent;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
         .btn-outline:hover {
-            background: #1a4d1e;
+            background: var(--primary);
             color: white;
             transform: translateY(-3px);
         }
@@ -267,12 +312,12 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, #1a4d1e, #FF9800);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 2px;
         }
 
         .gold-accent {
-            color: #d4af37;
+            color: var(--gold);
         }
 
         .stat-card {
@@ -293,7 +338,7 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #1a4d1e, #FF9800);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
 
         .stat-card:hover {
@@ -315,7 +360,7 @@
             top: 10px;
             left: 20px;
             font-size: 5rem;
-            color: #f5f1e6;
+            color: var(--cream);
             font-family: 'Playfair Display', serif;
             line-height: 1;
             z-index: 0;
@@ -387,7 +432,7 @@
         }
 
         .hero-divider .shape-fill {
-            fill: #f9f7f2;
+            fill: var(--nature-light);
         }
 
         .animated-bg {
@@ -473,6 +518,177 @@
             transform: scale(1.05);
         }
 
+        /* New Modern Elements */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid var(--gold);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typewriter 2s steps(20) 1s 1 normal both, blink 1s steps(2) infinite;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: translateX(-100%);
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            transition: all 0.5s ease;
+        }
+
+        .counter.animate {
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: white;
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link.active::after,
+        .nav-link:hover::after {
+            transform: translateX(0);
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1001;
+            transition: width 0.2s ease;
+        }
+
         @media (max-width: 768px) {
             .section-padding {
                 padding: 4rem 0;
@@ -485,14 +701,63 @@
             .hero-divider svg {
                 height: 40px;
             }
+
+            .btn-primary, .btn-secondary, .btn-outline {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body class="bg-nature-light">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
     <!-- Floating Background Shapes -->
     <div class="floating-shape shape-1"></div>
     <div class="floating-shape shape-2"></div>
     <div class="floating-shape shape-3"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <div class="logo-glow h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
+                    <span class="text-white font-bold text-sm">BD</span>
+                </div>
+                <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
+            </div>
+            <button id="closeMenu" class="text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col space-y-6">
+            <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Beranda</a>
+            <a href="index.html#sk" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">SK Kemenkumham</a>
+            <a href="index.html#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Struktur Organisasi</a>
+            <a href="index.html#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Direktur</a>
+            <a href="units.html" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Unit Usaha</a>
+            <a href="documents.html" class="text-primary font-medium transition-colors text-lg py-2 nav-link active">Dokumentasi</a>
+        </div>
+
+        <div class="mt-auto pt-8 border-t border-gray-200">
+            <div class="flex space-x-4 justify-center">
+                <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Navbar -->
     <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
@@ -505,38 +770,19 @@
             </div>
 
             <div class="hidden md:flex space-x-8">
-                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    Beranda
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="index.html#sk" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    SK Kemenham
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="index.html#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    Struktur Organisasi
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="index.html#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    Direktur
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="units.html" class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
-                    Unit Usaha
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="documents.html" class="text-primary font-medium transition-colors relative group">
-                    Dokumentasi
-                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Beranda</a>
+                <a href="index.html#sk" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">SK Kemenkumham</a>
+                <a href="index.html#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Struktur Organisasi</a>
+                <a href="index.html#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Direktur</a>
+                <a href="units.html" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Unit Usaha</a>
+                <a href="documents.html" class="text-primary font-medium transition-colors nav-link active">Dokumentasi</a>
             </div>
 
-            <button class="md:hidden text-gray-700">
+            <button id="openMenu" class="md:hidden text-gray-700">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
     </nav>
-
 
 
         <!-- Smooth Wave Divider -->
@@ -554,7 +800,6 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Galeri Dokumentasi</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Kumpulan dokumentasi dari berbagai kegiatan dan unit usaha BUMDes Maju Jaya yang telah berjalan dengan sukses.</p>
             </div>
-
 
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -748,7 +993,7 @@
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Beranda
                         </a></li>
                         <li><a href="index.html#sk" class="text-primary-light hover:text-white transition-colors flex items-center group">
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenham
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenkumham
                         </a></li>
                         <li><a href="index.html#struktur" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Struktur Organisasi
@@ -872,6 +1117,63 @@
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(element);
+        });
+
+        // Mobile Menu Functionality
+        const openMenuBtn = document.getElementById('openMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        openMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Scroll Progress Bar
+        const scrollProgress = document.querySelector('.scroll-progress');
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = `${scrolled}%`;
+        });
+
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}` || (link.getAttribute('href') === 'documents.html' && current === 'document-list')) {
+                    link.classList.add('active');
+                }
+            });
         });
 
         // Filter functionality

@@ -14,7 +14,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .admin-login-gradient::before {
             content: '';
             position: absolute;
@@ -27,41 +27,41 @@
                         radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
             animation: admin-float 6s ease-in-out infinite;
         }
-        
+
         .admin-login-glass {
             background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
-        
+
         .admin-login-glass-light {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        
+
         .admin-text-gradient {
             background: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .admin-floating {
             animation: admin-float 6s ease-in-out infinite;
         }
-        
+
         @keyframes admin-float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
-        
+
         .admin-input-group {
             position: relative;
             margin-bottom: 1.5rem;
         }
-        
+
         .admin-input {
             width: 100%;
             padding: 1rem 1rem 1rem 3rem;
@@ -72,18 +72,18 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .admin-input:focus {
             outline: none;
             border-color: rgba(16, 185, 129, 0.5);
             background: rgba(30, 41, 59, 0.6);
             box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
-        
+
         .admin-input::placeholder {
             color: rgba(255, 255, 255, 0.4);
         }
-        
+
         .admin-input-icon {
             position: absolute;
             left: 1rem;
@@ -92,17 +92,17 @@
             color: rgba(255, 255, 255, 0.6);
             transition: color 0.3s ease;
         }
-        
+
         .admin-input:focus + .admin-input-icon {
             color: #10b981;
         }
-        
+
         .admin-btn-glow {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .admin-btn-glow::before {
             content: '';
             position: absolute;
@@ -115,27 +115,27 @@
             transition: all 0.5s ease;
             opacity: 0;
         }
-        
+
         .admin-btn-glow:hover::before {
             opacity: 1;
             animation: admin-glow 0.5s ease;
         }
-        
+
         @keyframes admin-glow {
             0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
-        
+
         .admin-error-shake {
             animation: admin-shake 0.5s ease-in-out;
         }
-        
+
         @keyframes admin-shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
-        
+
         .admin-pulse-dot {
             width: 8px;
             height: 8px;
@@ -143,7 +143,7 @@
             border-radius: 50%;
             animation: admin-pulse 2s infinite;
         }
-        
+
         @keyframes admin-pulse {
             0% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.2); opacity: 0.7; }
@@ -170,12 +170,12 @@
         <div class="absolute top-20 left-10 w-20 h-20 bg-village-green-200 rounded-full opacity-20 animate-bounce"></div>
         <div class="absolute bottom-32 right-16 w-16 h-16 bg-village-cream-400 rounded-full opacity-30 animate-bounce delay-1000"></div>
         <div class="absolute top-1/3 right-20 w-12 h-12 bg-village-green-300 rounded-full opacity-25 animate-pulse"></div>
-        
+
         <!-- Additional floating elements -->
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-village-green-200/30 to-village-cream-300/30 rounded-full animate-pulse"></div>
         <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-village-cream-200/30 to-village-green-300/30 rounded-full animate-pulse delay-2000"></div>
     </div>
-    
+
     <!-- Modern Login Container -->
     <div class="bg-white/90 backdrop-blur-sm rounded-3xl village-shadow-lg village-border-gradient border-2 village-hover-lift village-transition w-full max-w-md relative z-10">
         <!-- Modern Header -->
@@ -186,14 +186,14 @@
             <h2 class="text-3xl font-bold text-gray-800 mb-2 village-text-shadow">Admin Login</h2>
             <p class="text-gray-600">Masuk ke sistem manajemen BUMDes</p>
             <div class="w-16 h-1 bg-gradient-to-r from-village-green-500 to-village-cream-500 mx-auto mt-4 rounded-full"></div>
-            
+
             <!-- Status Indicator -->
             <div class="mt-4 flex items-center justify-center space-x-2">
                 <div class="admin-pulse-dot"></div>
                 <span class="text-emerald-400 text-sm font-medium">Sistem Siap</span>
             </div>
         </div>
-        
+
         <!-- Login Form -->
             <div class="p-8">
                 @if($errors->any())
@@ -204,10 +204,10 @@
                         </div>
                     </div>
                 @endif
-                
+
                 <form method="POST" action="{{ route('admin.login') }}" class="p-8 space-y-6">
                     @csrf
-                    
+
                     <!-- Modern Email Input -->
                     <div class="space-y-2">
                         <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
@@ -215,7 +215,7 @@
                             <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                                 <i class="fas fa-envelope"></i>
                             </span>
-                            <input type="email" name="email" id="email" required 
+                            <input type="email" name="email" id="email" required
                                    value="{{ old('email') }}"
                                    class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-village-green-500 focus:border-village-green-500 transition-all duration-200 bg-gray-50 focus:bg-white village-transition"
                                    placeholder="Masukkan email anda">
@@ -229,16 +229,16 @@
                             <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
                                 <i class="fas fa-lock"></i>
                             </span>
-                            <input type="password" name="password" id="password" required 
+                            <input type="password" name="password" id="password" required
                                    class="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-village-green-500 focus:border-village-green-500 transition-all duration-200 bg-gray-50 focus:bg-white village-transition"
                                    placeholder="Masukkan password anda">
-                            <button type="button" id="toggle-password" 
+                            <button type="button" id="toggle-password"
                                     class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors">
                                 <i class="fas fa-eye"></i>
                             </button>
                         </div>
                     </div>
-                
+
                 <!-- Remember Me -->
                 <div class="flex items-center justify-between">
                     <label class="flex items-center cursor-pointer">
@@ -249,13 +249,13 @@
                 </div>
 
                 <!-- Modern Login Button -->
-                <button type="submit" 
+                <button type="submit"
                         class="w-full py-3 bg-gradient-to-r from-village-green-600 to-green-700 text-white font-semibold rounded-xl hover:from-village-green-700 hover:to-green-800 focus:ring-4 focus:ring-village-green-500/50 focus:outline-none transition-all duration-200 transform hover:scale-[1.02] active:scale-98 village-shadow-lg village-hover-lift">
                     <i class="fas fa-sign-in-alt mr-2"></i>
                     Masuk
                 </button>
             </form>
-            
+
             <!-- Modern Footer -->
             <div class="text-center mt-8 space-y-3">
                 <div class="flex items-center justify-center space-x-2">
@@ -267,7 +267,7 @@
                 <p class="text-xs text-gray-500 max-w-xs mx-auto">Dikelola oleh tim profesional untuk kesejahteraan masyarakat desa</p>
             </div>
         </div>
-        
+
         <!-- Premium Footer -->
         <div class="admin-login-glass-light text-center py-6 px-8 rounded-b-3xl space-y-2">
             <div class="flex items-center justify-center space-x-2">
@@ -284,7 +284,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modern JavaScript -->
     <script>
         // Hide loading overlay when page loads
@@ -304,7 +304,7 @@
         document.getElementById('toggle-password').addEventListener('click', function() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = this.querySelector('i');
-            
+
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 toggleIcon.classList.remove('fa-eye');
@@ -320,16 +320,16 @@
         document.querySelector('form').addEventListener('submit', function(e) {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            
+
             if (!email || !password) {
                 e.preventDefault();
-                
+
                 // Modern shake animation
                 const form = this;
                 form.style.animation = 'none';
                 form.offsetHeight; // Trigger reflow
                 form.style.animation = 'shake 0.5s ease-in-out';
-                
+
                 // Focus on empty field
                 if (!email) {
                     document.getElementById('email').focus();
@@ -356,7 +356,7 @@
                 this.parentElement.style.transform = 'translateY(-2px)';
                 this.parentElement.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.2)';
             });
-            
+
             input.addEventListener('blur', function() {
                 this.parentElement.style.transform = 'translateY(0)';
                 this.parentElement.style.boxShadow = 'none';
@@ -367,10 +367,10 @@
         document.querySelector('form').addEventListener('submit', function(e) {
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.innerHTML;
-            
+
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Memproses...';
             submitButton.disabled = true;
-            
+
             // Re-enable after 3 seconds (for demo purposes)
             setTimeout(() => {
                 submitButton.innerHTML = originalText;
@@ -386,7 +386,7 @@
             const randomSize = Math.random() * 40 + 20;
             const randomLeft = Math.random() * 100;
             const randomDelay = Math.random() * 6;
-            
+
             element.className = `absolute bg-gradient-to-br ${randomColor} to-transparent rounded-full admin-floating`;
             element.style.width = randomSize + 'px';
             element.style.height = randomSize + 'px';
@@ -394,18 +394,18 @@
             element.style.top = '-50px';
             element.style.animationDelay = randomDelay + 's';
             element.style.animationDuration = (Math.random() * 4 + 4) + 's';
-            
+
             document.body.appendChild(element);
-            
+
             // Remove element after animation
             setTimeout(() => {
                 element.remove();
             }, 8000);
         }
-        
+
         // Create floating elements periodically
         setInterval(createFloatingElement, 3000);
-        
+
         // Console welcome message
         console.log('%c🌾 BUMDes Juron Modern Admin Dashboard', 'color: #10b981; font-size: 16px; font-weight: bold;');
         console.log('%cSelamat datang di sistem administrasi modern!', 'color: #64748b; font-size: 12px;');
