@@ -884,9 +884,7 @@
                             <button class="btn-primary inline-flex items-center justify-center">
                                 <i class="fas fa-download mr-2"></i> Unduh SK
                             </button>
-                            <button class="btn-outline inline-flex items-center justify-center">
-                                <i class="fas fa-eye mr-2"></i> Lihat Detail
-                            </button>
+
                         </div>
                     </div>
                 </div>
@@ -912,12 +910,7 @@
                     <h3 class="text-2xl font-bold text-primary mb-3">Ketua BUMDes</h3>
                     <p class="text-gray-600 mb-4">Mengawasi seluruh operasional BUMDes dan membuat keputusan strategis.</p>
                     <div class="flex justify-center space-x-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fab fa-whatsapp text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fas fa-envelope text-sm"></i>
-                        </a>
+
                     </div>
                 </div>
 
@@ -930,12 +923,7 @@
                     <h3 class="text-2xl font-bold text-primary mb-3">Sekretaris</h3>
                     <p class="text-gray-600 mb-4">Mengelola administrasi, dokumentasi, dan korespondensi BUMDes.</p>
                     <div class="flex justify-center space-x-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fab fa-whatsapp text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fas fa-envelope text-sm"></i>
-                        </a>
+
                     </div>
                 </div>
 
@@ -948,12 +936,7 @@
                     <h3 class="text-2xl font-bold text-primary mb-3">Bendahara</h3>
                     <p class="text-gray-600 mb-4">Mengelola keuangan, pembukuan, dan laporan keuangan BUMDes.</p>
                     <div class="flex justify-center space-x-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fab fa-whatsapp text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fas fa-envelope text-sm"></i>
-                        </a>
+
                     </div>
                 </div>
 
@@ -966,12 +949,7 @@
                     <h3 class="text-2xl font-bold text-primary mb-3">Manager Unit Usaha</h3>
                     <p class="text-gray-600 mb-4">Mengkoordinir dan mengawasi semua unit usaha BUMDes.</p>
                     <div class="flex justify-center space-x-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fab fa-whatsapp text-sm"></i>
-                        </a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center transition-all hover:bg-secondary hover:scale-110">
-                            <i class="fas fa-envelope text-sm"></i>
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -1049,15 +1027,7 @@
                         </div>
                         <p class="text-gray-600 mb-6">Layanan internet berkecepatan tinggi untuk masyarakat desa dengan harga terjangkau. Menjangkau seluruh wilayah desa dengan koneksi stabil untuk mendukung aktivitas pendidikan, bisnis, dan komunikasi.</p>
 
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-2">Fasilitas:</h4>
-                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
-                                <li class="flex items-center"><i class="fas fa-wifi text-secondary mr-2"></i> Wi-Fi Area</li>
-                                <li class="flex items-center"><i class="fas fa-tachometer-alt text-secondary mr-2"></i> High Speed</li>
-                                <li class="flex items-center"><i class="fas fa-headset text-secondary mr-2"></i> Support 24/7</li>
-                                <li class="flex items-center"><i class="fas fa-money-bill-wave text-secondary mr-2"></i> Harga Terjangkau</li>
-                            </ul>
-                        </div>
+
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1092,15 +1062,7 @@
                         </div>
                         <p class="text-gray-600 mb-6">Menyewakan tenda (kajang) dan peralatan sound system untuk acara pernikahan, khitanan, dan acara desa. Dilengkapi dengan peralatan lengkap dan tim profesional untuk mendukung kesuksesan acara Anda.</p>
 
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-2">Paket Tersedia:</h4>
-                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
-                                <li class="flex items-center"><i class="fas fa-umbrella-beach text-secondary mr-2"></i> Tenda Kecil</li>
-                                <li class="flex items-center"><i class="fas fa-home text-secondary mr-2"></i> Tenda Besar</li>
-                                <li class="flex items-center"><i class="fas fa-volume-up text-secondary mr-2"></i> Sound System</li>
-                                <li class="flex items-center"><i class="fas fa-lightbulb text-secondary mr-2"></i> Penerangan</li>
-                            </ul>
-                        </div>
+
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1135,15 +1097,7 @@
                         </div>
                         <p class="text-gray-600 mb-6">Destinasi wisata alam dengan fasilitas pemancingan yang asri dan nyaman untuk keluarga. Menawarkan pengalaman bersantai di alam dengan berbagai jenis ikan yang dapat ditangkap dan dinikmati.</p>
 
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-2">Fasilitas Wisata:</h4>
-                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
-                                <li class="flex items-center"><i class="fas fa-fish text-secondary mr-2"></i> Kolam Pemancingan</li>
-                                <li class="flex items-center"><i class="fas fa-utensils text-secondary mr-2"></i> Warung Makan</li>
-                                <li class="flex items-center"><i class="fas fa-campground text-secondary mr-2"></i> Area Camping</li>
-                                <li class="flex items-center"><i class="fas fa-swimming-pool text-secondary mr-2"></i> Kolam Renang</li>
-                            </ul>
-                        </div>
+
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1178,15 +1132,7 @@
                         </div>
                         <p class="text-gray-600 mb-6">Budidaya padi, lombok, dan ayam joper (jowo super) untuk mendukung ketahanan pangan desa. Menggunakan metode pertanian organik dan berkelanjutan untuk menghasilkan produk berkualitas tinggi.</p>
 
-                        <div class="mb-6">
-                            <h4 class="font-bold text-gray-800 mb-2">Produk Unggulan:</h4>
-                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
-                                <li class="flex items-center"><i class="fas fa-seedling text-secondary mr-2"></i> Padi Organik</li>
-                                <li class="flex items-center"><i class="fas fa-pepper-hot text-secondary mr-2"></i> Lombok Segar</li>
-                                <li class="flex items-center"><i class="fas fa-egg text-secondary mr-2"></i> Ayam Joper</li>
-                                <li class="flex items-center"><i class="fas fa-tractor text-secondary mr-2"></i> Pertanian Modern</li>
-                            </ul>
-                        </div>
+
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
