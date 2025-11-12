@@ -1037,15 +1037,27 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Internet Desa -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInLeft">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Internet Desa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium">
                             Teknologi
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Internet Desa</h3>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Internet Desa</h3>
+                        </div>
                         <p class="text-gray-600 mb-6">Layanan internet berkecepatan tinggi untuk masyarakat desa dengan harga terjangkau. Menjangkau seluruh wilayah desa dengan koneksi stabil untuk mendukung aktivitas pendidikan, bisnis, dan komunikasi.</p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-800 mb-2">Fasilitas:</h4>
+                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
+                                <li class="flex items-center"><i class="fas fa-wifi text-secondary mr-2"></i> Wi-Fi Area</li>
+                                <li class="flex items-center"><i class="fas fa-tachometer-alt text-secondary mr-2"></i> High Speed</li>
+                                <li class="flex items-center"><i class="fas fa-headset text-secondary mr-2"></i> Support 24/7</li>
+                                <li class="flex items-center"><i class="fas fa-money-bill-wave text-secondary mr-2"></i> Harga Terjangkau</li>
+                            </ul>
+                        </div>
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1068,15 +1080,27 @@
 
                 <!-- Persewaan Tendangan + Sound System -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInRight">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Persewaan Kajang + Sound System" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-accent text-white py-1 px-3 rounded-full text-sm font-medium">
                             Event
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Persewaan Kajang + Sound System</h3>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Persewaan Kajang + Sound System</h3>
+                        </div>
                         <p class="text-gray-600 mb-6">Menyewakan tenda (kajang) dan peralatan sound system untuk acara pernikahan, khitanan, dan acara desa. Dilengkapi dengan peralatan lengkap dan tim profesional untuk mendukung kesuksesan acara Anda.</p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-800 mb-2">Paket Tersedia:</h4>
+                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
+                                <li class="flex items-center"><i class="fas fa-umbrella-beach text-secondary mr-2"></i> Tenda Kecil</li>
+                                <li class="flex items-center"><i class="fas fa-home text-secondary mr-2"></i> Tenda Besar</li>
+                                <li class="flex items-center"><i class="fas fa-volume-up text-secondary mr-2"></i> Sound System</li>
+                                <li class="flex items-center"><i class="fas fa-lightbulb text-secondary mr-2"></i> Penerangan</li>
+                            </ul>
+                        </div>
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1099,15 +1123,27 @@
 
                 <!-- Wisata + Pemancingan -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInLeft">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wisata + Pemancingan" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-green-500 text-white py-1 px-3 rounded-full text-sm font-medium">
                             Wisata
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Wisata + Pemancingan</h3>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Wisata + Pemancingan</h3>
+                        </div>
                         <p class="text-gray-600 mb-6">Destinasi wisata alam dengan fasilitas pemancingan yang asri dan nyaman untuk keluarga. Menawarkan pengalaman bersantai di alam dengan berbagai jenis ikan yang dapat ditangkap dan dinikmati.</p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-800 mb-2">Fasilitas Wisata:</h4>
+                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
+                                <li class="flex items-center"><i class="fas fa-fish text-secondary mr-2"></i> Kolam Pemancingan</li>
+                                <li class="flex items-center"><i class="fas fa-utensils text-secondary mr-2"></i> Warung Makan</li>
+                                <li class="flex items-center"><i class="fas fa-campground text-secondary mr-2"></i> Area Camping</li>
+                                <li class="flex items-center"><i class="fas fa-swimming-pool text-secondary mr-2"></i> Kolam Renang</li>
+                            </ul>
+                        </div>
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1130,15 +1166,27 @@
 
                 <!-- Ketahanan Pangan -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInRight">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Ketahanan Pangan" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-yellow-600 text-white py-1 px-3 rounded-full text-sm font-medium">
                             Pertanian
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-2xl font-bold text-primary mb-3">Ketahanan Pangan</h3>
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-2xl font-bold text-primary">Ketahanan Pangan</h3>
+                        </div>
                         <p class="text-gray-600 mb-6">Budidaya padi, lombok, dan ayam joper (jowo super) untuk mendukung ketahanan pangan desa. Menggunakan metode pertanian organik dan berkelanjutan untuk menghasilkan produk berkualitas tinggi.</p>
+
+                        <div class="mb-6">
+                            <h4 class="font-bold text-gray-800 mb-2">Produk Unggulan:</h4>
+                            <ul class="text-gray-600 grid grid-cols-2 gap-1">
+                                <li class="flex items-center"><i class="fas fa-seedling text-secondary mr-2"></i> Padi Organik</li>
+                                <li class="flex items-center"><i class="fas fa-pepper-hot text-secondary mr-2"></i> Lombok Segar</li>
+                                <li class="flex items-center"><i class="fas fa-egg text-secondary mr-2"></i> Ayam Joper</li>
+                                <li class="flex items-center"><i class="fas fa-tractor text-secondary mr-2"></i> Pertanian Modern</li>
+                            </ul>
+                        </div>
 
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
@@ -1178,49 +1226,73 @@
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Galeri dokumentasi dari berbagai unit usaha BUMDes Maju Jaya yang telah berjalan dengan sukses.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Internet Desa -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slideInUp">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Internet Desa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-primary-light text-white text-xs font-medium py-1 px-2 rounded">Internet Desa</span>
-                            <span class="text-gray-500 text-sm">15 Jan 2023</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Internet Desa 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInUp document-item" data-category="internet">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Pemasangan Tower Internet" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium">
+                            Internet Desa
                         </div>
-                        <h3 class="text-lg font-bold text-primary mb-2">Pemasangan Tower Internet</h3>
-                        <p class="text-gray-600 text-sm">Proses pemasangan tower internet untuk menjangkau seluruh wilayah desa dengan koneksi stabil.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500 text-sm">15 Jan 2023</span>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 12 Foto</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Pemasangan Tower Internet</h3>
+                        <p class="text-gray-600 mb-6">Proses pemasangan tower internet untuk menjangkau seluruh wilayah desa dengan koneksi stabil dan cepat.</p>
+                        <div class="flex items-center">
+                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                                <i class="fas fa-eye mr-2"></i> Lihat Album
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Persewaan Kajang -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slideInUp delay-100">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Persewaan Kajang" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-accent text-white text-xs font-medium py-1 px-2 rounded">Persewaan</span>
-                            <span class="text-gray-500 text-sm">22 Feb 2023</span>
+                <!-- Persewaan Kajang 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInUp delay-100 document-item" data-category="persewaan">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Acara Pernikahan Desa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-accent text-white py-1 px-3 rounded-full text-sm font-medium">
+                            Persewaan Kajang
                         </div>
-                        <h3 class="text-lg font-bold text-primary mb-2">Acara Pernikahan Desa</h3>
-                        <p class="text-gray-600 text-sm">Penyewaan tenda kajang dan sound system untuk acara pernikahan warga desa.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500 text-sm">22 Feb 2023</span>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 8 Foto</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Acara Pernikahan Desa</h3>
+                        <p class="text-gray-600 mb-6">Penyewaan tenda kajang dan sound system untuk acara pernikahan warga desa yang meriah dan sukses.</p>
+                        <div class="flex items-center">
+                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                                <i class="fas fa-eye mr-2"></i> Lihat Album
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Sound System -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg card-hover animate-slideInUp delay-200">
-                    <div class="h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Sound System" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-accent text-white text-xs font-medium py-1 px-2 rounded">Persewaan</span>
-                            <span class="text-gray-500 text-sm">10 Mar 2023</span>
+                <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInUp delay-200 document-item" data-category="persewaan">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Peralatan Sound System" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        <div class="absolute top-4 left-4 bg-accent text-white py-1 px-3 rounded-full text-sm font-medium">
+                            Persewaan Kajang
                         </div>
-                        <h3 class="text-lg font-bold text-primary mb-2">Peralatan Sound System</h3>
-                        <p class="text-gray-600 text-sm">Peralatan sound system lengkap untuk berbagai acara desa dan hajatan.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-gray-500 text-sm">10 Mar 2023</span>
+                            <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 6 Foto</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Peralatan Sound System</h3>
+                        <p class="text-gray-600 mb-6">Peralatan sound system lengkap untuk berbagai acara desa dan hajatan dengan kualitas terbaik.</p>
+                        <div class="flex items-center">
+                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                                <i class="fas fa-eye mr-2"></i> Lihat Album
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@
     <meta name="keywords" content="BUMDes, Badan Usaha Milik Desa, Juron, Internet Desa, Persewaan Tenda, Wisata Desa, Ketahanan Pangan, UMKM Desa, Ekonomi Desa">
     <meta name="author" content="BUMDes Juron">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="@yield('title', 'BUMDes Juron - Badan Usaha Milik Desa')">
     <meta property="og:description" content="BUMDes Juron - Memberdayakan ekonomi masyarakat desa melalui berbagai unit usaha yang inovatif dan berkelanjutan.">
@@ -15,16 +15,16 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('images/logo-bumdes.png') }}">
     <meta property="og:site_name" content="BUMDes Juron">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'BUMDes Juron - Badan Usaha Milik Desa')">
     <meta name="twitter:description" content="BUMDes Juron - Memberdayakan ekonomi masyarakat desa melalui berbagai unit usaha yang inovatif dan berkelanjutan.">
     <meta name="twitter:image" content="{{ asset('images/logo-bumdes.png') }}">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ url()->current() }}">
-    
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -56,7 +56,7 @@
         }
     }
     </script>
-    
+
     <title>@yield('title', 'BUMDes Juron')</title>
     @vite(['resources/css/redesign.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">

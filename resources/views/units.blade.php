@@ -802,7 +802,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Internet Desa -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInLeft">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="Internet Desa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-primary text-white py-1 px-3 rounded-full text-sm font-medium">
                             Teknologi
@@ -811,7 +811,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl font-bold text-primary">Internet Desa</h3>
-                            <span class="bg-primary-light text-white text-sm font-medium py-1 px-3 rounded-full">Teknologi</span>
                         </div>
                         <p class="text-gray-600 mb-6">Layanan internet berkecepatan tinggi untuk masyarakat desa dengan harga terjangkau. Menjangkau seluruh wilayah desa dengan koneksi stabil untuk mendukung aktivitas pendidikan, bisnis, dan komunikasi.</p>
 
@@ -846,7 +845,7 @@
 
                 <!-- Persewaan Tendangan + Sound System -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInRight">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Persewaan Kajang + Sound System" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-accent text-white py-1 px-3 rounded-full text-sm font-medium">
                             Event
@@ -855,7 +854,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl font-bold text-primary">Persewaan Kajang + Sound System</h3>
-                            <span class="bg-accent text-white text-sm font-medium py-1 px-3 rounded-full">Event</span>
                         </div>
                         <p class="text-gray-600 mb-6">Menyewakan tenda (kajang) dan peralatan sound system untuk acara pernikahan, khitanan, dan acara desa. Dilengkapi dengan peralatan lengkap dan tim profesional untuk mendukung kesuksesan acara Anda.</p>
 
@@ -890,7 +888,7 @@
 
                 <!-- Wisata + Pemancingan -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInLeft">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wisata + Pemancingan" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-green-500 text-white py-1 px-3 rounded-full text-sm font-medium">
                             Wisata
@@ -899,7 +897,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl font-bold text-primary">Wisata + Pemancingan</h3>
-                            <span class="bg-green-500 text-white text-sm font-medium py-1 px-3 rounded-full">Wisata</span>
                         </div>
                         <p class="text-gray-600 mb-6">Destinasi wisata alam dengan fasilitas pemancingan yang asri dan nyaman untuk keluarga. Menawarkan pengalaman bersantai di alam dengan berbagai jenis ikan yang dapat ditangkap dan dinikmati.</p>
 
@@ -934,7 +931,7 @@
 
                 <!-- Ketahanan Pangan -->
                 <div class="bg-white rounded-2xl overflow-hidden card-hover animate-slideInRight">
-                    <div class="h-64 overflow-hidden relative">
+                    <div class="h-80 overflow-hidden relative">
                         <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Ketahanan Pangan" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                         <div class="absolute top-4 left-4 bg-yellow-600 text-white py-1 px-3 rounded-full text-sm font-medium">
                             Pertanian
@@ -943,7 +940,6 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-4">
                             <h3 class="text-2xl font-bold text-primary">Ketahanan Pangan</h3>
-                            <span class="bg-yellow-600 text-white text-sm font-medium py-1 px-3 rounded-full">Pertanian</span>
                         </div>
                         <p class="text-gray-600 mb-6">Budidaya padi, lombok, dan ayam joper (jowo super) untuk mendukung ketahanan pangan desa. Menggunakan metode pertanian organik dan berkelanjutan untuk menghasilkan produk berkualitas tinggi.</p>
 

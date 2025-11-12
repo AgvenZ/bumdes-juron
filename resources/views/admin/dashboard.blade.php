@@ -1,446 +1,1091 @@
-@extends('layouts.admin')
-
-@section('title', 'Dashboard Admin - BUMDes Juron')
-
-@section('content')
-<!-- Modern Dashboard Styles -->
-<style>
-    .village-shadow-lg {
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-    .village-border-gradient {
-        border: 1px solid rgba(34, 197, 94, 0.2);
-    }
-    .village-hover-lift {
-        transition: all 0.3s ease;
-    }
-    .village-hover-lift:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
-    }
-    .village-text-shadow {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    .village-counter {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #166534;
-    }
-    .village-card {
-        background: white;
-        border-radius: 1rem;
-        transition: all 0.3s ease;
-    }
-    .village-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-    }
-    .village-icon-bg {
-        background: linear-gradient(135deg, #22c55e, #16a34a);
-    }
-    .village-icon-bg-blue {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    }
-    .village-icon-bg-amber {
-        background: linear-gradient(135deg, #f59e0b, #d97706);
-    }
-    .village-icon-bg-purple {
-        background: linear-gradient(135deg, #a855f7, #7c3aed);
-    }
-</style>
-
-<!-- Modern Dashboard Container -->
-<div class="min-h-screen bg-gradient-to-br from-village-green-50 via-village-cream-50 to-white">
-    <!-- Modern Welcome Section -->
-    <div class="px-6 pt-8 pb-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-8 mb-8 village-shadow-lg village-border-gradient village-hover-lift">
-                <div class="flex items-center justify-between flex-wrap gap-6">
-                    <div>
-                        <h1 class="text-2xl font-bold text-gray-800 village-text-shadow mb-1" id="welcome-text">
-                            Selamat Datang di Dashboard Admin
-                        </h1>
-                        <p class="text-gray-600">Kelola BUMDes Juron dengan mudah dan efisien</p>
-                        <div class="flex items-center space-x-2 mt-2">
-                            <div class="w-2 h-2 bg-village-green-500 rounded-full animate-pulse"></div>
-                            <span class="text-village-green-600 text-sm font-medium">Sistem Aktif</span>
-                        </div>
-                    </div>
-                    <div class="text-right bg-village-green-50 rounded-xl p-4">
-                        <div class="text-village-green-700 text-sm font-medium mb-1">Hari ini</div>
-                        <div class="text-2xl font-bold text-village-green-800" id="current-time"></div>
-                        <div class="text-village-green-600 text-sm" id="current-date"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Statistics Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <!-- Unit Usaha Card -->
-        <div class="village-card village-shadow-lg rounded-2xl p-6 village-border-gradient village-hover-lift">
-            <div class="flex items-center justify-between mb-4">
-                <div class="w-12 h-12 village-icon-bg rounded-xl flex items-center justify-center">
-                    <i class="fas fa-store text-white text-lg"></i>
-                </div>
-                <div class="text-right">
-                        <div class="village-counter" id="unitCount" data-target="{{ $unitsCount }}">0</div>
-                        <div class="text-gray-500 text-sm">Unit</div>
-                    </div>
-            </div>
-            <h3 class="text-gray-800 font-semibold text-lg mb-2">Unit Usaha</h3>
-            <div class="flex items-center text-sm">
-                <span class="text-village-green-600 font-medium">{{ $unitsCount }} Aktif</span>
-                <span class="text-gray-400 ml-2">• {{ $unitsCount }} Total</span>
-            </div>
-            <div class="mt-3 bg-gray-200 rounded-full h-2">
-                <div class="bg-gradient-to-r from-village-green-500 to-green-600 h-2 rounded-full transition-all duration-1000" style="width: 100%"></div>
-            </div>
-        </div>
-
-        <!-- Pengurus Card -->
-        <div class="village-card village-shadow-lg rounded-2xl p-6 village-border-gradient village-hover-lift">
-            <div class="flex items-center justify-between mb-4">
-                <div class="w-12 h-12 village-icon-bg rounded-xl flex items-center justify-center">
-                    <i class="fas fa-users text-white text-lg"></i>
-                </div>
-                <div class="text-right">
-                        <div class="village-counter" id="pengurusCount" data-target="{{ $positionsCount }}">0</div>
-                        <div class="text-gray-500 text-sm">Pengurus</div>
-                    </div>
-            </div>
-            <h3 class="text-gray-800 font-semibold text-lg mb-2">Pengurus</h3>
-            <div class="flex items-center text-sm">
-                <span class="text-village-green-600 font-medium">{{ $positionsCount }} Aktif</span>
-                <span class="text-gray-400 ml-2">• {{ $positionsCount }} Total</span>
-            </div>
-            <div class="mt-3 bg-gray-200 rounded-full h-2">
-                <div class="bg-gradient-to-r from-village-green-500 to-green-600 h-2 rounded-full transition-all duration-1000" style="width: 100%"></div>
-            </div>
-        </div>
-
-        <!-- Dokumen Card -->
-        <div class="village-card village-shadow-lg rounded-2xl p-6 village-border-gradient village-hover-lift">
-            <div class="flex items-center justify-between mb-4">
-                <div class="w-12 h-12 village-icon-bg-amber rounded-xl flex items-center justify-center">
-                    <i class="fas fa-file-alt text-white text-lg"></i>
-                </div>
-                <div class="text-right">
-                        <div class="village-counter" id="dokumenCount" data-target="{{ $documentsCount }}">0</div>
-                        <div class="text-gray-500 text-sm">Dokumen</div>
-                    </div>
-            </div>
-            <h3 class="text-gray-800 font-semibold text-lg mb-2">Dokumen</h3>
-            <div class="flex items-center text-sm">
-                <span class="text-village-green-600 font-medium">{{ $documentsCount }} Tersedia</span>
-                <span class="text-gray-400 ml-2">• {{ $documentsCount }} Total</span>
-            </div>
-            <div class="mt-3 bg-gray-200 rounded-full h-2">
-                <div class="bg-gradient-to-r from-amber-500 to-amber-600 h-2 rounded-full transition-all duration-1000" style="width: 100%"></div>
-            </div>
-        </div>
-
-        <!-- Galeri Card -->
-        <div class="village-card village-shadow-lg rounded-2xl p-6 village-border-gradient village-hover-lift">
-            <div class="flex items-center justify-between mb-4">
-                <div class="w-12 h-12 village-icon-bg-purple rounded-xl flex items-center justify-center">
-                    <i class="fas fa-images text-white text-lg"></i>
-                </div>
-                <div class="text-right">
-                        <div class="village-counter" id="galeriCount" data-target="{{ $galeriCount }}">0</div>
-                        <div class="text-gray-500 text-sm">Foto</div>
-                    </div>
-            </div>
-            <h3 class="text-gray-800 font-semibold text-lg mb-2">Galeri</h3>
-            <div class="flex items-center text-sm">
-                <span class="text-village-green-600 font-medium">{{ $galeriCount }} Foto</span>
-                <span class="text-gray-400 ml-2">• {{ $galeriCount }} Total</span>
-            </div>
-            <div class="mt-3 bg-gray-200 rounded-full h-2">
-                <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full transition-all duration-1000" style="width: 100%"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Modern Recent Activity & Quick Actions -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Recent Activity -->
-            <div class="lg:col-span-2">
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 village-shadow-lg village-border-gradient village-hover-lift">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-bold text-gray-800 flex items-center village-text-shadow">
-                            <i class="fas fa-history text-village-green-600 mr-3"></i>
-                            Aktivitas Terbaru
-                        </h2>
-                        <button class="text-village-green-600 hover:text-village-green-700 text-sm font-medium transition-colors">
-                            Lihat Semua →
-                        </button>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-pointer village-hover-lift">
-                            <div class="w-10 h-10 village-icon-bg rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-plus text-white text-sm"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-gray-800 font-medium">Unit usaha baru ditambahkan</p>
-                                <p class="text-gray-500 text-sm">Toko Kelontong Juron - 2 jam yang lalu</p>
-                            </div>
-                            <span class="text-gray-400 text-xs">2h</span>
-                        </div>
-                        <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-pointer village-hover-lift">
-                            <div class="w-10 h-10 village-icon-bg-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-edit text-white text-sm"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-gray-800 font-medium">Data pengurus diperbarui</p>
-                                <p class="text-gray-500 text-sm">Bapak Suryanto - 5 jam yang lalu</p>
-                            </div>
-                            <span class="text-gray-400 text-xs">5h</span>
-                        </div>
-                        <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-200 cursor-pointer village-hover-lift">
-                            <div class="w-10 h-10 village-icon-bg-amber rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-file text-white text-sm"></i>
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-gray-800 font-medium">Dokumen baru diunggah</p>
-                                <p class="text-gray-500 text-sm">Laporan Keuangan Q1 2024 - 1 hari yang lalu</p>
-                            </div>
-                            <span class="text-gray-400 text-xs">1d</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Actions -->
-            <div>
-                <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-6 village-shadow-lg village-border-gradient village-hover-lift">
-                    <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center village-text-shadow">
-                        <i class="fas fa-bolt text-village-green-600 mr-3"></i>
-                        Aksi Cepat
-                    </h2>
-                    <div class="space-y-3">
-                        <button onclick="window.location.href='{{ route('admin.units.create') }}'" class="w-full text-left p-4 bg-village-green-50 rounded-xl hover:bg-village-green-100 transition-all duration-200 border border-village-green-200 hover:border-village-green-300 group village-hover-lift">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 village-icon-bg rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                                    <i class="fas fa-plus text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Tambah Unit Usaha</p>
-                                    <p class="text-gray-600 text-sm">Buat unit usaha baru</p>
-                                </div>
-                            </div>
-                        </button>
-                        <button onclick="window.location.href='{{ route('admin.organization') }}'" class="w-full text-left p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all duration-200 border border-blue-200 hover:border-blue-300 group village-hover-lift">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 village-icon-bg-blue rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                                    <i class="fas fa-user-plus text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Tambah Pengurus</p>
-                                    <p class="text-gray-600 text-sm">Daftarkan pengurus baru</p>
-                                </div>
-                            </div>
-                        </button>
-                        <button onclick="window.location.href='{{ route('admin.documents') }}'" class="w-full text-left p-4 bg-amber-50 rounded-xl hover:bg-amber-100 transition-all duration-200 border border-amber-200 hover:border-amber-300 group village-hover-lift">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 village-icon-bg-amber rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                                    <i class="fas fa-upload text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Unggah Dokumen</p>
-                                    <p class="text-gray-600 text-sm">Upload dokumen baru</p>
-                                </div>
-                            </div>
-                        </button>
-                        <button onclick="window.location.href='{{ route('admin.units') }}'" class="w-full text-left p-4 bg-purple-50 rounded-xl hover:bg-purple-100 transition-all duration-200 border border-purple-200 hover:border-purple-300 group village-hover-lift">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 village-icon-bg-purple rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                                    <i class="fas fa-camera text-white"></i>
-                                </div>
-                                <div>
-                                    <p class="text-gray-800 font-medium">Tambah Foto</p>
-                                    <p class="text-gray-600 text-sm">Upload foto ke galeri</p>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-
-@section('scripts')
-<script>
-    // Modern Counter Animation
-    function animateCounter(element, target, duration = 2000) {
-        let start = 0;
-        const increment = target / (duration / 16);
-        const timer = setInterval(() => {
-            start += increment;
-            if (start >= target) {
-                element.textContent = target.toLocaleString();
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(start).toLocaleString();
-            }
-        }, 16);
-    }
-
-    // Animate counters on page load
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            const unitCount = document.getElementById('unitCount');
-            const pengurusCount = document.getElementById('pengurusCount');
-            const dokumenCount = document.getElementById('dokumenCount');
-            const galeriCount = document.getElementById('galeriCount');
-            
-            if (unitCount) animateCounter(unitCount, parseInt(unitCount.dataset.target) || 0);
-            if (pengurusCount) animateCounter(pengurusCount, parseInt(pengurusCount.dataset.target) || 0);
-            if (dokumenCount) animateCounter(dokumenCount, parseInt(dokumenCount.dataset.target) || 0);
-            if (galeriCount) animateCounter(galeriCount, parseInt(galeriCount.dataset.target) || 0);
-        }, 500);
-    });
-
-    // Current Date Display
-    function updateDateTime() {
-        const now = new Date();
-        const options = { 
-            weekday: 'long', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        };
-        document.getElementById('currentDateTime').textContent = now.toLocaleDateString('id-ID', options);
-    }
-    
-    updateDateTime();
-    setInterval(updateDateTime, 60000);
-
-    // Modern Hover Effects
-    document.querySelectorAll('.village-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-4px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-
-    // Modern Ripple Effect for Buttons
-    document.querySelectorAll('button').forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.cssText = `
-                position: absolute;
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}px;
-                top: ${y}px;
-                background: rgba(34, 197, 94, 0.3);
-                border-radius: 50%;
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                pointer-events: none;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        });
-    });
-
-    // Scroll Animation
-    function revealOnScroll() {
-        const elements = document.querySelectorAll('.village-card');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementTop < window.innerHeight - elementVisible) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-
-    // Initialize scroll animation
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Modern Typing Effect for Welcome Message
-    function typeWriter(element, text, speed = 50) {
-        let i = 0;
-        element.innerHTML = '';
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - BUMDes Juron</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #10b981;
+            --accent-gradient: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
+            --sidebar-width: 280px;
+            --header-height: 70px;
+            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
-        type();
-    }
 
-    // Apply typing effect
-    window.addEventListener('load', () => {
-        const welcomeElement = document.querySelector('.village-text-shadow');
-        if (welcomeElement) {
-            const originalText = welcomeElement.textContent;
-            setTimeout(() => typeWriter(welcomeElement, originalText, 30), 1000);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    });
 
-    // Modern CSS Animation Keyframes
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        
-        .village-card {
+
+        /* Layout */
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--secondary);
+            border-right: 1px solid var(--glass-border);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .admin-info {
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .admin-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .admin-role {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .sidebar-menu {
+            padding: 24px 0;
+        }
+
+        .menu-section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            padding: 0 24px 12px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 1px;
+        }
+
+        .menu-items {
+            list-style: none;
+        }
+
+        .menu-item {
+            margin-bottom: 4px;
+        }
+
+        .menu-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .menu-link:hover, .menu-link.active {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-left-color: var(--accent);
+        }
+
+        .menu-link i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .menu-badge {
+            margin-left: auto;
+            background: var(--accent);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            height: var(--header-height);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-icon {
+            position: relative;
+            color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .header-icon:hover {
+            color: white;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 32px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 16px;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+
+        .stat-icon i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-title {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-change {
+            font-size: 0.875rem;
+            color: #10b981;
+        }
+
+        .stat-change.negative {
+            color: #ef4444;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .section-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0da271;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .data-table th {
+            background: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status-inactive {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-edit:hover {
+            background: #3b82f6;
+        }
+
+        .btn-delete:hover {
+            background: #ef4444;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    `;
-    document.head.appendChild(style);
 
-    // Initialize animations
-    setTimeout(() => {
-        document.querySelectorAll('.village-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.classList.add('animate-fade-in');
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background: var(--secondary);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: between;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .modal-footer {
+            padding: 24px;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 16px;
+            }
+
+            .content {
+                padding: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .section-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <span class="logo-text">BUMDes Juron</span>
+                </div>
+                <div class="admin-info">
+                    <div class="admin-name">Admin BUMDes</div>
+                    <div class="admin-role">Super Administrator</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-section">
+                    <div class="section-title">Menu Utama</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link active">
+                                <i class="fas fa-home"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-chart-bar"></i>
+                                <span>Analitik</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <div class="section-title">Manajemen Konten</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-newspaper"></i>
+                                <span>Artikel & Berita</span>
+                                <span class="menu-badge">12</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-images"></i>
+                                <span>Galeri</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Halaman</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <div class="section-title">Unit Usaha</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-store"></i>
+                                <span>Semua Unit</span>
+                                <span class="menu-badge">8</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-tags"></i>
+                                <span>Kategori</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Laporan Keuangan</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <div class="section-title">Dokumentasi</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Laporan Tahunan</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-archive"></i>
+                                <span>Arsip</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <div class="section-title">Pengaturan</div>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-users-cog"></i>
+                                <span>Pengguna</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <i class="fas fa-cog"></i>
+                                <span>Sistem</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Dashboard Admin</h1>
+                </div>
+
+                <div class="header-right">
+                    <div class="header-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="header-icon">
+                        <i class="fas fa-envelope"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
+                    <div class="user-menu">
+                        <div class="user-avatar">AB</div>
+                        <div>
+                            <div class="admin-name">Admin BUMDes</div>
+                            <div class="admin-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-title">Total Unit Usaha</div>
+                                <div class="stat-value">8</div>
+                                <div class="stat-change">+2 dari bulan lalu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-title">Total Artikel</div>
+                                <div class="stat-value">24</div>
+                                <div class="stat-change">+5 dari minggu lalu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-title">Pendapatan Bulan Ini</div>
+                                <div class="stat-value">Rp 42,5 Jt</div>
+                                <div class="stat-change">+15% dari bulan lalu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-title">Pengunjung Website</div>
+                                <div class="stat-value">1,248</div>
+                                <div class="stat-change">+32% dari minggu lalu</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unit Usaha Section -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Manajemen Unit Usaha</h2>
+                        <div class="section-actions">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                            <button class="btn btn-primary" id="add-unit-btn">
+                                <i class="fas fa-plus"></i> Tambah Unit
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Nama Unit</th>
+                                    <th>Kategori</th>
+                                    <th>Status</th>
+                                    <th>Pendapatan</th>
+                                    <th>Tanggal Dibuat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Warung Desa</td>
+                                    <td>Retail</td>
+                                    <td><span class="status-badge status-active">Aktif</span></td>
+                                    <td>Rp 8,2 Jt</td>
+                                    <td>15 Mar 2024</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Simpan Pinjam</td>
+                                    <td>Keuangan</td>
+                                    <td><span class="status-badge status-active">Aktif</span></td>
+                                    <td>Rp 12,5 Jt</td>
+                                    <td>10 Feb 2024</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Wisata Alam</td>
+                                    <td>Pariwisata</td>
+                                    <td><span class="status-badge status-inactive">Nonaktif</span></td>
+                                    <td>Rp 3,8 Jt</td>
+                                    <td>05 Jan 2024</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Pengolahan Hasil Bumi</td>
+                                    <td>Produksi</td>
+                                    <td><span class="status-badge status-active">Aktif</span></td>
+                                    <td>Rp 6,9 Jt</td>
+                                    <td>20 Mar 2024</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Artikel Section -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Manajemen Artikel</h2>
+                        <div class="section-actions">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-filter"></i> Filter
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i> Tambah Artikel
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Judul Artikel</th>
+                                    <th>Kategori</th>
+                                    <th>Status</th>
+                                    <th>Penulis</th>
+                                    <th>Tanggal</th>
+                                    <th>Dilihat</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pengembangan Ekonomi Desa Melalui BUMDes</td>
+                                    <td>Ekonomi</td>
+                                    <td><span class="status-badge status-active">Published</span></td>
+                                    <td>Admin</td>
+                                    <td>25 Mar 2024</td>
+                                    <td>142</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Peluncuran Unit Usaha Baru: Warung Desa</td>
+                                    <td>Pengumuman</td>
+                                    <td><span class="status-badge status-active">Published</span></td>
+                                    <td>Admin</td>
+                                    <td>20 Mar 2024</td>
+                                    <td>89</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Laporan Keuangan Triwulan I 2024</td>
+                                    <td>Laporan</td>
+                                    <td><span class="status-badge status-inactive">Draft</span></td>
+                                    <td>Admin</td>
+                                    <td>15 Mar 2024</td>
+                                    <td>0</td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="btn-icon btn-edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn-icon btn-delete">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Tambah Unit Usaha -->
+    <div class="modal-overlay" id="unit-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Tambah Unit Usaha Baru</h3>
+                <button class="modal-close" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="unit-form">
+                    <div class="form-group">
+                        <label class="form-label">Nama Unit Usaha</label>
+                        <input type="text" class="form-control" placeholder="Masukkan nama unit usaha">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Kategori</label>
+                        <select class="form-control form-select">
+                            <option value="">Pilih kategori</option>
+                            <option value="retail">Retail</option>
+                            <option value="keuangan">Keuangan</option>
+                            <option value="pariwisata">Pariwisata</option>
+                            <option value="produksi">Produksi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi unit usaha"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control form-select">
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-modal">Batal</button>
+                <button class="btn btn-primary">Simpan Unit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
         });
-    }, 100);
-</script>
-@endsection
-@endsection
+
+        // Modal functionality
+        const unitModal = document.getElementById('unit-modal');
+        const addUnitBtn = document.getElementById('add-unit-btn');
+        const closeModal = document.getElementById('close-modal');
+        const cancelModal = document.getElementById('cancel-modal');
+
+        function openModal() {
+            unitModal.classList.add('active');
+        }
+
+        function closeModalFunc() {
+            unitModal.classList.remove('active');
+        }
+
+        addUnitBtn.addEventListener('click', openModal);
+        closeModal.addEventListener('click', closeModalFunc);
+        cancelModal.addEventListener('click', closeModalFunc);
+
+        // Close modal when clicking outside
+        unitModal.addEventListener('click', function(e) {
+            if (e.target === unitModal) {
+                closeModalFunc();
+            }
+        });
+
+        // Sample data for demonstration
+        console.log('%c🌾 Dashboard Admin BUMDes Juron', 'color: #10b981; font-size: 16px; font-weight: bold;');
+        console.log('%cSistem manajemen konten dan unit usaha telah dimuat', 'color: #64748b; font-size: 12px;');
+    </script>
+</body>
+</html>
