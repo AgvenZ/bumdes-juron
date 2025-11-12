@@ -139,28 +139,32 @@
             padding: 6rem 0;
         }
 
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(148, 168, 148, 0.85) 0%, rgba(120, 150, 121, 0.9) 100%),
-                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
-            background-size: cover;
-            background-position: center 30%;
-            background-attachment: fixed;
-            position: relative;
-            filter: contrast(1.5) brightness(0.9);
-        }
+      .hero-bg {
+    background:
+        linear-gradient(135deg, rgba(148, 168, 148, 0.7) 0%, rgba(120, 150, 121, 0.75) 100%),
+        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+    background-size: cover;
+    background-position: center 30%;
+    background-attachment: fixed;
+    position: relative;
+    /* Menghapus filter blur dan menyesuaikan brightness */
+    filter: brightness(0.95);
+    /* Menambahkan kontras sedikit */
+    contrast(1.05);
+}
 
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 77, 30, 0.2) 0%, rgba(13, 59, 15, 0.1) 100%);
-            backdrop-filter: blur(1px);
-            opacity: 0.3;
-        }
-
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 77, 30, 0.15) 0%, rgba(13, 59, 15, 0.1) 100%);
+    /* Mengurangi blur pada overlay */
+    backdrop-filter: blur(0.5px);
+    opacity: 0.4;
+}
         .nature-section {
             background-color: var(--nature-light);
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238d6e63' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -689,6 +693,30 @@
             transition: width 0.2s ease;
         }
 
+        /* Perbaikan untuk tombol WhatsApp */
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #20bd5c;
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .section-padding {
                 padding: 4rem 0;
@@ -702,7 +730,7 @@
                 height: 40px;
             }
 
-            .btn-primary, .btn-secondary, .btn-outline {
+            .btn-primary, .btn-secondary, .btn-outline, .btn-whatsapp {
                 padding: 0.75rem 1.5rem;
                 font-size: 0.9rem;
             }
@@ -725,9 +753,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center">
-                <div class="logo-glow h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
-                    <span class="text-white font-bold text-sm">BD</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-10 w-10 rounded-full object-cover mr-3">
                 <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
             </div>
             <button id="closeMenu" class="text-gray-700">
@@ -763,9 +789,7 @@
     <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="logo-glow h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
-                    <span class="text-white font-bold text-lg">BD</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                 <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
             </div>
 
@@ -787,26 +811,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white section-padding relative overflow-hidden">
         <!-- Animated Background Elements -->
-        <div class="animated-bg">
-            <div class="floating-leaf leaf-1">
-                <i class="fas fa-leaf text-primary-light opacity-20"></i>
-            </div>
-            <div class="floating-leaf leaf-2">
-                <i class="fas fa-leaf text-primary opacity-20"></i>
-            </div>
-            <div class="floating-leaf leaf-3">
-                <i class="fas fa-leaf text-secondary opacity-20"></i>
-            </div>
-            <div class="floating-leaf leaf-4">
-                <i class="fas fa-leaf text-primary-light opacity-20"></i>
-            </div>
-        </div>
+
 
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="animate-bounceIn">
-                <div class="logo-glow h-40 w-40 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mx-auto mb-8 shadow-2xl">
-                    <span class="text-white font-bold text-4xl">BD</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-40 w-40 rounded-full object-cover mx-auto mb-8 shadow-2xl">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 font-heading">BUMDes <span class="gold-accent">Maju Jaya</span></h1>
                 <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">Membangun Ekonomi Desa Melalui <span class="font-semibold gold-accent">Inovasi</span> dan <span class="font-semibold gold-accent">Kolaborasi</span></p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -853,7 +862,7 @@
                                 <div class="flip-card-front bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center w-full h-full flex flex-col items-center justify-center shadow-lg">
                                     <i class="fas fa-file-alt text-6xl mb-6"></i>
                                     <p class="font-bold text-xl">SK BUMDes</p>
-                                    <p class="text-primary-light mt-2">No. 123/AB/XII/2022</p>
+                                    <p class="text-primary-light mt-2">No. 123/AB/XII/2025</p>
                                 </div>
                                 <div class="flip-card-back">
                                     <i class="fas fa-award text-4xl mb-4"></i>
@@ -865,7 +874,7 @@
                     </div>
                     <div class="md:w-3/5 md:pl-12">
                         <h3 class="text-3xl font-bold text-primary mb-6 font-heading">Surat Keputusan Pendirian BUMDes</h3>
-                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">BUMDes Maju Jaya telah resmi didirikan berdasarkan Surat Keputusan Kemenkumham No. 123/AB/XII/2022 tanggal 15 Desember 2022.</p>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">BUMDes Maju Jaya telah resmi didirikan berdasarkan Surat Keputusan Kemenkumham No. 123/AB/XII/2025 tanggal 15 Desember 2025.</p>
                         <ul class="text-gray-600 mb-8 space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
@@ -881,10 +890,9 @@
                             </li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <button class="btn-primary inline-flex items-center justify-center">
+                            <a href="https://drive.google.com/file/d/1exampleSK123456789/view" target="_blank" class="btn-primary inline-flex items-center justify-center">
                                 <i class="fas fa-download mr-2"></i> Unduh SK
-                            </button>
-
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -991,7 +999,7 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://wa.me/6281234567890" target="_blank" class="btn-secondary inline-flex items-center justify-center">
+                            <a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp">
                                 <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi via WhatsApp
                             </a>
                             <a href="#" class="btn-outline inline-flex items-center justify-center">
@@ -1027,8 +1035,6 @@
                         </div>
                         <p class="text-gray-600 mb-6">Layanan internet berkecepatan tinggi untuk masyarakat desa dengan harga terjangkau. Menjangkau seluruh wilayah desa dengan koneksi stabil untuk mendukung aktivitas pendidikan, bisnis, dan komunikasi.</p>
 
-
-
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Penanggung Jawab" class="w-full h-full object-cover">
@@ -1040,8 +1046,8 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567891" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
+                            <a href="https://wa.me/6281234567891" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
                             </a>
                             <span class="text-lg font-bold text-secondary">Rp 150.000/bulan</span>
                         </div>
@@ -1062,8 +1068,6 @@
                         </div>
                         <p class="text-gray-600 mb-6">Menyewakan tenda (kajang) dan peralatan sound system untuk acara pernikahan, khitanan, dan acara desa. Dilengkapi dengan peralatan lengkap dan tim profesional untuk mendukung kesuksesan acara Anda.</p>
 
-
-
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
                                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Penanggung Jawab" class="w-full h-full object-cover">
@@ -1075,8 +1079,8 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567892" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
+                            <a href="https://wa.me/6281234567892" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
                             </a>
                             <span class="text-lg font-bold text-secondary">Mulai Rp 500.000</span>
                         </div>
@@ -1097,8 +1101,6 @@
                         </div>
                         <p class="text-gray-600 mb-6">Destinasi wisata alam dengan fasilitas pemancingan yang asri dan nyaman untuk keluarga. Menawarkan pengalaman bersantai di alam dengan berbagai jenis ikan yang dapat ditangkap dan dinikmati.</p>
 
-
-
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
                                 <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Penanggung Jawab" class="w-full h-full object-cover">
@@ -1110,8 +1112,8 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567893" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
+                            <a href="https://wa.me/6281234567893" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
                             </a>
                             <span class="text-lg font-bold text-secondary">Rp 25.000/orang</span>
                         </div>
@@ -1132,8 +1134,6 @@
                         </div>
                         <p class="text-gray-600 mb-6">Budidaya padi, lombok, dan ayam joper (jowo super) untuk mendukung ketahanan pangan desa. Menggunakan metode pertanian organik dan berkelanjutan untuk menghasilkan produk berkualitas tinggi.</p>
 
-
-
                         <div class="flex items-center mb-6">
                             <div class="w-14 h-14 rounded-full overflow-hidden mr-4 border-2 border-white shadow">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Penanggung Jawab" class="w-full h-full object-cover">
@@ -1145,8 +1145,8 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567894" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
+                            <a href="https://wa.me/6281234567894" target="_blank" class="btn-whatsapp">
+                                <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
                             </a>
                             <span class="text-lg font-bold text-secondary">Harga Kompetitif</span>
                         </div>
@@ -1183,13 +1183,13 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">15 Jan 2023</span>
+                            <span class="text-gray-500 text-sm">15 Jan 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 12 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Pemasangan Tower Internet</h3>
                         <p class="text-gray-600 mb-6">Proses pemasangan tower internet untuk menjangkau seluruh wilayah desa dengan koneksi stabil dan cepat.</p>
                         <div class="flex items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                            <a href="document-detail.html?album=1" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
                         </div>
@@ -1206,13 +1206,13 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">22 Feb 2023</span>
+                            <span class="text-gray-500 text-sm">22 Feb 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 8 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Acara Pernikahan Desa</h3>
                         <p class="text-gray-600 mb-6">Penyewaan tenda kajang dan sound system untuk acara pernikahan warga desa yang meriah dan sukses.</p>
                         <div class="flex items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                            <a href="document-detail.html?album=2" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
                         </div>
@@ -1229,13 +1229,13 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">10 Mar 2023</span>
+                            <span class="text-gray-500 text-sm">10 Mar 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 6 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Peralatan Sound System</h3>
                         <p class="text-gray-600 mb-6">Peralatan sound system lengkap untuk berbagai acara desa dan hajatan dengan kualitas terbaik.</p>
                         <div class="flex items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                            <a href="document-detail.html?album=3" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
                         </div>
@@ -1259,9 +1259,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary-light to-secondary flex items-center justify-center mr-3">
-                            <span class="text-white font-bold text-lg">BD</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                         <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Maju Jaya</span></span>
                     </div>
                     <p class="text-primary-light mb-6">Badan Usaha Milik Desa yang berfokus pada pengembangan ekonomi desa melalui berbagai unit usaha.</p>
@@ -1350,7 +1348,7 @@
             </div>
 
             <div class="border-t border-primary-light pt-8 text-center text-primary-light">
-                <p>&copy; 2023 BUMDes Maju Jaya. All rights reserved.</p>
+                <p>&copy; 2025 BUMDes Maju Jaya. All rights reserved.</p>
             </div>
         </div>
     </footer>

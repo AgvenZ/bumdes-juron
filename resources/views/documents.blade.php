@@ -796,7 +796,7 @@
     <!-- Dokumentasi Section -->
     <section id="document-list" class="nature-section section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fadeIn">
+            <div class="text-center mb-16 mt-20 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Galeri Dokumentasi</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Kumpulan dokumentasi dari berbagai kegiatan dan unit usaha BUMDes Maju Jaya yang telah berjalan dengan sukses.</p>
             </div>
@@ -813,7 +813,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">15 Jan 2023</span>
+                            <span class="text-gray-500 text-sm">15 Jan 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 12 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Pemasangan Tower Internet</h3>
@@ -822,7 +822,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 24</span>
+
                         </div>
                     </div>
                 </div>
@@ -837,7 +837,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">22 Feb 2023</span>
+                            <span class="text-gray-500 text-sm">22 Feb 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 8 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Acara Pernikahan Desa</h3>
@@ -846,7 +846,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 18</span>
+
                         </div>
                     </div>
                 </div>
@@ -861,7 +861,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">10 Mar 2023</span>
+                            <span class="text-gray-500 text-sm">10 Mar 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 6 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Peralatan Sound System</h3>
@@ -870,7 +870,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 15</span>
+
                         </div>
                     </div>
                 </div>
@@ -885,7 +885,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">5 Apr 2023</span>
+                            <span class="text-gray-500 text-sm">5 Apr 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 15 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Pembukaan Wisata Pemancingan</h3>
@@ -894,7 +894,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 32</span>
+
                         </div>
                     </div>
                 </div>
@@ -909,7 +909,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">18 Mei 2023</span>
+                            <span class="text-gray-500 text-sm">18 Mei 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 10 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Panen Padi Organik</h3>
@@ -918,7 +918,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 28</span>
+
                         </div>
                     </div>
                 </div>
@@ -933,7 +933,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-2">
-                            <span class="text-gray-500 text-sm">2 Jun 2023</span>
+                            <span class="text-gray-500 text-sm">2 Jun 2025</span>
                             <span class="text-gray-500 text-sm"><i class="fas fa-image mr-1"></i> 7 Foto</span>
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Rapat Koordinasi BUMDes</h3>
@@ -942,7 +942,7 @@
                             <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-                            <span class="text-secondary"><i class="fas fa-heart mr-1"></i> 12</span>
+
                         </div>
                     </div>
                 </div>
@@ -1055,7 +1055,7 @@
             </div>
 
             <div class="border-t border-primary-light pt-8 text-center text-primary-light">
-                <p>&copy; 2023 BUMDes Maju Jaya. All rights reserved.</p>
+                <p>&copy; 2025 BUMDes Maju Jaya. All rights reserved.</p>
             </div>
         </div>
     </footer>

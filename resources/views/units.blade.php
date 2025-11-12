@@ -794,7 +794,7 @@
     <!-- Unit Usaha Section -->
     <section id="unit-list" class="nature-section section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fadeIn">
+            <div class="text-center mb-16 mt-20 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Semua Unit Usaha</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Maju Jaya untuk meningkatkan perekonomian masyarakat desa.</p>
             </div>
@@ -1040,7 +1040,7 @@
             </div>
 
             <div class="border-t border-primary-light pt-8 text-center text-primary-light">
-                <p>&copy; 2023 BUMDes Maju Jaya. All rights reserved.</p>
+                <p>&copy; 2025 BUMDes Maju Jaya. All rights reserved.</p>
             </div>
         </div>
     </footer>
