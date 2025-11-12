@@ -959,14 +959,12 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white pt-16 pb-8">
+   <footer class="bg-primary text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary-light to-secondary flex items-center justify-center mr-3">
-                            <span class="text-white font-bold text-lg">BD</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                         <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Maju Jaya</span></span>
                     </div>
                     <p class="text-primary-light mb-6">Badan Usaha Milik Desa yang berfokus pada pengembangan ekonomi desa melalui berbagai unit usaha.</p>

@@ -128,6 +128,30 @@
             box-sizing: border-box;
         }
 
+        /* Tambahkan ini di bagian CSS */
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    background: #20bd5c;
+    color: white;
+}
+
         body {
             font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
@@ -827,11 +851,11 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567891" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
-                            </a>
-                            <span class="text-lg font-bold text-secondary">Rp 150.000/bulan</span>
-                        </div>
+    <a href="https://wa.me/6281234567891" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
+    </a>
+    <span class="text-lg font-bold text-secondary">Rp 150.000/bulan</span>
+</div>
                     </div>
                 </div>
 
@@ -862,11 +886,11 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567892" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
-                            </a>
-                            <span class="text-lg font-bold text-secondary">Mulai Rp 500.000</span>
-                        </div>
+    <a href="https://wa.me/6281234567892" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
+    </a>
+    <span class="text-lg font-bold text-secondary">Mulai Rp 500.000</span>
+</div>
                     </div>
                 </div>
 
@@ -897,11 +921,11 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567893" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
-                            </a>
-                            <span class="text-lg font-bold text-secondary">Rp 25.000/orang</span>
-                        </div>
+    <a href="https://wa.me/6281234567893" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
+    </a>
+    <span class="text-lg font-bold text-secondary">Rp 25.000/orang</span>
+</div>
                     </div>
                 </div>
 
@@ -932,11 +956,11 @@
                         </div>
 
                         <div class="flex justify-between items-center">
-                            <a href="https://wa.me/6281234567894" target="_blank" class="btn-primary inline-flex items-center text-sm py-2 px-4">
-                                <i class="fab fa-whatsapp mr-2"></i> Hubungi
-                            </a>
-                            <span class="text-lg font-bold text-secondary">Harga Kompetitif</span>
-                        </div>
+    <a href="https://wa.me/6281234567894" target="_blank" class="btn-whatsapp">
+        <i class="fab fa-whatsapp mr-2"></i> Hubungi WhatsApp
+    </a>
+    <span class="text-lg font-bold text-secondary">Harga Kompetitif</span>
+</div>
                     </div>
                 </div>
             </div>
@@ -944,14 +968,12 @@
              </section>
 
     <!-- Footer -->
-    <footer class="bg-primary text-white pt-16 pb-8">
+  <footer class="bg-primary text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <div class="h-12 w-12 rounded-full bg-gradient-to-br from-primary-light to-secondary flex items-center justify-center mr-3">
-                            <span class="text-white font-bold text-lg">BD</span>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                         <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Maju Jaya</span></span>
                     </div>
                     <p class="text-primary-light mb-6">Badan Usaha Milik Desa yang berfokus pada pengembangan ekonomi desa melalui berbagai unit usaha.</p>
