@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - BUMDes Juron</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Admin Dashboard - BUMDes Maju Jaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #0f172a;
             --secondary: #1e293b;
             --accent: #10b981;
-            --accent-gradient: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
-            --sidebar-width: 280px;
+            --accent-light: #34d399;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --sidebar-width: 260px;
             --header-height: 70px;
-            --glass-bg: rgba(15, 23, 42, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.05);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --hover-bg: rgba(255, 255, 255, 0.08);
+            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            --accent-gradient: linear-gradient(135deg, #10b981, #3b82f6, #8b5cf6);
         }
 
         * {
@@ -25,43 +34,85 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--primary);
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-gradient);
+            color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Premium Background Effects */
+        .premium-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .premium-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
         }
 
         /* Layout */
         .dashboard-container {
             display: flex;
             min-height: 100vh;
+            position: relative;
+            z-index: 1;
         }
 
         /* Sidebar */
         .sidebar {
             width: var(--sidebar-width);
-            background: var(--secondary);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
             border-right: 1px solid var(--glass-border);
             position: fixed;
             height: 100vh;
             overflow-y: auto;
             transition: all 0.3s ease;
             z-index: 1000;
+            padding: 0 0 2rem 0;
         }
 
         .sidebar-header {
-            padding: 24px;
+            padding: 1.5rem 1.5rem 1rem;
             border-bottom: 1px solid var(--glass-border);
-            text-align: center;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 12px;
-            margin-bottom: 8px;
         }
 
         .logo-icon {
@@ -72,6 +123,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .logo:hover .logo-icon::before {
+            left: 100%;
         }
 
         .logo-text {
@@ -83,34 +152,19 @@
             background-clip: text;
         }
 
-        .admin-info {
-            text-align: center;
-            margin-top: 16px;
-        }
-
-        .admin-name {
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .admin-role {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-        }
-
         .sidebar-menu {
-            padding: 24px 0;
+            padding: 1.5rem 0;
         }
 
         .menu-section {
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
-            padding: 0 24px 12px;
+            padding: 0 1.5rem 0.75rem;
             font-size: 0.75rem;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-secondary);
             letter-spacing: 1px;
         }
 
@@ -119,38 +173,64 @@
         }
 
         .menu-item {
-            margin-bottom: 4px;
+            margin-bottom: 0.25rem;
         }
 
         .menu-link {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 24px;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 0.75rem 1.5rem;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: all 0.3s ease;
             border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .menu-link:hover::before,
+        .menu-link.active::before {
+            left: 100%;
         }
 
         .menu-link:hover, .menu-link.active {
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
+            background: var(--hover-bg);
+            color: var(--text-primary);
             border-left-color: var(--accent);
         }
 
         .menu-link i {
             width: 20px;
             text-align: center;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-link:hover i {
+            transform: scale(1.1);
         }
 
         .menu-badge {
             margin-left: auto;
             background: var(--accent);
             color: white;
-            padding: 2px 8px;
+            padding: 0.25rem 0.5rem;
             border-radius: 12px;
             font-size: 0.75rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
         }
 
         /* Main Content */
@@ -163,13 +243,13 @@
         /* Header */
         .header {
             height: var(--header-height);
-            background: var(--glass-bg);
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 32px;
+            padding: 0 2rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -178,60 +258,253 @@
         .header-left {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 1rem;
+        }
+
+        /* Quick Navigation Styles */
+        .quick-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-nav-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .quick-nav-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.5s;
+        }
+
+        .quick-nav-card:hover::after {
+            left: 100%;
+        }
+
+        .quick-nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent);
+        }
+
+        .quick-nav-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-nav-card:hover .quick-nav-icon {
+            transform: scale(1.1);
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        .quick-nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .quick-nav-desc {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Improved Stats Grid Layout */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transition: left 0.5s;
+        }
+
+        .stat-card:hover::after {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(16, 185, 129, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+            background: rgba(16, 185, 129, 0.2);
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-title {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-change {
+            font-size: 0.75rem;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .stat-change.negative {
+            color: var(--danger);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .quick-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .menu-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--text-primary);
             font-size: 1.25rem;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            transform: scale(1.1);
         }
 
         .page-title {
             font-size: 1.5rem;
             font-weight: 600;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 20px;
-        }
-
-        .header-icon {
-            position: relative;
-            color: rgba(255, 255, 255, 0.7);
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .header-icon:hover {
-            color: white;
-        }
-
-        .notification-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #ef4444;
-            color: white;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            gap: 1.25rem;
         }
 
         .user-menu {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 0.75rem;
             cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        .user-menu:hover {
+            background: var(--hover-bg);
         }
 
         .user-avatar {
@@ -243,99 +516,144 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .user-menu:hover .user-avatar::before {
+            left: 100%;
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .user-role {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            padding: 0.5rem 0;
+            min-width: 180px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+        }
+
+        .user-menu:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dropdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.3s;
+        }
+
+        .dropdown-item:hover::before {
+            left: 100%;
+        }
+
+        .dropdown-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .dropdown-item i {
+            width: 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown-item:hover i {
+            transform: scale(1.1);
         }
 
         /* Content Area */
         .content {
-            padding: 32px;
-        }
-
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .stat-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 24px;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-
-        .stat-header {
-            display: flex;
-            align-items: center;
-            justify-content: between;
-            margin-bottom: 16px;
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: rgba(16, 185, 129, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-        }
-
-        .stat-icon i {
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-
-        .stat-info {
-            flex: 1;
-        }
-
-        .stat-title {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
-            margin-bottom: 4px;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-
-        .stat-change {
-            font-size: 0.875rem;
-            color: #10b981;
-        }
-
-        .stat-change.negative {
-            color: #ef4444;
+            padding: 2rem;
         }
 
         /* Content Sections */
         .content-section {
-            background: var(--glass-bg);
+            background: var(--card-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
-            margin-bottom: 32px;
+            margin-bottom: 2rem;
             overflow: hidden;
+            position: relative;
+        }
+
+        .content-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+            transition: left 0.5s;
+        }
+
+        .content-section:hover::after {
+            left: 100%;
         }
 
         .section-header {
-            padding: 24px;
+            padding: 1.5rem;
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
-            justify-content: between;
+            justify-content: space-between;
         }
 
         .section-title {
@@ -345,19 +663,37 @@
 
         .section-actions {
             display: flex;
-            gap: 12px;
+            gap: 0.75rem;
         }
 
         .btn {
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 10px;
             border: none;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
@@ -366,17 +702,32 @@
         }
 
         .btn-primary:hover {
-            background: #0da271;
+            background: var(--accent-light);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-outline:hover {
+            background: var(--hover-bg);
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         /* Tables */
@@ -391,7 +742,7 @@
 
         .data-table th,
         .data-table td {
-            padding: 16px 24px;
+            padding: 1rem 1.5rem;
             text-align: left;
             border-bottom: 1px solid var(--glass-border);
         }
@@ -399,63 +750,111 @@
         .data-table th {
             background: rgba(255, 255, 255, 0.05);
             font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--text-secondary);
             font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tr {
+            transition: background 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-table tr::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+            transition: left 0.5s;
+        }
+
+        .data-table tr:hover::after {
+            left: 100%;
         }
 
         .data-table tr:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--hover-bg);
         }
 
         .status-badge {
-            padding: 4px 12px;
+            padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.75rem;
-            font-weight: 500;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .status-badge:hover {
+            transform: scale(1.05);
         }
 
         .status-active {
             background: rgba(16, 185, 129, 0.2);
-            color: #10b981;
+            color: var(--accent);
         }
 
         .status-inactive {
             background: rgba(239, 68, 68, 0.2);
-            color: #ef4444;
+            color: var(--danger);
         }
 
         .action-buttons {
             display: flex;
-            gap: 8px;
+            gap: 0.5rem;
         }
 
         .btn-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 6px;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: var(--glass-bg);
+            color: var(--text-primary);
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.3s;
+        }
+
+        .btn-icon:hover::before {
+            left: 100%;
         }
 
         .btn-icon:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--hover-bg);
+            transform: scale(1.05);
         }
 
         .btn-edit:hover {
-            background: #3b82f6;
+            background: var(--info);
+            color: white;
         }
 
         .btn-delete:hover {
-            background: #ef4444;
+            background: var(--danger);
+            color: white;
         }
 
-        /* Modal */
+        /* Modal - PERBAIKAN UTAMA */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -471,6 +870,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            padding: 20px;
         }
 
         .modal-overlay.active {
@@ -479,14 +879,30 @@
         }
 
         .modal {
-            background: var(--secondary);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
             border-radius: 16px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             max-height: 90vh;
-            overflow-y: auto;
+            overflow: hidden;
             transform: translateY(20px);
             transition: transform 0.3s ease;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
         }
 
         .modal-overlay.active .modal {
@@ -494,11 +910,12 @@
         }
 
         .modal-header {
-            padding: 24px;
+            padding: 1.5rem;
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             align-items: center;
-            justify-content: between;
+            justify-content: space-between;
+            flex-shrink: 0;
         }
 
         .modal-title {
@@ -509,32 +926,48 @@
         .modal-close {
             background: none;
             border: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-secondary);
             font-size: 1.25rem;
             cursor: pointer;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+            background: var(--hover-bg);
+            transform: scale(1.1);
         }
 
         .modal-body {
-            padding: 24px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex: 1;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
 
         .form-label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
+            color: var(--text-primary);
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
             border-radius: 8px;
-            color: white;
+            color: var(--text-primary);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -543,22 +976,133 @@
             outline: none;
             border-color: var(--accent);
             background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+            transform: translateY(-2px);
         }
 
         .form-select {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23cbd5e1'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 12px center;
             background-size: 16px;
         }
 
         .modal-footer {
-            padding: 24px;
+            padding: 1.5rem;
             border-top: 1px solid var(--glass-border);
             display: flex;
             justify-content: flex-end;
-            gap: 12px;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        /* Image Preview */
+        .image-preview-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .image-preview:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .remove-image:hover {
+            background: var(--danger);
+            transform: scale(1.1);
+        }
+
+        /* Empty State */
+        .empty-state {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .empty-state p {
+            font-size: 1rem;
+        }
+
+        /* Page Navigation */
+        .page-navigation {
+            display: none;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        @keyframes float-particle {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsive */
@@ -582,11 +1126,11 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 0 16px;
+                padding: 0 1rem;
             }
 
             .content {
-                padding: 16px;
+                padding: 1rem;
             }
 
             .stats-grid {
@@ -595,7 +1139,7 @@
 
             .section-header {
                 flex-direction: column;
-                gap: 16px;
+                gap: 1rem;
                 align-items: flex-start;
             }
 
@@ -603,23 +1147,46 @@
                 width: 100%;
                 justify-content: space-between;
             }
+
+            .user-info {
+                display: none;
+            }
+
+            .modal {
+                width: 95%;
+                max-height: 85vh;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+
+            .modal-footer {
+                padding: 1rem;
+                flex-direction: column;
+            }
+
+            .modal-footer .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Premium Background -->
+    <div class="premium-bg"></div>
+    <div class="floating-particles" id="particles-container"></div>
+
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="logo">
                     <div class="logo-icon">
-                        <i class="fas fa-building"></i>
+                        <i class="fas fa-leaf"></i>
                     </div>
-                    <span class="logo-text">BUMDes Juron</span>
-                </div>
-                <div class="admin-info">
-                    <div class="admin-name">Admin BUMDes</div>
-                    <div class="admin-role">Super Administrator</div>
+                    <span class="logo-text">BUMDes Admin</span>
                 </div>
             </div>
 
@@ -628,101 +1195,35 @@
                     <div class="section-title">Menu Utama</div>
                     <ul class="menu-items">
                         <li class="menu-item">
-                            <a href="#" class="menu-link active">
+                            <a href="#" class="menu-link active" data-page="dashboard">
                                 <i class="fas fa-home"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Analitik</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="menu-section">
-                    <div class="section-title">Manajemen Konten</div>
-                    <ul class="menu-items">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-newspaper"></i>
-                                <span>Artikel & Berita</span>
-                                <span class="menu-badge">12</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-images"></i>
-                                <span>Galeri</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-file-alt"></i>
-                                <span>Halaman</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="menu-section">
-                    <div class="section-title">Unit Usaha</div>
-                    <ul class="menu-items">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
+                            <a href="#" class="menu-link" data-page="units">
                                 <i class="fas fa-store"></i>
-                                <span>Semua Unit</span>
-                                <span class="menu-badge">8</span>
+                                <span>Unit Usaha</span>
+                                <span class="menu-badge" id="unit-count">0</span>
                             </a>
                         </li>
                         <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-tags"></i>
-                                <span>Kategori</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Laporan Keuangan</span>
+                            <a href="#" class="menu-link" data-page="documentations">
+                                <i class="fas fa-images"></i>
+                                <span>Dokumentasi</span>
+                                <span class="menu-badge" id="documentation-count">0</span>
                             </a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="menu-section">
-                    <div class="section-title">Dokumentasi</div>
+                    <div class="section-title">Aksi Cepat</div>
                     <ul class="menu-items">
                         <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-file-pdf"></i>
-                                <span>Laporan Tahunan</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-archive"></i>
-                                <span>Arsip</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="menu-section">
-                    <div class="section-title">Pengaturan</div>
-                    <ul class="menu-items">
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-users-cog"></i>
-                                <span>Pengguna</span>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
-                                <i class="fas fa-cog"></i>
-                                <span>Sistem</span>
+                            <a href="#" class="menu-link" id="view-website">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat Website</span>
                             </a>
                         </li>
                     </ul>
@@ -738,23 +1239,21 @@
                     <button class="menu-toggle" id="menu-toggle">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h1 class="page-title">Dashboard Admin</h1>
+                    <h1 class="page-title" id="page-title">Dashboard</h1>
                 </div>
 
                 <div class="header-right">
-                    <div class="header-icon">
-                        <i class="fas fa-bell"></i>
-                        <span class="notification-badge">3</span>
-                    </div>
-                    <div class="header-icon">
-                        <i class="fas fa-envelope"></i>
-                        <span class="notification-badge">5</span>
-                    </div>
                     <div class="user-menu">
                         <div class="user-avatar">AB</div>
-                        <div>
-                            <div class="admin-name">Admin BUMDes</div>
-                            <div class="admin-role">Super Admin</div>
+                        <div class="user-info">
+                            <div class="user-name">Admin BUMDes</div>
+                            <div class="user-role">Administrator</div>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Keluar</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -762,245 +1261,131 @@
 
             <!-- Content -->
             <div class="content">
-                <!-- Stats Grid -->
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-store"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-title">Total Unit Usaha</div>
-                                <div class="stat-value">8</div>
-                                <div class="stat-change">+2 dari bulan lalu</div>
+               <!-- Dashboard Page -->
+<div class="page active" id="dashboard-page">
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+        <a href="#" class="quick-nav-card" data-page="units">
+            <div class="quick-nav-icon">
+                <i class="fas fa-store"></i>
+            </div>
+            <div class="quick-nav-title">Kelola Unit Usaha</div>
+            <div class="quick-nav-desc">Tambah, edit, atau hapus unit usaha BUMDes</div>
+        </a>
+
+        <a href="#" class="quick-nav-card" data-page="documentations">
+            <div class="quick-nav-icon">
+                <i class="fas fa-images"></i>
+            </div>
+            <div class="quick-nav-title">Kelola Dokumentasi</div>
+            <div class="quick-nav-desc">Kelola dokumentasi kegiatan dan progress usaha</div>
+        </a>
+
+        <a href="#" class="quick-nav-card" id="view-website-quick">
+            <div class="quick-nav-icon">
+                <i class="fas fa-external-link-alt"></i>
+            </div>
+            <div class="quick-nav-title">Lihat Website</div>
+            <div class="quick-nav-desc">Pratinjau website BUMDes untuk pengunjung</div>
+        </a>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-info">
+                    <div class="stat-title">Total Unit Usaha</div>
+                    <div class="stat-value" id="total-units">0</div>
+                    <div class="stat-change">
+                        <i class="fas fa-store"></i>
+                        <span>Semua unit aktif</span>
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-header">
+                <div class="stat-info">
+                    <div class="stat-title">Total Dokumentasi</div>
+                    <div class="stat-value" id="total-documentations">0</div>
+                    <div class="stat-change">
+                        <i class="fas fa-images"></i>
+                        <span>Semua dokumentasi aktif</span>
+                    </div>
+                </div>
+                <div class="stat-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- Units Page -->
+                <div class="page" id="units-page">
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Manajemen Unit Usaha</h2>
+                            <div class="section-actions">
+                                <button class="btn btn-primary" id="add-unit-btn">
+                                    <i class="fas fa-plus"></i> Tambah Unit
+                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-file-alt"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-title">Total Artikel</div>
-                                <div class="stat-value">24</div>
-                                <div class="stat-change">+5 dari minggu lalu</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-title">Pendapatan Bulan Ini</div>
-                                <div class="stat-value">Rp 42,5 Jt</div>
-                                <div class="stat-change">+15% dari bulan lalu</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-info">
-                                <div class="stat-title">Pengunjung Website</div>
-                                <div class="stat-value">1,248</div>
-                                <div class="stat-change">+32% dari minggu lalu</div>
-                            </div>
+                        <div class="table-container">
+                            <table class="data-table" id="unit-table">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Unit</th>
+                                        <th>Jenis Usaha</th>
+                                        <th>Penanggung Jawab</th>
+                                        <th>Harga</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="unit-table-body">
+                                    <!-- Data akan diisi oleh JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Unit Usaha Section -->
-                <div class="content-section">
-                    <div class="section-header">
-                        <h2 class="section-title">Manajemen Unit Usaha</h2>
-                        <div class="section-actions">
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-filter"></i> Filter
-                            </button>
-                            <button class="btn btn-primary" id="add-unit-btn">
-                                <i class="fas fa-plus"></i> Tambah Unit
-                            </button>
+                <!-- Documentations Page -->
+                <div class="page" id="documentations-page">
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Manajemen Dokumentasi</h2>
+                            <div class="section-actions">
+                                <button class="btn btn-primary" id="add-documentation-btn">
+                                    <i class="fas fa-plus"></i> Tambah Dokumentasi
+                                </button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Nama Unit</th>
-                                    <th>Kategori</th>
-                                    <th>Status</th>
-                                    <th>Pendapatan</th>
-                                    <th>Tanggal Dibuat</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Warung Desa</td>
-                                    <td>Retail</td>
-                                    <td><span class="status-badge status-active">Aktif</span></td>
-                                    <td>Rp 8,2 Jt</td>
-                                    <td>15 Mar 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Simpan Pinjam</td>
-                                    <td>Keuangan</td>
-                                    <td><span class="status-badge status-active">Aktif</span></td>
-                                    <td>Rp 12,5 Jt</td>
-                                    <td>10 Feb 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Wisata Alam</td>
-                                    <td>Pariwisata</td>
-                                    <td><span class="status-badge status-inactive">Nonaktif</span></td>
-                                    <td>Rp 3,8 Jt</td>
-                                    <td>05 Jan 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Pengolahan Hasil Bumi</td>
-                                    <td>Produksi</td>
-                                    <td><span class="status-badge status-active">Aktif</span></td>
-                                    <td>Rp 6,9 Jt</td>
-                                    <td>20 Mar 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Artikel Section -->
-                <div class="content-section">
-                    <div class="section-header">
-                        <h2 class="section-title">Manajemen Artikel</h2>
-                        <div class="section-actions">
-                            <button class="btn btn-secondary">
-                                <i class="fas fa-filter"></i> Filter
-                            </button>
-                            <button class="btn btn-primary">
-                                <i class="fas fa-plus"></i> Tambah Artikel
-                            </button>
+                        <div class="table-container">
+                            <table class="data-table" id="documentation-table">
+                                <thead>
+                                    <tr>
+                                        <th>Judul Dokumentasi</th>
+                                        <th>Jenis Usaha</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="documentation-table-body">
+                                    <!-- Data akan diisi oleh JavaScript -->
+                                </tbody>
+                            </table>
                         </div>
-                    </div>
-
-                    <div class="table-container">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Judul Artikel</th>
-                                    <th>Kategori</th>
-                                    <th>Status</th>
-                                    <th>Penulis</th>
-                                    <th>Tanggal</th>
-                                    <th>Dilihat</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Pengembangan Ekonomi Desa Melalui BUMDes</td>
-                                    <td>Ekonomi</td>
-                                    <td><span class="status-badge status-active">Published</span></td>
-                                    <td>Admin</td>
-                                    <td>25 Mar 2024</td>
-                                    <td>142</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Peluncuran Unit Usaha Baru: Warung Desa</td>
-                                    <td>Pengumuman</td>
-                                    <td><span class="status-badge status-active">Published</span></td>
-                                    <td>Admin</td>
-                                    <td>20 Mar 2024</td>
-                                    <td>89</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Laporan Keuangan Triwulan I 2024</td>
-                                    <td>Laporan</td>
-                                    <td><span class="status-badge status-inactive">Draft</span></td>
-                                    <td>Admin</td>
-                                    <td>15 Mar 2024</td>
-                                    <td>0</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn-icon btn-edit">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button class="btn-icon btn-delete">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -1011,34 +1396,54 @@
     <div class="modal-overlay" id="unit-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title">Tambah Unit Usaha Baru</h3>
-                <button class="modal-close" id="close-modal">
+                <h3 class="modal-title" id="unit-modal-title">Tambah Unit Usaha Baru</h3>
+                <button class="modal-close" id="close-unit-modal">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             <div class="modal-body">
                 <form id="unit-form">
+                    <input type="hidden" id="unit-id">
                     <div class="form-group">
                         <label class="form-label">Nama Unit Usaha</label>
-                        <input type="text" class="form-control" placeholder="Masukkan nama unit usaha">
+                        <input type="text" class="form-control" id="unit-name" placeholder="Masukkan nama unit usaha" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Kategori</label>
-                        <select class="form-control form-select">
-                            <option value="">Pilih kategori</option>
-                            <option value="retail">Retail</option>
-                            <option value="keuangan">Keuangan</option>
-                            <option value="pariwisata">Pariwisata</option>
-                            <option value="produksi">Produksi</option>
+                        <label class="form-label">Jenis Usaha</label>
+                        <select class="form-control form-select" id="unit-type" required>
+                            <option value="">Pilih jenis usaha</option>
+                            <option value="Teknologi">Teknologi</option>
+                            <option value="Pariwisata">Pariwisata</option>
+                            <option value="Pertanian">Pertanian</option>
+                            <option value="Perdagangan">Perdagangan</option>
+                            <option value="Jasa">Jasa</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Deskripsi</label>
-                        <textarea class="form-control" rows="3" placeholder="Masukkan deskripsi unit usaha"></textarea>
+                        <textarea class="form-control" id="unit-description" rows="3" placeholder="Masukkan deskripsi unit usaha" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nama Penanggung Jawab</label>
+                        <input type="text" class="form-control" id="unit-responsible" placeholder="Masukkan nama penanggung jawab" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Harga</label>
+                        <input type="text" class="form-control" id="unit-price" placeholder="Masukkan harga (contoh: Rp 150.000/bulan)" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gambar Usaha</label>
+                        <input type="file" class="form-control" id="unit-image" accept="image/*">
+                        <div class="image-preview-container" id="unit-image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gambar Penanggung Jawab</label>
+                        <input type="file" class="form-control" id="unit-responsible-image" accept="image/*">
+                        <div class="image-preview-container" id="unit-responsible-image-preview"></div>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Status</label>
-                        <select class="form-control form-select">
+                        <select class="form-control form-select" id="unit-status" required>
                             <option value="active">Aktif</option>
                             <option value="inactive">Nonaktif</option>
                         </select>
@@ -1046,46 +1451,795 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" id="cancel-modal">Batal</button>
-                <button class="btn btn-primary">Simpan Unit</button>
+                <button class="btn btn-secondary" id="cancel-unit-modal">Batal</button>
+                <button class="btn btn-primary" id="save-unit-btn">
+                    <i class="fas fa-save"></i> Simpan Unit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Dokumentasi -->
+    <div class="modal-overlay" id="documentation-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="documentation-modal-title">Tambah Dokumentasi Baru</h3>
+                <button class="modal-close" id="close-documentation-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="documentation-form">
+                    <input type="hidden" id="documentation-id">
+                    <div class="form-group">
+                        <label class="form-label">Judul Dokumentasi</label>
+                        <input type="text" class="form-control" id="documentation-title" placeholder="Masukkan judul dokumentasi" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Deskripsi</label>
+                        <textarea class="form-control" id="documentation-description" rows="3" placeholder="Masukkan deskripsi dokumentasi" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Jenis Usaha</label>
+                        <select class="form-control form-select" id="documentation-type" required>
+                            <option value="">Pilih jenis usaha</option>
+                            <option value="Teknologi">Teknologi</option>
+                            <option value="Pariwisata">Pariwisata</option>
+                            <option value="Pertanian">Pertanian</option>
+                            <option value="Perdagangan">Perdagangan</option>
+                            <option value="Jasa">Jasa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tanggal Dokumentasi</label>
+                        <input type="date" class="form-control" id="documentation-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Gambar Dokumentasi</label>
+                        <input type="file" class="form-control" id="documentation-image" accept="image/*" multiple>
+                        <div class="image-preview-container" id="documentation-image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control form-select" id="documentation-status" required>
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-documentation-modal">Batal</button>
+                <button class="btn btn-primary" id="save-documentation-btn">
+                    <i class="fas fa-save"></i> Simpan Dokumentasi
+                </button>
             </div>
         </div>
     </div>
 
     <script>
-        // Toggle sidebar on mobile
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        });
+        // Data storage (simulasi database)
+        let units = JSON.parse(localStorage.getItem('bumdes_units')) || [];
+        let documentations = JSON.parse(localStorage.getItem('bumdes_documentations')) || [];
+        let currentEditId = null;
 
-        // Modal functionality
+        // DOM Elements
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        const pageTitle = document.getElementById('page-title');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        // Pages
+        const pages = {
+            dashboard: document.getElementById('dashboard-page'),
+            units: document.getElementById('units-page'),
+            documentations: document.getElementById('documentations-page')
+        };
+
+        // Table Bodies
+        const unitTableBody = document.getElementById('unit-table-body');
+        const documentationTableBody = document.getElementById('documentation-table-body');
+
+        // Stats Elements
+        const totalUnitsElement = document.getElementById('total-units');
+        const totalDocumentationsElement = document.getElementById('total-documentations');
+        const unitCountElement = document.getElementById('unit-count');
+        const documentationCountElement = document.getElementById('documentation-count');
+
+        // Modal Elements
         const unitModal = document.getElementById('unit-modal');
+        const documentationModal = document.getElementById('documentation-modal');
         const addUnitBtn = document.getElementById('add-unit-btn');
-        const closeModal = document.getElementById('close-modal');
-        const cancelModal = document.getElementById('cancel-modal');
+        const addDocumentationBtn = document.getElementById('add-documentation-btn');
+        const closeUnitModal = document.getElementById('close-unit-modal');
+        const closeDocumentationModal = document.getElementById('close-documentation-modal');
+        const cancelUnitModal = document.getElementById('cancel-unit-modal');
+        const cancelDocumentationModal = document.getElementById('cancel-documentation-modal');
+        const saveUnitBtn = document.getElementById('save-unit-btn');
+        const saveDocumentationBtn = document.getElementById('save-documentation-btn');
 
-        function openModal() {
-            unitModal.classList.add('active');
-        }
+        // Form Elements
+        const unitForm = document.getElementById('unit-form');
+        const documentationForm = document.getElementById('documentation-form');
 
-        function closeModalFunc() {
-            unitModal.classList.remove('active');
-        }
+        // Quick Actions
+        const viewWebsite = document.getElementById('view-website');
+        const viewWebsiteQuick = document.getElementById('view-website-quick');
 
-        addUnitBtn.addEventListener('click', openModal);
-        closeModal.addEventListener('click', closeModalFunc);
-        cancelModal.addEventListener('click', closeModalFunc);
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 15;
 
-        // Close modal when clicking outside
-        unitModal.addEventListener('click', function(e) {
-            if (e.target === unitModal) {
-                closeModalFunc();
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random properties
+                const size = Math.random() * 6 + 2;
+                const left = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                const opacity = Math.random() * 0.3 + 0.1;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${left}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                particle.style.opacity = opacity;
+
+                container.appendChild(particle);
             }
-        });
+        }
 
-        // Sample data for demonstration
-        console.log('%c🌾 Dashboard Admin BUMDes Juron', 'color: #10b981; font-size: 16px; font-weight: bold;');
-        console.log('%cSistem manajemen konten dan unit usaha telah dimuat', 'color: #64748b; font-size: 12px;');
+        // Initialize the dashboard
+        function initDashboard() {
+            // Create particles
+            createParticles();
+
+            // Add sample data if empty
+            if (units.length === 0) {
+                units = [
+                    {
+                        id: 'unit_1',
+                        name: 'Internet Desa',
+                        type: 'Teknologi',
+                        description: 'Layanan internet berkecepatan tinggi untuk masyarakat desa',
+                        responsible: 'Budi Santoso',
+                        price: 'Rp 150.000/bulan',
+                        status: 'active',
+                        image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        responsibleImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    },
+                    {
+                        id: 'unit_2',
+                        name: 'Wisata Pemancingan',
+                        type: 'Pariwisata',
+                        description: 'Destinasi wisata alam dengan fasilitas pemancingan',
+                        responsible: 'Rudi Hermawan',
+                        price: 'Rp 25.000/orang',
+                        status: 'active',
+                        image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        responsibleImage: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        createdAt: new Date(Date.now() - 86400000).toISOString(),
+                        updatedAt: new Date(Date.now() - 86400000).toISOString()
+                    }
+                ];
+                localStorage.setItem('bumdes_units', JSON.stringify(units));
+            }
+
+            if (documentations.length === 0) {
+                documentations = [
+                    {
+                        id: 'doc_1',
+                        title: 'Pemasangan Tower Internet',
+                        description: 'Proses pemasangan tower internet untuk menjangkau seluruh wilayah desa',
+                        type: 'Teknologi',
+                        date: '2025-01-15',
+                        status: 'active',
+                        images: [
+                            'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60'
+                        ],
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    }
+                ];
+                localStorage.setItem('bumdes_documentations', JSON.stringify(documentations));
+            }
+
+            updateStats();
+            renderUnitTable();
+            renderDocumentationTable();
+
+            // Event Listeners
+            menuToggle.addEventListener('click', toggleSidebar);
+
+            // Navigation
+            document.querySelectorAll('.menu-link[data-page]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = e.target.closest('.menu-link').getAttribute('data-page');
+                    navigateToPage(page);
+                });
+            });
+
+            // Quick Navigation
+            document.querySelectorAll('.quick-nav-card[data-page]').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const page = card.getAttribute('data-page');
+                    navigateToPage(page);
+                });
+            });
+
+            // Quick Actions
+            viewWebsite.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('index.html', '_blank');
+            });
+
+            viewWebsiteQuick.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('index.html', '_blank');
+            });
+
+            // Modal Actions
+            addUnitBtn.addEventListener('click', () => openModal('unit', 'add'));
+            addDocumentationBtn.addEventListener('click', () => openModal('documentation', 'add'));
+            closeUnitModal.addEventListener('click', () => closeModal('unit'));
+            closeDocumentationModal.addEventListener('click', () => closeModal('documentation'));
+            cancelUnitModal.addEventListener('click', () => closeModal('unit'));
+            cancelDocumentationModal.addEventListener('click', () => closeModal('documentation'));
+            saveUnitBtn.addEventListener('click', saveUnit);
+            saveDocumentationBtn.addEventListener('click', saveDocumentation);
+
+            // Image preview handlers
+            document.getElementById('unit-image').addEventListener('change', handleImagePreview);
+            document.getElementById('unit-responsible-image').addEventListener('change', handleImagePreview);
+            document.getElementById('documentation-image').addEventListener('change', handleDocumentationImagePreview);
+
+            // Logout
+            logoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (confirm('Apakah Anda yakin ingin keluar?')) {
+                    showNotification('Anda telah berhasil keluar', 'success');
+                    setTimeout(() => {
+                        // Redirect to login page in a real application
+                        window.location.href = 'login.html';
+                    }, 1500);
+                }
+            });
+
+            // Console welcome message
+            console.log('%c🌾 BUMDes Dashboard Premium', 'color: #10b981; font-size: 16px; font-weight: bold;');
+            console.log('%cSistem administrasi dengan animasi premium!', 'color: #64748b; font-size: 12px;');
+        }
+
+        // Navigate to page
+        function navigateToPage(page) {
+            // Update active menu
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.menu-link[data-page="${page}"]`).classList.add('active');
+
+            // Update page title
+            const titles = {
+                dashboard: 'Dashboard',
+                units: 'Unit Usaha',
+                documentations: 'Dokumentasi'
+            };
+            pageTitle.textContent = titles[page];
+
+            // Show/hide pages
+            Object.values(pages).forEach(p => p.classList.remove('active'));
+            pages[page].classList.add('active');
+
+            // Close sidebar on mobile
+            if (window.innerWidth <= 1024) {
+                sidebar.classList.remove('active');
+            }
+        }
+
+        // Toggle sidebar on mobile
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+        }
+
+        // Update statistics
+        function updateStats() {
+            totalUnitsElement.textContent = units.length;
+            totalDocumentationsElement.textContent = documentations.length;
+            unitCountElement.textContent = units.length;
+            documentationCountElement.textContent = documentations.length;
+        }
+
+        // Render unit table
+        function renderUnitTable() {
+            unitTableBody.innerHTML = '';
+
+            if (units.length === 0) {
+                unitTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="empty-state">
+                            <i class="fas fa-store"></i>
+                            <p>Belum ada unit usaha. Klik "Tambah Unit" untuk menambahkan.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            units.forEach(unit => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            ${unit.image ? `<img src="${unit.image}" alt="${unit.name}" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">` : '<div style="width: 40px; height: 40px; border-radius: 8px; background: var(--glass-bg); display: flex; align-items: center; justify-content: center;"><i class="fas fa-store"></i></div>'}
+                            <div>
+                                <div style="font-weight: 600;">${unit.name}</div>
+                                <div style="font-size: 0.875rem; color: var(--text-secondary);">${unit.type}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${unit.type}</td>
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            ${unit.responsibleImage ? `<img src="${unit.responsibleImage}" alt="${unit.responsible}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">` : '<div style="width: 32px; height: 32px; border-radius: 50%; background: var(--glass-bg); display: flex; align-items: center; justify-content: center; font-size: 0.8rem;"><i class="fas fa-user"></i></div>'}
+                            <span>${unit.responsible}</span>
+                        </div>
+                    </td>
+                    <td>${unit.price}</td>
+                    <td><span class="status-badge ${unit.status === 'active' ? 'status-active' : 'status-inactive'}">${unit.status === 'active' ? 'Aktif' : 'Nonaktif'}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-edit" onclick="editUnit('${unit.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon btn-delete" onclick="deleteUnit('${unit.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                unitTableBody.appendChild(row);
+            });
+        }
+
+        // Render documentation table
+        function renderDocumentationTable() {
+            documentationTableBody.innerHTML = '';
+
+            if (documentations.length === 0) {
+                documentationTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" class="empty-state">
+                            <i class="fas fa-images"></i>
+                            <p>Belum ada dokumentasi. Klik "Tambah Dokumentasi" untuk menambahkan.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            documentations.forEach(doc => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            ${doc.images && doc.images.length > 0 ? `<img src="${doc.images[0]}" alt="${doc.title}" style="width: 40px; height: 40px; border-radius: 8px; object-fit: cover;">` : '<div style="width: 40px; height: 40px; border-radius: 8px; background: var(--glass-bg); display: flex; align-items: center; justify-content: center;"><i class="fas fa-image"></i></div>'}
+                            <div>
+                                <div style="font-weight: 600;">${doc.title}</div>
+                                <div style="font-size: 0.875rem; color: var(--text-secondary);">${truncateText(doc.description, 50)}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>${doc.type}</td>
+                    <td>${formatDate(doc.date)}</td>
+                    <td><span class="status-badge ${doc.status === 'active' ? 'status-active' : 'status-inactive'}">${doc.status === 'active' ? 'Aktif' : 'Nonaktif'}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-edit" onclick="editDocumentation('${doc.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon btn-delete" onclick="deleteDocumentation('${doc.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                documentationTableBody.appendChild(row);
+            });
+        }
+
+        // Open modal for adding/editing
+        function openModal(type, action, id = null) {
+            currentEditId = id;
+
+            if (type === 'unit') {
+                const modalTitle = document.getElementById('unit-modal-title');
+
+                if (action === 'add') {
+                    modalTitle.textContent = 'Tambah Unit Usaha Baru';
+                    resetUnitForm();
+                } else if (action === 'edit') {
+                    modalTitle.textContent = 'Edit Unit Usaha';
+                    const unit = units.find(u => u.id === id);
+                    if (unit) {
+                        fillUnitForm(unit);
+                    }
+                }
+
+                unitModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            } else if (type === 'documentation') {
+                const modalTitle = document.getElementById('documentation-modal-title');
+
+                if (action === 'add') {
+                    modalTitle.textContent = 'Tambah Dokumentasi Baru';
+                    resetDocumentationForm();
+                } else if (action === 'edit') {
+                    modalTitle.textContent = 'Edit Dokumentasi';
+                    const doc = documentations.find(d => d.id === id);
+                    if (doc) {
+                        fillDocumentationForm(doc);
+                    }
+                }
+
+                documentationModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            }
+        }
+
+        // Close modal
+        function closeModal(type) {
+            if (type === 'unit') {
+                unitModal.classList.remove('active');
+            } else if (type === 'documentation') {
+                documentationModal.classList.remove('active');
+            }
+            currentEditId = null;
+            document.body.style.overflow = ''; // Restore background scroll
+        }
+
+        // Reset unit form
+        function resetUnitForm() {
+            unitForm.reset();
+            document.getElementById('unit-id').value = '';
+            document.getElementById('unit-image-preview').innerHTML = '';
+            document.getElementById('unit-responsible-image-preview').innerHTML = '';
+        }
+
+        // Reset documentation form
+        function resetDocumentationForm() {
+            documentationForm.reset();
+            document.getElementById('documentation-id').value = '';
+            document.getElementById('documentation-image-preview').innerHTML = '';
+        }
+
+        // Fill unit form for editing
+        function fillUnitForm(unit) {
+            document.getElementById('unit-id').value = unit.id;
+            document.getElementById('unit-name').value = unit.name;
+            document.getElementById('unit-type').value = unit.type;
+            document.getElementById('unit-description').value = unit.description;
+            document.getElementById('unit-responsible').value = unit.responsible;
+            document.getElementById('unit-price').value = unit.price;
+            document.getElementById('unit-status').value = unit.status;
+
+            // Set image previews if available
+            if (unit.image) {
+                document.getElementById('unit-image-preview').innerHTML = `
+                    <div class="image-preview">
+                        <img src="${unit.image}" alt="Preview">
+                        <button type="button" class="remove-image" onclick="removeImagePreview(this, 'unit-image')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            }
+
+            if (unit.responsibleImage) {
+                document.getElementById('unit-responsible-image-preview').innerHTML = `
+                    <div class="image-preview">
+                        <img src="${unit.responsibleImage}" alt="Preview">
+                        <button type="button" class="remove-image" onclick="removeImagePreview(this, 'unit-responsible-image')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Fill documentation form for editing
+        function fillDocumentationForm(doc) {
+            document.getElementById('documentation-id').value = doc.id;
+            document.getElementById('documentation-title').value = doc.title;
+            document.getElementById('documentation-description').value = doc.description;
+            document.getElementById('documentation-type').value = doc.type;
+            document.getElementById('documentation-date').value = doc.date;
+            document.getElementById('documentation-status').value = doc.status;
+
+            // Set image previews if available
+            if (doc.images && doc.images.length > 0) {
+                const previewContainer = document.getElementById('documentation-image-preview');
+                previewContainer.innerHTML = '';
+                doc.images.forEach((image, index) => {
+                    previewContainer.innerHTML += `
+                        <div class="image-preview">
+                            <img src="${image}" alt="Preview ${index + 1}">
+                            <button type="button" class="remove-image" onclick="removeDocumentationImagePreview(this, ${index})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Handle image preview for unit forms
+        function handleImagePreview(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewContainer = event.target.id === 'unit-image'
+                    ? document.getElementById('unit-image-preview')
+                    : document.getElementById('unit-responsible-image-preview');
+
+                previewContainer.innerHTML = `
+                    <div class="image-preview">
+                        <img src="${e.target.result}" alt="Preview">
+                        <button type="button" class="remove-image" onclick="removeImagePreview(this, '${event.target.id}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Handle image preview for documentation (multiple images)
+        function handleDocumentationImagePreview(event) {
+            const files = event.target.files;
+            if (!files || files.length === 0) return;
+
+            const previewContainer = document.getElementById('documentation-image-preview');
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    previewContainer.innerHTML += `
+                        <div class="image-preview">
+                            <img src="${e.target.result}" alt="Preview ${i + 1}">
+                            <button type="button" class="remove-image" onclick="removeDocumentationImagePreview(this, ${i})">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Remove image preview for unit forms
+        function removeImagePreview(button, inputId) {
+            const previewContainer = button.closest('.image-preview-container');
+            previewContainer.innerHTML = '';
+
+            // Also clear the file input
+            document.getElementById(inputId).value = '';
+        }
+
+        // Remove image preview for documentation
+        function removeDocumentationImagePreview(button, index) {
+            button.closest('.image-preview').remove();
+            // In a real app, you would update the files array
+        }
+
+        // Save unit
+        function saveUnit() {
+            const id = document.getElementById('unit-id').value;
+            const name = document.getElementById('unit-name').value;
+            const type = document.getElementById('unit-type').value;
+            const description = document.getElementById('unit-description').value;
+            const responsible = document.getElementById('unit-responsible').value;
+            const price = document.getElementById('unit-price').value;
+            const status = document.getElementById('unit-status').value;
+
+            // Validation
+            if (!name || !type || !description || !responsible || !price) {
+                showNotification('Harap isi semua field yang diperlukan!', 'error');
+                return;
+            }
+
+            // Get image data (in a real app, you would upload to server)
+            const unitImage = document.getElementById('unit-image-preview').querySelector('img');
+            const responsibleImage = document.getElementById('unit-responsible-image-preview').querySelector('img');
+
+            const unitData = {
+                id: id || generateId(),
+                name,
+                type,
+                description,
+                responsible,
+                price,
+                status,
+                image: unitImage ? unitImage.src : null,
+                responsibleImage: responsibleImage ? responsibleImage.src : null,
+                createdAt: id ? units.find(u => u.id === id).createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            if (id) {
+                // Update existing unit
+                const index = units.findIndex(u => u.id === id);
+                if (index !== -1) {
+                    units[index] = unitData;
+                }
+            } else {
+                // Add new unit
+                units.push(unitData);
+            }
+
+            // Save to localStorage (simulate database)
+            localStorage.setItem('bumdes_units', JSON.stringify(units));
+
+            // Update UI
+            updateStats();
+            renderUnitTable();
+            closeModal('unit');
+
+            // Show success message
+            showNotification('Unit usaha berhasil disimpan!', 'success');
+        }
+
+        // Save documentation
+        function saveDocumentation() {
+            const id = document.getElementById('documentation-id').value;
+            const title = document.getElementById('documentation-title').value;
+            const description = document.getElementById('documentation-description').value;
+            const type = document.getElementById('documentation-type').value;
+            const date = document.getElementById('documentation-date').value;
+            const status = document.getElementById('documentation-status').value;
+
+            // Validation
+            if (!title || !description || !type || !date) {
+                showNotification('Harap isi semua field yang diperlukan!', 'error');
+                return;
+            }
+
+            // Get image data (in a real app, you would upload to server)
+            const previewContainer = document.getElementById('documentation-image-preview');
+            const imageElements = previewContainer.querySelectorAll('img');
+            const images = Array.from(imageElements).map(img => img.src);
+
+            const docData = {
+                id: id || generateId(),
+                title,
+                description,
+                type,
+                date,
+                status,
+                images: images,
+                createdAt: id ? documentations.find(d => d.id === id).createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            if (id) {
+                // Update existing documentation
+                const index = documentations.findIndex(d => d.id === id);
+                if (index !== -1) {
+                    documentations[index] = docData;
+                }
+            } else {
+                // Add new documentation
+                documentations.push(docData);
+            }
+
+            // Save to localStorage (simulate database)
+            localStorage.setItem('bumdes_documentations', JSON.stringify(documentations));
+
+            // Update UI
+            updateStats();
+            renderDocumentationTable();
+            closeModal('documentation');
+
+            // Show success message
+            showNotification('Dokumentasi berhasil disimpan!', 'success');
+        }
+
+        // Edit unit
+        function editUnit(id) {
+            openModal('unit', 'edit', id);
+        }
+
+        // Edit documentation
+        function editDocumentation(id) {
+            openModal('documentation', 'edit', id);
+        }
+
+        // Delete unit
+        function deleteUnit(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus unit usaha ini?')) {
+                units = units.filter(u => u.id !== id);
+                localStorage.setItem('bumdes_units', JSON.stringify(units));
+                updateStats();
+                renderUnitTable();
+                showNotification('Unit usaha berhasil dihapus!', 'success');
+            }
+        }
+
+        // Delete documentation
+        function deleteDocumentation(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus dokumentasi ini?')) {
+                documentations = documentations.filter(d => d.id !== id);
+                localStorage.setItem('bumdes_documentations', JSON.stringify(documentations));
+                updateStats();
+                renderDocumentationTable();
+                showNotification('Dokumentasi berhasil dihapus!', 'success');
+            }
+        }
+
+        // Utility functions
+        function generateId() {
+            return 'id_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('id-ID', options);
+        }
+
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substr(0, maxLength) + '...';
+        }
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 16px 24px;
+                background: ${type === 'success' ? 'var(--accent)' : type === 'error' ? 'var(--danger)' : 'var(--info)'};
+                color: white;
+                border-radius: 10px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                z-index: 3000;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                font-weight: 500;
+                backdrop-filter: blur(10px);
+            `;
+            notification.textContent = message;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize the dashboard when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initDashboard);
     </script>
 </body>
 </html>

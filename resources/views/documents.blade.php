@@ -167,34 +167,48 @@
         }
 
         .card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Tambahkan ini */
+    isolation: isolate;
+}
 
-        .card-hover::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
+.card-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1; /* Tetap z-index: 1 tapi dengan perbaikan struktur */
+    pointer-events: none; /* TAMBAHKAN INI - biarkan klik tembus */
+}
 
-        .card-hover:hover::before {
-            opacity: 1;
-        }
+.card-hover:hover::before {
+    opacity: 1;
+}
 
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
+/* TAMBAHKAN CLASS BARU INI */
+.document-item {
+    position: relative;
+}
+
+.document-item .btn-primary {
+    position: relative;
+    z-index: 10; /* Pastikan tombol di atas overlay */
+}
+
+/* Atau alternatif lebih sederhana */
+.card-content {
+    position: relative;
+    z-index: 2;
+}
 
         .floating {
             animation: float 6s ease-in-out infinite;
@@ -759,13 +773,10 @@
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
+     <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="logo-glow h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
-                    <span class="text-white font-bold text-lg">BD</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                 <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
             </div>
 
@@ -818,11 +829,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Pemasangan Tower Internet</h3>
                         <p class="text-gray-600 mb-6">Proses pemasangan tower internet untuk menjangkau seluruh wilayah desa dengan koneksi stabil dan cepat.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                          <div class="flex items-center">
+                            <a href="document-detail.html?album=1" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -842,11 +852,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Acara Pernikahan Desa</h3>
                         <p class="text-gray-600 mb-6">Penyewaan tenda kajang dan sound system untuk acara pernikahan warga desa yang meriah dan sukses.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                          <div class="flex items-center">
+                            <a href="document-detail.html?album=2" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -866,11 +875,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Peralatan Sound System</h3>
                         <p class="text-gray-600 mb-6">Peralatan sound system lengkap untuk berbagai acara desa dan hajatan dengan kualitas terbaik.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                         <div class="flex items-center">
+                            <a href="document-detail.html?album=3" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -890,11 +898,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Pembukaan Wisata Pemancingan</h3>
                         <p class="text-gray-600 mb-6">Peresmian dan pembukaan wisata pemancingan desa yang dihadiri oleh masyarakat dan pejabat setempat.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                         <div class="flex items-center">
+                            <a href="document-detail.html?album=4" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -914,11 +921,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Panen Padi Organik</h3>
                         <p class="text-gray-600 mb-6">Kegiatan panen padi organik hasil budidaya BUMDes yang melibatkan partisipasi masyarakat desa.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                         <div class="flex items-center">
+                            <a href="document-detail.html?album=5" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -938,11 +944,10 @@
                         </div>
                         <h3 class="text-xl font-bold text-primary mb-3">Rapat Koordinasi BUMDes</h3>
                         <p class="text-gray-600 mb-6">Rapat koordinasi pengurus BUMDes untuk membahas perkembangan unit usaha dan rencana ke depan.</p>
-                        <div class="flex justify-between items-center">
-                            <a href="#" class="btn-primary inline-flex items-center text-sm py-2 px-4">
+                         <div class="flex items-center">
+                            <a href="document-detail.html?album=6" class="btn-primary inline-flex items-center text-sm py-2 px-4">
                                 <i class="fas fa-eye mr-2"></i> Lihat Album
                             </a>
-
                         </div>
                     </div>
                 </div>

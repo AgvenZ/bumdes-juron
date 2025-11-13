@@ -143,6 +143,8 @@
     border: none;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
+    z-index: 10;
 }
 
 .btn-whatsapp:hover {
@@ -783,13 +785,10 @@
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
+     <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="logo-glow h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
-                    <span class="text-white font-bold text-lg">BD</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
                 <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
             </div>
 

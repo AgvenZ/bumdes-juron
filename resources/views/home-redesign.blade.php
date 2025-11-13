@@ -276,6 +276,31 @@
             cursor: pointer;
         }
 
+        /* Perbaikan untuk card dokumentasi agar tombol bisa diklik */
+.document-item {
+    position: relative;
+    z-index: 1;
+}
+
+.document-item .btn-primary {
+    position: relative;
+    z-index: 10;
+}
+
+/* Pastikan card-hover tidak menutupi tombol */
+.card-hover {
+    position: relative;
+}
+
+.card-hover::before {
+    z-index: 1;
+}
+
+.card-hover > *:not(::before) {
+    position: relative;
+    z-index: 2;
+}
+
         .btn-secondary:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
@@ -708,6 +733,8 @@
             border: none;
             cursor: pointer;
             text-decoration: none;
+            position: relative;
+    z-index: 10;
         }
 
         .btn-whatsapp:hover {
@@ -1000,7 +1027,7 @@
 
                         <div class="flex flex-col sm:flex-row gap-4">
                             <a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp">
-                                <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi via WhatsApp
+                                <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
                             </a>
                             <a href="#" class="btn-outline inline-flex items-center justify-center">
                                 <i class="fas fa-envelope mr-2"></i> Kirim Email
