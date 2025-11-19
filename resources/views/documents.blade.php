@@ -751,7 +751,6 @@
 
         <div class="flex flex-col space-y-6">
             <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Beranda</a>
-            <a href="index.html#sk" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">SK Kemenkumham</a>
             <a href="index.html#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Struktur Organisasi</a>
             <a href="index.html#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Direktur</a>
             <a href="units.html" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Unit Usaha</a>
@@ -782,7 +781,6 @@
 
             <div class="hidden md:flex space-x-8">
                 <a href="index.html" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Beranda</a>
-                <a href="index.html#sk" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">SK Kemenkumham</a>
                 <a href="index.html#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Struktur Organisasi</a>
                 <a href="index.html#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Direktur</a>
                 <a href="units.html" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Unit Usaha</a>
@@ -994,9 +992,6 @@
                     <ul class="space-y-3">
                         <li><a href="index.html" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Beranda
-                        </a></li>
-                        <li><a href="index.html#sk" class="text-primary-light hover:text-white transition-colors flex items-center group">
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenkumham
                         </a></li>
                         <li><a href="index.html#struktur" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Struktur Organisasi

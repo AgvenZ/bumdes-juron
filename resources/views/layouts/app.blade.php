@@ -128,11 +128,6 @@
                                 <i class="fas fa-file-alt mr-2"></i>Dokumentasi
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('home') }}#sk-kemenkumham" class="px-4 py-2 rounded-xl font-medium village-transition hover:bg-village-green-100 hover:text-village-green-700 {{ request()->routeIs('home') ? 'bg-village-green-100 text-village-green-700 shadow-sm' : 'text-gray-700' }}">
-                                <i class="fas fa-certificate mr-2"></i>Legalitas
-                            </a>
-                        </li>
                     </ul>
                 </nav>
 

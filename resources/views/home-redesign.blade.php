@@ -790,7 +790,6 @@
 
         <div class="flex flex-col space-y-6">
             <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link active">Beranda</a>
-            <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">SK Direktur</a>
             <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Struktur Organisasi</a>
             <a href="#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Direktur</a>
             <a href="#usaha" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Unit Usaha</a>
@@ -822,7 +821,6 @@
 
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Beranda</a>
-                <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">SK Direktur</a>
                 <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Struktur Organisasi</a>
                 <a href="#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Direktur</a>
                 <a href="#usaha" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Unit Usaha</a>
@@ -872,64 +870,9 @@
         </div>
     </section>
 
-    <!-- SK Direktur Section -->
-    <section id="sk" class="nature-section section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fadeIn">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">SK Direktur</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Badan Usaha Milik Desa (BUMDes) Gemah Ripah memiliki dasar hukum yang jelas melalui Surat Keputusan Direktur yang mengatur pengelolaan serta penetapan pegawai di lingkungan BUMDes.</p>
-            </div>
 
-            <div class="bg-white rounded-2xl shadow-xl p-8 max-w-5xl mx-auto animate-slideInUp overflow-hidden relative">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-light to-primary transform translate-x-16 -translate-y-16 rounded-full opacity-10"></div>
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-2/5 mb-8 md:mb-0 flex justify-center">
-                        <div class="flip-card h-64 w-64">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center w-full h-full flex flex-col items-center justify-center shadow-lg">
-                                    <i class="fas fa-file-alt text-6xl mb-6"></i>
-                                    <p class="font-bold text-xl">SK Direktur</p>
-                                    <p class="text-primary-light mt-2">Nomor: 01/VIII/2024</p>
-                                </div>
-                                <div class="flip-card-back">
-                                    <i class="fas fa-award text-4xl mb-4"></i>
-                                    <p class="font-bold text-lg">Legalitas Terjamin</p>
-                                    <p class="text-sm mt-2">Terdaftar resmi di Kemenkumham</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:w-3/5 md:pl-12">
-                        <h3 class="text-3xl font-bold text-primary mb-6 font-heading">Surat Keputusan Direktur BUMDes</h3>
-                        <p class="text-gray-600 text-lg leading-relaxed">
-  SK ini diterbitkan sebagai tindak lanjut dari:<br>
-  Keputusan Kepala Desa Juron Nomor 144/9/VIII/2024 tentang Penetapan Pengelola BUM Desa Gemah Ripah.
-</p>
-<br>
-                        <ul class="text-gray-600 mb-8 space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
-                                <span>Terdaftar secara resmi di Kemenkumham</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
-                                <span>Memiliki legalitas hukum yang kuat</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
-                                <span>Diakui oleh pemerintah daerah</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://docs.google.com/document/d/1JV6xk35VyzNRhK6w0c2HxVaIfwBcXsgi/edit?usp=sharing&ouid=105594316259287058785&rtpof=true&sd=true" target="_blank" class="btn-primary inline-flex items-center justify-center">
-                                <i class="fas fa-download mr-2"></i> Lihat SK
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
 
     <!-- Struktur Organisasi Section -->
     <section id="struktur" class="nature-section section-padding">
@@ -1016,7 +959,7 @@
                     <div class="md:w-3/5 p-8 md:p-12">
                         <div class="mb-6">
                             <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
-                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai direktur BUMDes Gemah Ripah, Anik Rubiyah memiliki visi untuk mengembangkan potensi ekonomi desa melalui pengelolaan usaha yang profesional dan berkelanjutan. Dengan latar belakang pendidikan ekonomi dan pengalaman selama 5 tahun di bidang pengembangan usaha desa, beliau berkomitmen untuk membawa BUMDes Gemah Ripah menjadi pelopor ekonomi desa di wilayahnya.</p>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
                         </div>
 
                         <div class="flex items-center mb-8 p-4 bg-light rounded-xl">
@@ -1033,9 +976,7 @@
                             <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp">
                                 <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
                             </a>
-                            <a href="#" class="btn-outline inline-flex items-center justify-center">
-                                <i class="fas fa-envelope mr-2"></i> Kirim Email
-                            </a>
+
                         </div>
                     </div>
                 </div>
@@ -1316,9 +1257,7 @@
                         <li><a href="#home" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Beranda
                         </a></li>
-                        <li><a href="#sk" class="text-primary-light hover:text-white transition-colors flex items-center group">
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Direktur
-                        </a></li>
+
                         <li><a href="#struktur" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Struktur Organisasi
                         </a></li>

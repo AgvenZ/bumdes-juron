@@ -13,7 +13,6 @@
                 <a href="#struktur" class="text-gray-700 hover:text-primary font-semibold transition-colors duration-300">Struktur Organisasi</a>
                 <a href="#unit" class="text-gray-700 hover:text-primary font-semibold transition-colors duration-300">Unit Usaha</a>
                 <a href="#dokumentasi" class="text-gray-700 hover:text-primary font-semibold transition-colors duration-300">Dokumentasi</a>
-                <a href="#sk-kemenkumham" class="text-gray-700 hover:text-primary font-semibold transition-colors duration-300">Legalitas</a>
             </div>
 
             <!-- Mobile Menu Button -->
@@ -29,7 +28,6 @@
                     <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors duration-300">Struktur Organisasi</a>
                     <a href="#unit" class="text-gray-700 hover:text-primary font-medium transition-colors duration-300">Unit Usaha</a>
                     <a href="#dokumentasi" class="text-gray-700 hover:text-primary font-medium transition-colors duration-300">Dokumentasi</a>
-                    <a href="#sk-kemenkumham" class="text-gray-700 hover:text-primary font-medium transition-colors duration-300">Legalitas</a>
                 </div>
             </div>
     </div>
