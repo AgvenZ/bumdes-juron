@@ -140,6 +140,14 @@
             z-index: 1;
         }
 
+        .logo-img {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
+        }
+
         .title {
             font-size: 2rem;
             font-weight: 700;
@@ -521,7 +529,7 @@
             <!-- Header Section -->
             <div class="login-header">
                 <div class="logo-container">
-                    <i class="fas fa-building"></i>
+                    <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="logo-img">
                 </div>
                 <h1 class="title">Admin Login</h1>
                 <p class="subtitle">Masuk ke sistem manajemen BUMDes</p>

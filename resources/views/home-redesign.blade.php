@@ -780,8 +780,8 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="flex justify-between items-center mb-8">
             <div class="flex items-center">
-                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-10 w-10 rounded-full object-cover mr-3">
-                <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
+                <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-10 w-10 rounded-full object-cover mr-3">
+                <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Gemah Ripah</span></span>
             </div>
             <button id="closeMenu" class="text-gray-700">
                 <i class="fas fa-times text-xl"></i>
@@ -790,7 +790,7 @@
 
         <div class="flex flex-col space-y-6">
             <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link active">Beranda</a>
-            <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">SK Kemenkumham</a>
+            <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">SK Direktur</a>
             <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Struktur Organisasi</a>
             <a href="#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Direktur</a>
             <a href="#usaha" class="text-gray-700 hover:text-primary font-medium transition-colors text-lg py-2 nav-link">Unit Usaha</a>
@@ -813,16 +813,16 @@
     </div>
 
     <!-- Navbar -->
-    <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
+    <nav id="navbar" class="sticky-nav scroll-up py-4 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
-                <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
+                <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-contain mr-3">
+                <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Gemah Ripah</span></span>
             </div>
 
             <div class="hidden md:flex space-x-8">
                 <a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Beranda</a>
-                <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">SK Kemenkumham</a>
+                <a href="#sk" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">SK Direktur</a>
                 <a href="#struktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Struktur Organisasi</a>
                 <a href="#direktur" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Direktur</a>
                 <a href="#usaha" class="text-gray-700 hover:text-primary font-medium transition-colors nav-link">Unit Usaha</a>
@@ -842,8 +842,8 @@
 
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="animate-bounceIn">
-                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-40 w-40 rounded-full object-cover mx-auto mb-8 shadow-2xl">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 font-heading">BUMDes <span class="gold-accent">Maju Jaya</span></h1>
+                <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-40 w-40 object-contain mx-auto mb-8">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 font-heading">BUMDes <span class="gold-accent">Gemah Ripah</span></h1>
                 <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">Membangun Ekonomi Desa Melalui <span class="font-semibold gold-accent">Inovasi</span> dan <span class="font-semibold gold-accent">Kolaborasi</span></p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <a href="#sk" class="btn-secondary inline-flex items-center justify-center">
@@ -872,12 +872,12 @@
         </div>
     </section>
 
-    <!-- SK Kemenham Section -->
+    <!-- SK Direktur Section -->
     <section id="sk" class="nature-section section-padding">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">SK Kemenkumham</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Badan Usaha Milik Desa (BUMDes) Maju Jaya telah terdaftar resmi dengan Surat Keputusan dari Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">SK Direktur</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Badan Usaha Milik Desa (BUMDes) Gemah Ripah memiliki dasar hukum yang jelas melalui Surat Keputusan Direktur yang mengatur pengelolaan serta penetapan pegawai di lingkungan BUMDes.</p>
             </div>
 
             <div class="bg-white rounded-2xl shadow-xl p-8 max-w-5xl mx-auto animate-slideInUp overflow-hidden relative">
@@ -888,8 +888,8 @@
                             <div class="flip-card-inner">
                                 <div class="flip-card-front bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center w-full h-full flex flex-col items-center justify-center shadow-lg">
                                     <i class="fas fa-file-alt text-6xl mb-6"></i>
-                                    <p class="font-bold text-xl">SK BUMDes</p>
-                                    <p class="text-primary-light mt-2">No. 123/AB/XII/2025</p>
+                                    <p class="font-bold text-xl">SK Direktur</p>
+                                    <p class="text-primary-light mt-2">Nomor: 01/VIII/2024</p>
                                 </div>
                                 <div class="flip-card-back">
                                     <i class="fas fa-award text-4xl mb-4"></i>
@@ -900,8 +900,12 @@
                         </div>
                     </div>
                     <div class="md:w-3/5 md:pl-12">
-                        <h3 class="text-3xl font-bold text-primary mb-6 font-heading">Surat Keputusan Pendirian BUMDes</h3>
-                        <p class="text-gray-600 mb-6 text-lg leading-relaxed">BUMDes Maju Jaya telah resmi didirikan berdasarkan Surat Keputusan Kemenkumham No. 123/AB/XII/2025 tanggal 15 Desember 2025.</p>
+                        <h3 class="text-3xl font-bold text-primary mb-6 font-heading">Surat Keputusan Direktur BUMDes</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+  SK ini diterbitkan sebagai tindak lanjut dari:<br>
+  Keputusan Kepala Desa Juron Nomor 144/9/VIII/2024 tentang Penetapan Pengelola BUM Desa Gemah Ripah.
+</p>
+<br>
                         <ul class="text-gray-600 mb-8 space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
@@ -917,8 +921,8 @@
                             </li>
                         </ul>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://drive.google.com/file/d/1exampleSK123456789/view" target="_blank" class="btn-primary inline-flex items-center justify-center">
-                                <i class="fas fa-download mr-2"></i> Unduh SK
+                            <a href="https://docs.google.com/document/d/1JV6xk35VyzNRhK6w0c2HxVaIfwBcXsgi/edit?usp=sharing&ouid=105594316259287058785&rtpof=true&sd=true" target="_blank" class="btn-primary inline-flex items-center justify-center">
+                                <i class="fas fa-download mr-2"></i> Lihat SK
                             </a>
                         </div>
                     </div>
@@ -932,7 +936,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Struktur Organisasi</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Struktur organisasi BUMDes Maju Jaya yang terdiri dari berbagai posisi penting untuk mengelola usaha desa secara profesional.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Struktur organisasi BUMDes Gemah Ripah yang terdiri dari berbagai posisi penting untuk mengelola usaha desa secara profesional.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -996,23 +1000,23 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Maju Jaya yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
             </div>
 
             <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto animate-slideInUp">
                 <div class="flex flex-col md:flex-row">
                     <div class="md:w-2/5 relative">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Direktur BUMDes" class="w-full h-full object-cover">
+                        <img src="{{ asset('images/BuAnik.jpg') }}" alt="Logo BUMDes" alt="Direktur BUMDes" class="w-full h-full object-cover">
                         <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent"></div>
                         <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="text-2xl font-bold">Ahmad Surya, S.E.</h3>
-                            <p class="text-secondary-light">Direktur BUMDes Maju Jaya</p>
+                            <h3 class="text-2xl font-bold">Anik Rubiyah</h3>
+                            <p class="text-secondary-light">Direktur BUMDes Gemah Ripah</p>
                         </div>
                     </div>
                     <div class="md:w-3/5 p-8 md:p-12">
                         <div class="mb-6">
                             <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
-                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai direktur BUMDes Maju Jaya, Ahmad Surya memiliki visi untuk mengembangkan potensi ekonomi desa melalui pengelolaan usaha yang profesional dan berkelanjutan. Dengan latar belakang pendidikan ekonomi dan pengalaman selama 5 tahun di bidang pengembangan usaha desa, beliau berkomitmen untuk membawa BUMDes Maju Jaya menjadi pelopor ekonomi desa di wilayahnya.</p>
+                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai direktur BUMDes Gemah Ripah, Anik Rubiyah memiliki visi untuk mengembangkan potensi ekonomi desa melalui pengelolaan usaha yang profesional dan berkelanjutan. Dengan latar belakang pendidikan ekonomi dan pengalaman selama 5 tahun di bidang pengembangan usaha desa, beliau berkomitmen untuk membawa BUMDes Gemah Ripah menjadi pelopor ekonomi desa di wilayahnya.</p>
                         </div>
 
                         <div class="flex items-center mb-8 p-4 bg-light rounded-xl">
@@ -1021,12 +1025,12 @@
                             </div>
                             <div>
                                 <p class="text-gray-600">Hubungi via WhatsApp</p>
-                                <p class="text-primary font-bold text-xl">+62 812-3456-7890</p>
+                                <p class="text-primary font-bold text-xl">+62 877-3634-3790</p>
                             </div>
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://wa.me/6281234567890" target="_blank" class="btn-whatsapp">
+                            <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp">
                                 <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
                             </a>
                             <a href="#" class="btn-outline inline-flex items-center justify-center">
@@ -1044,7 +1048,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Unit Usaha BUMDes</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Maju Jaya untuk meningkatkan perekonomian masyarakat desa.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Gemah Ripah untuk meningkatkan perekonomian masyarakat desa.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -1196,7 +1200,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Dokumentasi Jenis Usaha</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Galeri dokumentasi dari berbagai unit usaha BUMDes Maju Jaya yang telah berjalan dengan sukses.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Galeri dokumentasi dari berbagai unit usaha BUMDes Gemah Ripah yang telah berjalan dengan sukses.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1286,8 +1290,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
-                        <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Maju Jaya</span></span>
+                        <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-contain mr-3">
+                        <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Gemah Ripah</span></span>
                     </div>
                     <p class="text-primary-light mb-6">Badan Usaha Milik Desa yang berfokus pada pengembangan ekonomi desa melalui berbagai unit usaha.</p>
                     <div class="flex space-x-4">
@@ -1313,7 +1317,7 @@
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Beranda
                         </a></li>
                         <li><a href="#sk" class="text-primary-light hover:text-white transition-colors flex items-center group">
-                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Kemenkumham
+                            <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> SK Direktur
                         </a></li>
                         <li><a href="#struktur" class="text-primary-light hover:text-white transition-colors flex items-center group">
                             <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i> Struktur Organisasi
@@ -1364,7 +1368,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-secondary"></i>
-                            <span>info@bumdesmajujaya.id</span>
+                            <span>info@bumdesgemahripah.id</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-3 text-secondary"></i>
@@ -1375,7 +1379,7 @@
             </div>
 
             <div class="border-t border-primary-light pt-8 text-center text-primary-light">
-                <p>&copy; 2025 BUMDes Maju Jaya. All rights reserved.</p>
+                <p>&copy; 2025 BUMDes Gemah Ripah. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Usaha - BUMDes Maju Jaya</title>
+    <title>Unit Usaha - BUMDes Gemah Ripah</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -754,7 +754,7 @@
                 <div class="logo-glow h-10 w-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center mr-3">
                     <span class="text-white font-bold text-sm">BD</span>
                 </div>
-                <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
+                <span class="text-lg font-bold text-primary">BUMDes <span class="gold-accent">Gemah Ripah</span></span>
             </div>
             <button id="closeMenu" class="text-gray-700">
                 <i class="fas fa-times text-xl"></i>
@@ -788,8 +788,8 @@
      <nav id="navbar" class="sticky-nav scroll-down py-4 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
-                <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Maju Jaya</span></span>
+                <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-12 w-12 object-contain mr-3">
+                <span class="text-xl font-bold text-primary">BUMDes <span class="gold-accent">Gemah Ripah</span></span>
             </div>
 
             <div class="hidden md:flex space-x-8">
@@ -819,7 +819,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-16 mt-20 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Semua Unit Usaha</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Maju Jaya untuk meningkatkan perekonomian masyarakat desa.</p>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Gemah Ripah untuk meningkatkan perekonomian masyarakat desa.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -972,8 +972,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
                     <div class="flex items-center mb-6">
-                        <img src="https://images.unsplash.com/photo-1565689228869-1d674886e1f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Logo BUMDes" class="h-12 w-12 rounded-full object-cover mr-3">
-                        <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Maju Jaya</span></span>
+                        <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-12 w-12 object-contain mr-3">
+                        <span class="text-xl font-bold">BUMDes <span class="text-secondary-light">Gemah Ripah</span></span>
                     </div>
                     <p class="text-primary-light mb-6">Badan Usaha Milik Desa yang berfokus pada pengembangan ekonomi desa melalui berbagai unit usaha.</p>
                     <div class="flex space-x-4">
@@ -1050,7 +1050,7 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-secondary"></i>
-                            <span>info@bumdesmajujaya.id</span>
+                            <span>info@bumdesgemahripah.id</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-clock mr-3 text-secondary"></i>
@@ -1061,7 +1061,7 @@
             </div>
 
             <div class="border-t border-primary-light pt-8 text-center text-primary-light">
-                <p>&copy; 2025 BUMDes Maju Jaya. All rights reserved.</p>
+                <p>&copy; 2025 BUMDes Gemah Ripah. All rights reserved.</p>
             </div>
         </div>
     </footer>

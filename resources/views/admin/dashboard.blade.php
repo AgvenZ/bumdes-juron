@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - BUMDes Maju Jaya</title>
+    <title>Admin Dashboard - BUMDes Gemah Ripah</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -126,6 +126,14 @@
             font-size: 1.2rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .logo-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            position: relative;
+            z-index: 1;
         }
 
         .logo-icon::before {
@@ -519,6 +527,13 @@
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .user-avatar i {
+            font-size: 1.1rem;
+            color: #fff;
+            position: relative;
+            z-index: 1;
         }
 
         .user-avatar::before {
@@ -1184,7 +1199,7 @@
             <div class="sidebar-header">
                 <div class="logo">
                     <div class="logo-icon">
-                        <i class="fas fa-leaf"></i>
+                        <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="logo-img">
                     </div>
                     <span class="logo-text">BUMDes Admin</span>
                 </div>
@@ -1244,7 +1259,7 @@
 
                 <div class="header-right">
                     <div class="user-menu">
-                        <div class="user-avatar">AB</div>
+                        <div class="user-avatar"><i class="fas fa-user-shield"></i></div>
                         <div class="user-info">
                             <div class="user-name">Admin BUMDes</div>
                             <div class="user-role">Administrator</div>
