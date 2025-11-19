@@ -844,7 +844,7 @@
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 font-heading">BUMDes <span class="gold-accent">Gemah Ripah</span></h1>
                 <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto leading-relaxed">Membangun Ekonomi Desa Melalui <span class="font-semibold gold-accent">Inovasi</span> dan <span class="font-semibold gold-accent">Kolaborasi</span></p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#sk" class="btn-secondary inline-flex items-center justify-center">
+                    <a href="#struktur" class="btn-secondary inline-flex items-center justify-center">
                         <span>Jelajahi Lebih Lanjut</span>
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -876,7 +876,7 @@
 
     <!-- Struktur Organisasi Section -->
     <section id="struktur" class="nature-section section-padding">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 mt-20">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Struktur Organisasi</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Struktur organisasi BUMDes Gemah Ripah yang terdiri dari berbagai posisi penting untuk mengelola usaha desa secara profesional.</p>
@@ -889,8 +889,9 @@
                     <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ketua BUMDes" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Ketua BUMDes</h3>
-                    <p class="text-gray-600 mb-4">Mengawasi seluruh operasional BUMDes dan membuat keputusan strategis.</p>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Sarbini Sigit Budiyanto, S.E.</h3>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Penasehat</p>
+                    <p class="text-gray-600 mb-4">Memberikan arahan, kebijakan umum, serta dukungan strategis untuk pengembangan BUMDes.</p>
                     <div class="flex justify-center space-x-3">
 
                     </div>
@@ -902,8 +903,9 @@
                     <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Sekretaris BUMDes" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Sekretaris</h3>
-                    <p class="text-gray-600 mb-4">Mengelola administrasi, dokumentasi, dan korespondensi BUMDes.</p>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Danu Susilo</h3>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Pengawas</p>
+                    <p class="text-gray-600 mb-4">Melakukan pengawasan terhadap kinerja, tata kelola, dan pelaksanaan kegiatan usaha BUMDes.</p>
                     <div class="flex justify-center space-x-3">
 
                     </div>
@@ -915,8 +917,9 @@
                     <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Bendahara BUMDes" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Bendahara</h3>
-                    <p class="text-gray-600 mb-4">Mengelola keuangan, pembukuan, dan laporan keuangan BUMDes.</p>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Anik Rubiyah</h3>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Direktur</p>
+                    <p class="text-gray-600 mb-4">Mengelola operasional BUMDes, memimpin pengembangan usaha, dan memastikan pelaksanaan program berjalan efektif.</p>
                     <div class="flex justify-center space-x-3">
 
                     </div>
@@ -928,8 +931,9 @@
                     <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
                         <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Manager Unit Usaha" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Manager Unit Usaha</h3>
-                    <p class="text-gray-600 mb-4">Mengkoordinir dan mengawasi semua unit usaha BUMDes.</p>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Sumarno</h3>
+                    <p class="text-lg font-semibold text-gray-800 mb-2">Bendahara</p>
+                    <p class="text-gray-600 mb-4">Mengelola keuangan BUMDes secara transparan, akuntabel, dan sesuai prosedur.</p>
                     <div class="flex justify-center space-x-3">
 
                     </div>
@@ -941,7 +945,7 @@
     <!-- Direktur BUMDes Section -->
     <section id="direktur" class="nature-section section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fadeIn">
+            <div class="text-center mb-16 -mt-4 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
             </div>
@@ -962,15 +966,7 @@
                             <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
                         </div>
 
-                        <div class="flex items-center mb-8 p-4 bg-light rounded-xl">
-                            <div class="bg-primary text-white rounded-full p-4 mr-4">
-                                <i class="fas fa-phone-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-gray-600">Hubungi via WhatsApp</p>
-                                <p class="text-primary font-bold text-xl">+62 877-3634-3790</p>
-                            </div>
-                        </div>
+
 
                         <div class="flex flex-col sm:flex-row gap-4">
                             <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp">
@@ -986,7 +982,7 @@
 
     <!-- Unit Usaha Section -->
     <section id="usaha" class="nature-section section-padding">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 -mt-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Unit Usaha BUMDes</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Berbagai unit usaha yang dikelola BUMDes Gemah Ripah untuk meningkatkan perekonomian masyarakat desa.</p>
@@ -1138,7 +1134,7 @@
 
     <!-- Dokumentasi Section -->
     <section id="dokumentasi" class="nature-section section-padding">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 -mt-12">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Dokumentasi Jenis Usaha</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Galeri dokumentasi dari berbagai unit usaha BUMDes Gemah Ripah yang telah berjalan dengan sukses.</p>
