@@ -109,6 +109,102 @@
         }
     </script>
     <style>
+
+         /* Efek Shadow Khusus untuk Card Direktur */
+    .card-glow {
+        position: relative;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-glow::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 1rem;
+        background: linear-gradient(135deg,
+            rgba(26, 77, 30, 0.1) 0%,
+            rgba(255, 152, 0, 0.05) 50%,
+            rgba(212, 175, 55, 0.08) 100%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: -1;
+    }
+
+    .card-glow:hover::before {
+        opacity: 1;
+    }
+
+    .card-glow:hover {
+        box-shadow:
+            0 25px 50px -12px rgba(26, 77, 30, 0.25),
+            0 0 0 1px rgba(26, 77, 30, 0.1),
+            0 10px 30px rgba(255, 152, 0, 0.15);
+    }
+
+    /* Efek Hover untuk Gambar */
+    .image-hover-glow {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-hover-glow::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg,
+            rgba(26, 77, 30, 0.2) 0%,
+            transparent 50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .card-glow:hover .image-hover-glow::after {
+        opacity: 0.6;
+    }
+
+    /* Efek Border Glow */
+    .card-glow::after {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 1.125rem;
+        background: linear-gradient(45deg,
+            transparent,
+            rgba(26, 77, 30, 0.1),
+            rgba(255, 152, 0, 0.1),
+            rgba(212, 175, 55, 0.1),
+            transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: -1;
+    }
+
+    .card-glow:hover::after {
+        opacity: 1;
+    }
+
+    /* Animasi Pulse Ring */
+    .card-glow {
+        animation: gentle-pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes gentle-pulse {
+        0%, 100% {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        50% {
+            box-shadow: 0 15px 40px rgba(26, 77, 30, 0.12);
+        }
+    }
         :root {
             --primary: #1a4d1e;
             --primary-light: #2e7d32;
@@ -139,32 +235,30 @@
             padding: 6rem 0;
         }
 
-      .hero-bg {
-    background:
-        linear-gradient(135deg, rgba(148, 168, 148, 0.7) 0%, rgba(120, 150, 121, 0.75) 100%),
-        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
-    background-size: cover;
-    background-position: center 30%;
-    background-attachment: fixed;
-    position: relative;
-    /* Menghapus filter blur dan menyesuaikan brightness */
-    filter: brightness(0.95);
-    /* Menambahkan kontras sedikit */
-    contrast(1.05);
-}
+        .hero-bg {
+            background:
+                linear-gradient(135deg, rgba(148, 168, 148, 0.7) 0%, rgba(120, 150, 121, 0.75) 100%),
+                url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-position: center 30%;
+            background-attachment: fixed;
+            position: relative;
+            filter: brightness(0.95);
+            contrast(1.05);
+        }
 
-.hero-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(26, 77, 30, 0.15) 0%, rgba(13, 59, 15, 0.1) 100%);
-    /* Mengurangi blur pada overlay */
-    backdrop-filter: blur(0.5px);
-    opacity: 0.4;
-}
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 77, 30, 0.15) 0%, rgba(13, 59, 15, 0.1) 100%);
+            backdrop-filter: blur(0.5px);
+            opacity: 0.4;
+        }
+
         .nature-section {
             background-color: var(--nature-light);
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238d6e63' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -275,31 +369,6 @@
             border: none;
             cursor: pointer;
         }
-
-        /* Perbaikan untuk card dokumentasi agar tombol bisa diklik */
-.document-item {
-    position: relative;
-    z-index: 1;
-}
-
-.document-item .btn-primary {
-    position: relative;
-    z-index: 10;
-}
-
-/* Pastikan card-hover tidak menutupi tombol */
-.card-hover {
-    position: relative;
-}
-
-.card-hover::before {
-    z-index: 1;
-}
-
-.card-hover > *:not(::before) {
-    position: relative;
-    z-index: 2;
-}
 
         .btn-secondary:hover {
             transform: translateY(-3px);
@@ -734,7 +803,7 @@
             cursor: pointer;
             text-decoration: none;
             position: relative;
-    z-index: 10;
+            z-index: 10;
         }
 
         .btn-whatsapp:hover {
@@ -742,6 +811,120 @@
             box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
             background: #20bd5c;
             color: white;
+        }
+
+        /* Perbaikan untuk card dokumentasi agar tombol bisa diklik */
+        .document-item {
+            position: relative;
+            z-index: 1;
+        }
+
+        .document-item .btn-primary {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Pastikan card-hover tidak menutupi tombol */
+        .card-hover {
+            position: relative;
+        }
+
+        .card-hover::before {
+            z-index: 1;
+        }
+
+        .card-hover > *:not(::before) {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Style untuk struktur organisasi yang dioptimasi */
+        .structure-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .structure-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .structure-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .structure-img-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            border: 5px solid white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .structure-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .structure-card:hover .structure-img-container img {
+            transform: scale(1.1);
+        }
+
+        .structure-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .structure-card .position {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .structure-card .position::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .structure-card .description {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -760,6 +943,15 @@
             .btn-primary, .btn-secondary, .btn-outline, .btn-whatsapp {
                 padding: 0.75rem 1.5rem;
                 font-size: 0.9rem;
+            }
+
+            .structure-card {
+                padding: 2rem;
+            }
+
+            .structure-img-container {
+                width: 140px;
+                height: 140px;
             }
         }
     </style>
@@ -837,7 +1029,6 @@
     <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white section-padding relative overflow-hidden">
         <!-- Animated Background Elements -->
 
-
         <div class="container mx-auto px-4 text-center relative z-10">
             <div class="animate-bounceIn">
                 <img src="{{ asset('images/LogoBumdes.png') }}" alt="Logo BUMDes" class="h-40 w-40 object-contain mx-auto mb-8">
@@ -870,10 +1061,6 @@
         </div>
     </section>
 
-
-
-
-
     <!-- Struktur Organisasi Section -->
     <section id="struktur" class="nature-section section-padding">
         <div class="container mx-auto px-4 mt-20">
@@ -883,102 +1070,85 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Ketua -->
-                <div class="bg-white rounded-2xl p-8 text-center card-hover animate-slideInLeft overflow-hidden relative">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Ketua BUMDes" class="w-full h-full object-cover">
+                <!-- Penasehat -->
+                <div class="structure-card animate-slideInLeft">
+                    <div class="structure-img-container">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Penasehat BUMDes">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Sarbini Sigit Budiyanto, S.E.</h3>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">Penasehat</p>
-                    <p class="text-gray-600 mb-4">Memberikan arahan, kebijakan umum, serta dukungan strategis untuk pengembangan BUMDes.</p>
-                    <div class="flex justify-center space-x-3">
-
-                    </div>
+                    <h3>Sarbini Sigit Budiyanto, S.E.</h3>
+                    <p class="position">Penasehat</p>
+                    <p class="description">Memberikan arahan, kebijakan umum, serta dukungan strategis untuk pengembangan BUMDes.</p>
                 </div>
 
-                <!-- Sekretaris -->
-                <div class="bg-white rounded-2xl p-8 text-center card-hover animate-slideInUp delay-100 overflow-hidden relative">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Sekretaris BUMDes" class="w-full h-full object-cover">
+                <!-- Pengawas -->
+                <div class="structure-card animate-slideInUp delay-100">
+                    <div class="structure-img-container">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Pengawas BUMDes">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Danu Susilo</h3>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">Pengawas</p>
-                    <p class="text-gray-600 mb-4">Melakukan pengawasan terhadap kinerja, tata kelola, dan pelaksanaan kegiatan usaha BUMDes.</p>
-                    <div class="flex justify-center space-x-3">
+                    <h3>Danu Susilo</h3>
+                    <p class="position">Pengawas</p>
+                    <p class="description">Melakukan pengawasan terhadap kinerja, tata kelola, dan pelaksanaan kegiatan usaha BUMDes.</p>
+                </div>
 
+                <!-- Direktur -->
+                <div class="structure-card animate-slideInUp delay-200">
+                    <div class="structure-img-container">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Direktur BUMDes">
                     </div>
+                    <h3>Anik Rubiyah</h3>
+                    <p class="position">Direktur</p>
+                    <p class="description">Mengelola operasional BUMDes, memimpin pengembangan usaha, dan memastikan pelaksanaan program berjalan efektif.</p>
                 </div>
 
                 <!-- Bendahara -->
-                <div class="bg-white rounded-2xl p-8 text-center card-hover animate-slideInUp delay-200 overflow-hidden relative">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Bendahara BUMDes" class="w-full h-full object-cover">
+                <div class="structure-card animate-slideInRight">
+                    <div class="structure-img-container">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bendahara BUMDes">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Anik Rubiyah</h3>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">Direktur</p>
-                    <p class="text-gray-600 mb-4">Mengelola operasional BUMDes, memimpin pengembangan usaha, dan memastikan pelaksanaan program berjalan efektif.</p>
-                    <div class="flex justify-center space-x-3">
-
-                    </div>
-                </div>
-
-                <!-- Manager Unit Usaha -->
-                <div class="bg-white rounded-2xl p-8 text-center card-hover animate-slideInRight overflow-hidden relative">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
-                    <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Manager Unit Usaha" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-3">Sumarno</h3>
-                    <p class="text-lg font-semibold text-gray-800 mb-2">Bendahara</p>
-                    <p class="text-gray-600 mb-4">Mengelola keuangan BUMDes secara transparan, akuntabel, dan sesuai prosedur.</p>
-                    <div class="flex justify-center space-x-3">
-
-                    </div>
+                    <h3>Sumarno</h3>
+                    <p class="position">Bendahara</p>
+                    <p class="description">Mengelola keuangan BUMDes secara transparan, akuntabel, dan sesuai prosedur.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Direktur BUMDes Section -->
-    <section id="direktur" class="nature-section section-padding">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 -mt-4 animate-fadeIn">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
-            </div>
+  <!-- Direktur BUMDes Section -->
+<section id="direktur" class="nature-section section-padding">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16 -mt-4 animate-fadeIn">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
+        </div>
 
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto animate-slideInUp">
-                <div class="flex flex-col md:flex-row">
-                    <div class="md:w-2/5 relative">
-                        <img src="{{ asset('images/BuAnik.jpg') }}" alt="Logo BUMDes" alt="Direktur BUMDes" class="w-full h-full object-cover">
-                        <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 text-white">
-                            <h3 class="text-2xl font-bold">Anik Rubiyah</h3>
-                            <p class="text-secondary-light">Direktur BUMDes Gemah Ripah</p>
-                        </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto animate-slideInUp hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 ease-out transform hover:-translate-y-2 card-glow">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-2/5 relative">
+                    <div class="image-hover-glow h-full overflow-hidden">
+                        <img src="{{ asset('images/BuAnik.jpg') }}" alt="Direktur BUMDes" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105">
                     </div>
-                    <div class="md:w-3/5 p-8 md:p-12">
-                        <div class="mb-6">
-                            <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
-                            <p class="text-gray-600 mb-6 text-lg leading-relaxed">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
-                        </div>
+                    <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold drop-shadow-lg">Anik Rubiyah</h3>
+                        <p class="text-secondary-light drop-shadow-md">Direktur BUMDes Gemah Ripah</p>
+                    </div>
+                </div>
+                <div class="md:w-3/5 p-8 md:p-12">
+                    <div class="mb-6">
+                        <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed transition-colors duration-300 hover:text-gray-800">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
+                    </div>
 
-
-
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp">
-                                <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
-                            </a>
-
-                        </div>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:scale-105">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Unit Usaha Section -->
     <section id="usaha" class="nature-section section-padding">

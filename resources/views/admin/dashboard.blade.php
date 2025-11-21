@@ -1001,6 +1001,14 @@
             background-repeat: no-repeat;
             background-position: right 12px center;
             background-size: 16px;
+            color: var(--text-primary);
+        }
+
+        /* PERBAIKAN: Dropdown yang terlihat jelas */
+        .form-select option {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            padding: 10px;
         }
 
         .modal-footer {
@@ -1360,6 +1368,7 @@
                                         <th>Nama Unit</th>
                                         <th>Jenis Usaha</th>
                                         <th>Penanggung Jawab</th>
+                                        <th>Nomor HP</th>
                                         <th>Harga</th>
                                         <th>Status</th>
                                         <th>Aksi</th>
@@ -1441,6 +1450,10 @@
                     <div class="form-group">
                         <label class="form-label">Nama Penanggung Jawab</label>
                         <input type="text" class="form-control" id="unit-responsible" placeholder="Masukkan nama penanggung jawab" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nomor Telepon Penanggung Jawab</label>
+                        <input type="tel" class="form-control" id="unit-phone" placeholder="Masukkan nomor telepon (contoh: 081234567890)" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Harga</label>
@@ -1622,6 +1635,7 @@
                         type: 'Teknologi',
                         description: 'Layanan internet berkecepatan tinggi untuk masyarakat desa',
                         responsible: 'Budi Santoso',
+                        phone: '081234567890',
                         price: 'Rp 150.000/bulan',
                         status: 'active',
                         image: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
@@ -1635,6 +1649,7 @@
                         type: 'Pariwisata',
                         description: 'Destinasi wisata alam dengan fasilitas pemancingan',
                         responsible: 'Rudi Hermawan',
+                        phone: '081298765432',
                         price: 'Rp 25.000/orang',
                         status: 'active',
                         image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
@@ -1723,7 +1738,7 @@
                     showNotification('Anda telah berhasil keluar', 'success');
                     setTimeout(() => {
                         // Redirect to login page in a real application
-                        window.location.href = 'login.html';
+                        window.location.href = 'login';
                     }, 1500);
                 }
             });
@@ -1779,7 +1794,7 @@
             if (units.length === 0) {
                 unitTableBody.innerHTML = `
                     <tr>
-                        <td colspan="6" class="empty-state">
+                        <td colspan="7" class="empty-state">
                             <i class="fas fa-store"></i>
                             <p>Belum ada unit usaha. Klik "Tambah Unit" untuk menambahkan.</p>
                         </td>
@@ -1807,6 +1822,7 @@
                             <span>${unit.responsible}</span>
                         </div>
                     </td>
+                    <td>${unit.phone}</td>
                     <td>${unit.price}</td>
                     <td><span class="status-badge ${unit.status === 'active' ? 'status-active' : 'status-inactive'}">${unit.status === 'active' ? 'Aktif' : 'Nonaktif'}</span></td>
                     <td>
@@ -1942,6 +1958,7 @@
             document.getElementById('unit-type').value = unit.type;
             document.getElementById('unit-description').value = unit.description;
             document.getElementById('unit-responsible').value = unit.responsible;
+            document.getElementById('unit-phone').value = unit.phone;
             document.getElementById('unit-price').value = unit.price;
             document.getElementById('unit-status').value = unit.status;
 
@@ -2065,11 +2082,12 @@
             const type = document.getElementById('unit-type').value;
             const description = document.getElementById('unit-description').value;
             const responsible = document.getElementById('unit-responsible').value;
+            const phone = document.getElementById('unit-phone').value;
             const price = document.getElementById('unit-price').value;
             const status = document.getElementById('unit-status').value;
 
             // Validation
-            if (!name || !type || !description || !responsible || !price) {
+            if (!name || !type || !description || !responsible || !phone || !price) {
                 showNotification('Harap isi semua field yang diperlukan!', 'error');
                 return;
             }
@@ -2084,6 +2102,7 @@
                 type,
                 description,
                 responsible,
+                phone,
                 price,
                 status,
                 image: unitImage ? unitImage.src : null,
