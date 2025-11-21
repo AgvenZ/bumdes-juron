@@ -1238,6 +1238,25 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="menu-items">
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-page="structure">
+                                <i class="fas fa-sitemap"></i>
+                                <span>Struktur Organisasi</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" data-page="director">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Direktur</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+
+
                 </div>
 
                 <div class="menu-section">
@@ -1284,70 +1303,94 @@
 
             <!-- Content -->
             <div class="content">
-               <!-- Dashboard Page -->
-<div class="page active" id="dashboard-page">
-    <!-- Quick Navigation -->
-    <div class="quick-nav">
-        <a href="#" class="quick-nav-card" data-page="units">
-            <div class="quick-nav-icon">
-                <i class="fas fa-store"></i>
-            </div>
-            <div class="quick-nav-title">Kelola Unit Usaha</div>
-            <div class="quick-nav-desc">Tambah, edit, atau hapus unit usaha BUMDes</div>
-        </a>
+                <!-- Dashboard Page -->
+                <div class="page active" id="dashboard-page">
+                    <!-- Quick Navigation -->
+                    <div class="quick-nav">
+                        <a href="#" class="quick-nav-card" data-page="units">
+                            <div class="quick-nav-icon">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <div class="quick-nav-title">Kelola Unit Usaha</div>
+                            <div class="quick-nav-desc">Tambah, edit, atau hapus unit usaha BUMDes</div>
+                        </a>
 
-        <a href="#" class="quick-nav-card" data-page="documentations">
-            <div class="quick-nav-icon">
-                <i class="fas fa-images"></i>
-            </div>
-            <div class="quick-nav-title">Kelola Dokumentasi</div>
-            <div class="quick-nav-desc">Kelola dokumentasi kegiatan dan progress usaha</div>
-        </a>
+                        <a href="#" class="quick-nav-card" data-page="documentations">
+                            <div class="quick-nav-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <div class="quick-nav-title">Kelola Dokumentasi</div>
+                            <div class="quick-nav-desc">Kelola dokumentasi kegiatan dan progress usaha</div>
+                        </a>
 
-        <a href="#" class="quick-nav-card" id="view-website-quick">
-            <div class="quick-nav-icon">
-                <i class="fas fa-external-link-alt"></i>
-            </div>
-            <div class="quick-nav-title">Lihat Website</div>
-            <div class="quick-nav-desc">Pratinjau website BUMDes untuk pengunjung</div>
-        </a>
-    </div>
+                        <a href="#" class="quick-nav-card" data-page="structure">
+                            <div class="quick-nav-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <div class="quick-nav-title">Kelola Struktur</div>
+                            <div class="quick-nav-desc">Kelola struktur organisasi BUMDes</div>
+                        </a>
 
-    <!-- Stats Grid -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-header">
-                <div class="stat-info">
-                    <div class="stat-title">Total Unit Usaha</div>
-                    <div class="stat-value" id="total-units">0</div>
-                    <div class="stat-change">
-                        <i class="fas fa-store"></i>
-                        <span>Semua unit aktif</span>
+                        <a href="#" class="quick-nav-card" data-page="director">
+                            <div class="quick-nav-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="quick-nav-title">Kelola Direktur</div>
+                            <div class="quick-nav-desc">Kelola profil dan informasi direktur</div>
+                        </a>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <div class="stat-title">Total Unit Usaha</div>
+                                    <div class="stat-value" id="total-units">0</div>
+                                    <div class="stat-change">
+                                        <i class="fas fa-store"></i>
+                                        <span>Semua unit aktif</span>
+                                    </div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <div class="stat-title">Total Dokumentasi</div>
+                                    <div class="stat-value" id="total-documentations">0</div>
+                                    <div class="stat-change">
+                                        <i class="fas fa-images"></i>
+                                        <span>Semua dokumentasi aktif</span>
+                                    </div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <div class="stat-info">
+                                    <div class="stat-title">Anggota Struktur</div>
+                                    <div class="stat-value" id="total-structure">0</div>
+                                    <div class="stat-change">
+                                        <i class="fas fa-users"></i>
+                                        <span>Tim organisasi</span>
+                                    </div>
+                                </div>
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="stat-icon">
-                    <i class="fas fa-store"></i>
-                </div>
-            </div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-header">
-                <div class="stat-info">
-                    <div class="stat-title">Total Dokumentasi</div>
-                    <div class="stat-value" id="total-documentations">0</div>
-                    <div class="stat-change">
-                        <i class="fas fa-images"></i>
-                        <span>Semua dokumentasi aktif</span>
-                    </div>
-                </div>
-                <div class="stat-icon">
-                    <i class="fas fa-images"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
                 <!-- Units Page -->
                 <div class="page" id="units-page">
@@ -1406,6 +1449,71 @@
                                     </tr>
                                 </thead>
                                 <tbody id="documentation-table-body">
+                                    <!-- Data akan diisi oleh JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Struktur Organisasi Page -->
+                <div class="page" id="structure-page">
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Manajemen Struktur Organisasi</h2>
+                            <div class="section-actions">
+                                <button class="btn btn-primary" id="add-structure-btn">
+                                    <i class="fas fa-plus"></i> Tambah Posisi
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table" id="structure-table">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Nama</th>
+                                        <th>Posisi</th>
+                                        <th>Deskripsi</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="structure-table-body">
+                                    <!-- Data akan diisi oleh JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Direktur Page -->
+                <div class="page" id="director-page">
+                    <div class="content-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Manajemen Profil Direktur</h2>
+                            <div class="section-actions">
+                                <button class="btn btn-primary" id="edit-director-btn">
+                                    <i class="fas fa-edit"></i> Edit Profil Direktur
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table" id="director-table">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Nama</th>
+                                        <th>Posisi</th>
+                                        <th>Visi & Misi</th>
+                                        <th>Kontak</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="director-table-body">
                                     <!-- Data akan diisi oleh JavaScript -->
                                 </tbody>
                             </table>
@@ -1545,10 +1653,118 @@
         </div>
     </div>
 
+    <!-- Modal Struktur Organisasi -->
+    <div class="modal-overlay" id="structure-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="structure-modal-title">Tambah Posisi Organisasi</h3>
+                <button class="modal-close" id="close-structure-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="structure-form">
+                    <input type="hidden" id="structure-id">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="structure-name" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Posisi/Jabatan</label>
+                        <select class="form-control form-select" id="structure-position" required>
+                            <option value="">Pilih posisi</option>
+                            <option value="Penasehat">Penasehat</option>
+                            <option value="Pengawas">Pengawas</option>
+                            <option value="Sekretaris">Sekretaris</option>
+                            <option value="Bendahara">Bendahara</option>
+                            <option value="Manager Unit Usaha">Manager Unit Usaha</option>
+                            <option value="Koordinator Lapangan">Koordinator Lapangan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Deskripsi Posisi</label>
+                        <textarea class="form-control" id="structure-description" rows="3" placeholder="Masukkan deskripsi tugas dan tanggung jawab" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Foto Profil</label>
+                        <input type="file" class="form-control" id="structure-image" accept="image/*">
+                        <div class="image-preview-container" id="structure-image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control form-select" id="structure-status" required>
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-structure-modal">Batal</button>
+                <button class="btn btn-primary" id="save-structure-btn">
+                    <i class="fas fa-save"></i> Simpan Posisi
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Direktur -->
+    <div class="modal-overlay" id="director-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="director-modal-title">Edit Profil Direktur</h3>
+                <button class="modal-close" id="close-director-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="director-form">
+                    <input type="hidden" id="director-id">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="director-name" placeholder="Masukkan nama lengkap direktur" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Posisi</label>
+                        <input type="text" class="form-control" id="director-position" value="Direktur" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Visi & Misi</label>
+                        <textarea class="form-control" id="director-vision" rows="5" placeholder="Masukkan visi dan misi direktur" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nomor WhatsApp</label>
+                        <input type="tel" class="form-control" id="director-phone" placeholder="Masukkan nomor WhatsApp (contoh: 6287736343790)" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Foto Profil</label>
+                        <input type="file" class="form-control" id="director-image" accept="image/*">
+                        <div class="image-preview-container" id="director-image-preview"></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-control form-select" id="director-status" required>
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-director-modal">Batal</button>
+                <button class="btn btn-primary" id="save-director-btn">
+                    <i class="fas fa-save"></i> Simpan Profil
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Data storage (simulasi database)
         let units = JSON.parse(localStorage.getItem('bumdes_units')) || [];
         let documentations = JSON.parse(localStorage.getItem('bumdes_documentations')) || [];
+        let structure = JSON.parse(localStorage.getItem('bumdes_structure')) || [];
+        let director = JSON.parse(localStorage.getItem('bumdes_director')) || [];
         let currentEditId = null;
 
         // DOM Elements
@@ -1561,38 +1777,58 @@
         const pages = {
             dashboard: document.getElementById('dashboard-page'),
             units: document.getElementById('units-page'),
-            documentations: document.getElementById('documentations-page')
+            documentations: document.getElementById('documentations-page'),
+            structure: document.getElementById('structure-page'),
+            director: document.getElementById('director-page')
         };
 
         // Table Bodies
         const unitTableBody = document.getElementById('unit-table-body');
         const documentationTableBody = document.getElementById('documentation-table-body');
+        const structureTableBody = document.getElementById('structure-table-body');
+        const directorTableBody = document.getElementById('director-table-body');
 
         // Stats Elements
         const totalUnitsElement = document.getElementById('total-units');
         const totalDocumentationsElement = document.getElementById('total-documentations');
+        const totalStructureElement = document.getElementById('total-structure');
         const unitCountElement = document.getElementById('unit-count');
         const documentationCountElement = document.getElementById('documentation-count');
 
         // Modal Elements
         const unitModal = document.getElementById('unit-modal');
         const documentationModal = document.getElementById('documentation-modal');
+        const structureModal = document.getElementById('structure-modal');
+        const directorModal = document.getElementById('director-modal');
+
         const addUnitBtn = document.getElementById('add-unit-btn');
         const addDocumentationBtn = document.getElementById('add-documentation-btn');
+        const addStructureBtn = document.getElementById('add-structure-btn');
+        const editDirectorBtn = document.getElementById('edit-director-btn');
+
         const closeUnitModal = document.getElementById('close-unit-modal');
         const closeDocumentationModal = document.getElementById('close-documentation-modal');
+        const closeStructureModal = document.getElementById('close-structure-modal');
+        const closeDirectorModal = document.getElementById('close-director-modal');
+
         const cancelUnitModal = document.getElementById('cancel-unit-modal');
         const cancelDocumentationModal = document.getElementById('cancel-documentation-modal');
+        const cancelStructureModal = document.getElementById('cancel-structure-modal');
+        const cancelDirectorModal = document.getElementById('cancel-director-modal');
+
         const saveUnitBtn = document.getElementById('save-unit-btn');
         const saveDocumentationBtn = document.getElementById('save-documentation-btn');
+        const saveStructureBtn = document.getElementById('save-structure-btn');
+        const saveDirectorBtn = document.getElementById('save-director-btn');
 
         // Form Elements
         const unitForm = document.getElementById('unit-form');
         const documentationForm = document.getElementById('documentation-form');
+        const structureForm = document.getElementById('structure-form');
+        const directorForm = document.getElementById('director-form');
 
         // Quick Actions
         const viewWebsite = document.getElementById('view-website');
-        const viewWebsiteQuick = document.getElementById('view-website-quick');
 
         // Create floating particles
         function createParticles() {
@@ -1680,9 +1916,74 @@
                 localStorage.setItem('bumdes_documentations', JSON.stringify(documentations));
             }
 
+            if (structure.length === 0) {
+                structure = [
+                    {
+                        id: 'structure_1',
+                        name: 'Sarbini Sigit Budiyanto, S.E.',
+                        position: 'Penasehat',
+                        description: 'Memberikan arahan, kebijakan umum, serta dukungan strategis untuk pengembangan BUMDes.',
+                        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'active',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    },
+                    {
+                        id: 'structure_2',
+                        name: 'Danu Susilo',
+                        position: 'Pengawas',
+                        description: 'Melakukan pengawasan terhadap kinerja, tata kelola, dan pelaksanaan kegiatan usaha BUMDes.',
+                        image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'active',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    },
+                    {
+                        id: 'structure_3',
+                        name: '?',
+                        position: 'Sekretaris',
+                        description: '-',
+                        image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'active',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    },
+                    {
+                        id: 'structure_4',
+                        name: 'Sumarno',
+                        position: 'Bendahara',
+                        description: 'Mengelola keuangan BUMDes secara transparan, akuntabel, dan sesuai prosedur.',
+                        image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60',
+                        status: 'active',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    }
+                ];
+                localStorage.setItem('bumdes_structure', JSON.stringify(structure));
+            }
+
+            if (director.length === 0) {
+                director = [
+                    {
+                        id: 'director_1',
+                        name: 'Anik Rubiyah',
+                        position: 'Direktur',
+                        vision: 'Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.',
+                        phone: '6287736343790',
+                        image: '{{ asset("images/BuAnik.jpg") }}',
+                        status: 'active',
+                        createdAt: new Date().toISOString(),
+                        updatedAt: new Date().toISOString()
+                    }
+                ];
+                localStorage.setItem('bumdes_director', JSON.stringify(director));
+            }
+
             updateStats();
             renderUnitTable();
             renderDocumentationTable();
+            renderStructureTable();
+            renderDirectorTable();
 
             // Event Listeners
             menuToggle.addEventListener('click', toggleSidebar);
@@ -1711,25 +2012,33 @@
                 window.open('index.html', '_blank');
             });
 
-            viewWebsiteQuick.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.open('index.html', '_blank');
-            });
-
             // Modal Actions
             addUnitBtn.addEventListener('click', () => openModal('unit', 'add'));
             addDocumentationBtn.addEventListener('click', () => openModal('documentation', 'add'));
+            addStructureBtn.addEventListener('click', () => openModal('structure', 'add'));
+            editDirectorBtn.addEventListener('click', () => openModal('director', 'edit'));
+
             closeUnitModal.addEventListener('click', () => closeModal('unit'));
             closeDocumentationModal.addEventListener('click', () => closeModal('documentation'));
+            closeStructureModal.addEventListener('click', () => closeModal('structure'));
+            closeDirectorModal.addEventListener('click', () => closeModal('director'));
+
             cancelUnitModal.addEventListener('click', () => closeModal('unit'));
             cancelDocumentationModal.addEventListener('click', () => closeModal('documentation'));
+            cancelStructureModal.addEventListener('click', () => closeModal('structure'));
+            cancelDirectorModal.addEventListener('click', () => closeModal('director'));
+
             saveUnitBtn.addEventListener('click', saveUnit);
             saveDocumentationBtn.addEventListener('click', saveDocumentation);
+            saveStructureBtn.addEventListener('click', saveStructure);
+            saveDirectorBtn.addEventListener('click', saveDirector);
 
             // Image preview handlers
             document.getElementById('unit-image').addEventListener('change', handleImagePreview);
             document.getElementById('unit-responsible-image').addEventListener('change', handleImagePreview);
             document.getElementById('documentation-image').addEventListener('change', handleDocumentationImagePreview);
+            document.getElementById('structure-image').addEventListener('change', handleImagePreview);
+            document.getElementById('director-image').addEventListener('change', handleImagePreview);
 
             // Logout
             logoutBtn.addEventListener('click', (e) => {
@@ -1760,7 +2069,9 @@
             const titles = {
                 dashboard: 'Dashboard',
                 units: 'Unit Usaha',
-                documentations: 'Dokumentasi'
+                documentations: 'Dokumentasi',
+                structure: 'Struktur Organisasi',
+                director: 'Direktur'
             };
             pageTitle.textContent = titles[page];
 
@@ -1783,6 +2094,7 @@
         function updateStats() {
             totalUnitsElement.textContent = units.length;
             totalDocumentationsElement.textContent = documentations.length;
+            totalStructureElement.textContent = structure.length;
             unitCountElement.textContent = units.length;
             documentationCountElement.textContent = documentations.length;
         }
@@ -1886,6 +2198,104 @@
             });
         }
 
+        // Render structure table
+        function renderStructureTable() {
+            structureTableBody.innerHTML = '';
+
+            if (structure.length === 0) {
+                structureTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="empty-state">
+                            <i class="fas fa-sitemap"></i>
+                            <p>Belum ada data struktur organisasi. Klik "Tambah Posisi" untuk menambahkan.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            structure.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">` : '<div style="width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); display: flex; align-items: center; justify-content: center;"><i class="fas fa-user"></i></div>'}
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 600;">${item.name}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 500; color: var(--accent);">${item.position}</div>
+                    </td>
+                    <td>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">${truncateText(item.description, 80)}</div>
+                    </td>
+                    <td><span class="status-badge ${item.status === 'active' ? 'status-active' : 'status-inactive'}">${item.status === 'active' ? 'Aktif' : 'Nonaktif'}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-edit" onclick="editStructure('${item.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn-icon btn-delete" onclick="deleteStructure('${item.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                structureTableBody.appendChild(row);
+            });
+        }
+
+        // Render director table
+        function renderDirectorTable() {
+            directorTableBody.innerHTML = '';
+
+            if (director.length === 0) {
+                directorTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="empty-state">
+                            <i class="fas fa-user-tie"></i>
+                            <p>Belum ada data direktur. Klik "Edit Profil Direktur" untuk menambahkan.</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            director.forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            ${item.image ? `<img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">` : '<div style="width: 60px; height: 60px; border-radius: 50%; background: var(--glass-bg); display: flex; align-items: center; justify-content: center;"><i class="fas fa-user-tie"></i></div>'}
+                        </div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 600; font-size: 1.1rem;">${item.name}</div>
+                    </td>
+                    <td>
+                        <div style="font-weight: 500; color: var(--accent);">${item.position}</div>
+                    </td>
+                    <td>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">${truncateText(item.vision, 100)}</div>
+                    </td>
+                    <td>
+                        <div style="font-size: 0.875rem;">${item.phone}</div>
+                    </td>
+                    <td><span class="status-badge ${item.status === 'active' ? 'status-active' : 'status-inactive'}">${item.status === 'active' ? 'Aktif' : 'Nonaktif'}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-edit" onclick="editDirector('${item.id}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                directorTableBody.appendChild(row);
+            });
+        }
+
         // Open modal for adding/editing
         function openModal(type, action, id = null) {
             currentEditId = id;
@@ -1905,7 +2315,7 @@
                 }
 
                 unitModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
             } else if (type === 'documentation') {
                 const modalTitle = document.getElementById('documentation-modal-title');
 
@@ -1921,7 +2331,38 @@
                 }
 
                 documentationModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                document.body.style.overflow = 'hidden';
+            } else if (type === 'structure') {
+                const modalTitle = document.getElementById('structure-modal-title');
+
+                if (action === 'add') {
+                    modalTitle.textContent = 'Tambah Posisi Organisasi';
+                    resetStructureForm();
+                } else if (action === 'edit') {
+                    modalTitle.textContent = 'Edit Posisi Organisasi';
+                    const item = structure.find(s => s.id === id);
+                    if (item) {
+                        fillStructureForm(item);
+                    }
+                }
+
+                structureModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else if (type === 'director') {
+                const modalTitle = document.getElementById('director-modal-title');
+
+                if (action === 'edit') {
+                    modalTitle.textContent = 'Edit Profil Direktur';
+                    const item = director.find(d => d.id === id);
+                    if (item) {
+                        fillDirectorForm(item);
+                    } else if (director.length > 0) {
+                        fillDirectorForm(director[0]);
+                    }
+                }
+
+                directorModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
         }
 
@@ -1931,12 +2372,16 @@
                 unitModal.classList.remove('active');
             } else if (type === 'documentation') {
                 documentationModal.classList.remove('active');
+            } else if (type === 'structure') {
+                structureModal.classList.remove('active');
+            } else if (type === 'director') {
+                directorModal.classList.remove('active');
             }
             currentEditId = null;
-            document.body.style.overflow = ''; // Restore background scroll
+            document.body.style.overflow = '';
         }
 
-        // Reset unit form
+        // Reset forms
         function resetUnitForm() {
             unitForm.reset();
             document.getElementById('unit-id').value = '';
@@ -1944,14 +2389,25 @@
             document.getElementById('unit-responsible-image-preview').innerHTML = '';
         }
 
-        // Reset documentation form
         function resetDocumentationForm() {
             documentationForm.reset();
             document.getElementById('documentation-id').value = '';
             document.getElementById('documentation-image-preview').innerHTML = '';
         }
 
-        // Fill unit form for editing
+        function resetStructureForm() {
+            structureForm.reset();
+            document.getElementById('structure-id').value = '';
+            document.getElementById('structure-image-preview').innerHTML = '';
+        }
+
+        function resetDirectorForm() {
+            directorForm.reset();
+            document.getElementById('director-id').value = '';
+            document.getElementById('director-image-preview').innerHTML = '';
+        }
+
+        // Fill forms for editing
         function fillUnitForm(unit) {
             document.getElementById('unit-id').value = unit.id;
             document.getElementById('unit-name').value = unit.name;
@@ -1962,7 +2418,6 @@
             document.getElementById('unit-price').value = unit.price;
             document.getElementById('unit-status').value = unit.status;
 
-            // Set image previews if available
             if (unit.image) {
                 document.getElementById('unit-image-preview').innerHTML = `
                     <div class="image-preview">
@@ -1986,7 +2441,6 @@
             }
         }
 
-        // Fill documentation form for editing
         function fillDocumentationForm(doc) {
             document.getElementById('documentation-id').value = doc.id;
             document.getElementById('documentation-title').value = doc.title;
@@ -1995,7 +2449,6 @@
             document.getElementById('documentation-date').value = doc.date;
             document.getElementById('documentation-status').value = doc.status;
 
-            // Set image previews if available
             if (doc.images && doc.images.length > 0) {
                 const previewContainer = document.getElementById('documentation-image-preview');
                 previewContainer.innerHTML = '';
@@ -2012,25 +2465,73 @@
             }
         }
 
-        // Handle image preview for unit forms
+        function fillStructureForm(item) {
+            document.getElementById('structure-id').value = item.id;
+            document.getElementById('structure-name').value = item.name;
+            document.getElementById('structure-position').value = item.position;
+            document.getElementById('structure-description').value = item.description;
+            document.getElementById('structure-status').value = item.status;
+
+            if (item.image) {
+                document.getElementById('structure-image-preview').innerHTML = `
+                    <div class="image-preview">
+                        <img src="${item.image}" alt="Preview">
+                        <button type="button" class="remove-image" onclick="removeImagePreview(this, 'structure-image')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function fillDirectorForm(item) {
+            document.getElementById('director-id').value = item.id;
+            document.getElementById('director-name').value = item.name;
+            document.getElementById('director-vision').value = item.vision;
+            document.getElementById('director-phone').value = item.phone;
+            document.getElementById('director-status').value = item.status;
+
+            if (item.image) {
+                document.getElementById('director-image-preview').innerHTML = `
+                    <div class="image-preview">
+                        <img src="${item.image}" alt="Preview">
+                        <button type="button" class="remove-image" onclick="removeImagePreview(this, 'director-image')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Handle image preview for forms
         function handleImagePreview(event) {
             const file = event.target.files[0];
             if (!file) return;
 
             const reader = new FileReader();
             reader.onload = function(e) {
-                const previewContainer = event.target.id === 'unit-image'
-                    ? document.getElementById('unit-image-preview')
-                    : document.getElementById('unit-responsible-image-preview');
+                let previewContainer;
 
-                previewContainer.innerHTML = `
-                    <div class="image-preview">
-                        <img src="${e.target.result}" alt="Preview">
-                        <button type="button" class="remove-image" onclick="removeImagePreview(this, '${event.target.id}')">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                `;
+                if (event.target.id === 'unit-image') {
+                    previewContainer = document.getElementById('unit-image-preview');
+                } else if (event.target.id === 'unit-responsible-image') {
+                    previewContainer = document.getElementById('unit-responsible-image-preview');
+                } else if (event.target.id === 'structure-image') {
+                    previewContainer = document.getElementById('structure-image-preview');
+                } else if (event.target.id === 'director-image') {
+                    previewContainer = document.getElementById('director-image-preview');
+                }
+
+                if (previewContainer) {
+                    previewContainer.innerHTML = `
+                        <div class="image-preview">
+                            <img src="${e.target.result}" alt="Preview">
+                            <button type="button" class="remove-image" onclick="removeImagePreview(this, '${event.target.id}')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    `;
+                }
             };
             reader.readAsDataURL(file);
         }
@@ -2060,22 +2561,19 @@
             }
         }
 
-        // Remove image preview for unit forms
+        // Remove image preview for forms
         function removeImagePreview(button, inputId) {
             const previewContainer = button.closest('.image-preview-container');
             previewContainer.innerHTML = '';
-
-            // Also clear the file input
             document.getElementById(inputId).value = '';
         }
 
         // Remove image preview for documentation
         function removeDocumentationImagePreview(button, index) {
             button.closest('.image-preview').remove();
-            // In a real app, you would update the files array
         }
 
-        // Save unit
+        // Save functions
         function saveUnit() {
             const id = document.getElementById('unit-id').value;
             const name = document.getElementById('unit-name').value;
@@ -2086,13 +2584,11 @@
             const price = document.getElementById('unit-price').value;
             const status = document.getElementById('unit-status').value;
 
-            // Validation
             if (!name || !type || !description || !responsible || !phone || !price) {
                 showNotification('Harap isi semua field yang diperlukan!', 'error');
                 return;
             }
 
-            // Get image data (in a real app, you would upload to server)
             const unitImage = document.getElementById('unit-image-preview').querySelector('img');
             const responsibleImage = document.getElementById('unit-responsible-image-preview').querySelector('img');
 
@@ -2112,29 +2608,21 @@
             };
 
             if (id) {
-                // Update existing unit
                 const index = units.findIndex(u => u.id === id);
                 if (index !== -1) {
                     units[index] = unitData;
                 }
             } else {
-                // Add new unit
                 units.push(unitData);
             }
 
-            // Save to localStorage (simulate database)
             localStorage.setItem('bumdes_units', JSON.stringify(units));
-
-            // Update UI
             updateStats();
             renderUnitTable();
             closeModal('unit');
-
-            // Show success message
             showNotification('Unit usaha berhasil disimpan!', 'success');
         }
 
-        // Save documentation
         function saveDocumentation() {
             const id = document.getElementById('documentation-id').value;
             const title = document.getElementById('documentation-title').value;
@@ -2143,13 +2631,11 @@
             const date = document.getElementById('documentation-date').value;
             const status = document.getElementById('documentation-status').value;
 
-            // Validation
             if (!title || !description || !type || !date) {
                 showNotification('Harap isi semua field yang diperlukan!', 'error');
                 return;
             }
 
-            // Get image data (in a real app, you would upload to server)
             const previewContainer = document.getElementById('documentation-image-preview');
             const imageElements = previewContainer.querySelectorAll('img');
             const images = Array.from(imageElements).map(img => img.src);
@@ -2167,39 +2653,122 @@
             };
 
             if (id) {
-                // Update existing documentation
                 const index = documentations.findIndex(d => d.id === id);
                 if (index !== -1) {
                     documentations[index] = docData;
                 }
             } else {
-                // Add new documentation
                 documentations.push(docData);
             }
 
-            // Save to localStorage (simulate database)
             localStorage.setItem('bumdes_documentations', JSON.stringify(documentations));
-
-            // Update UI
             updateStats();
             renderDocumentationTable();
             closeModal('documentation');
-
-            // Show success message
             showNotification('Dokumentasi berhasil disimpan!', 'success');
         }
 
-        // Edit unit
+        function saveStructure() {
+            const id = document.getElementById('structure-id').value;
+            const name = document.getElementById('structure-name').value;
+            const position = document.getElementById('structure-position').value;
+            const description = document.getElementById('structure-description').value;
+            const status = document.getElementById('structure-status').value;
+
+            if (!name || !position || !description) {
+                showNotification('Harap isi semua field yang diperlukan!', 'error');
+                return;
+            }
+
+            const structureImage = document.getElementById('structure-image-preview').querySelector('img');
+
+            const structureData = {
+                id: id || generateId(),
+                name,
+                position,
+                description,
+                status,
+                image: structureImage ? structureImage.src : null,
+                createdAt: id ? structure.find(s => s.id === id).createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            if (id) {
+                const index = structure.findIndex(s => s.id === id);
+                if (index !== -1) {
+                    structure[index] = structureData;
+                }
+            } else {
+                structure.push(structureData);
+            }
+
+            localStorage.setItem('bumdes_structure', JSON.stringify(structure));
+            updateStats();
+            renderStructureTable();
+            closeModal('structure');
+            showNotification('Posisi organisasi berhasil disimpan!', 'success');
+        }
+
+        function saveDirector() {
+            const id = document.getElementById('director-id').value;
+            const name = document.getElementById('director-name').value;
+            const vision = document.getElementById('director-vision').value;
+            const phone = document.getElementById('director-phone').value;
+            const status = document.getElementById('director-status').value;
+
+            if (!name || !vision || !phone) {
+                showNotification('Harap isi semua field yang diperlukan!', 'error');
+                return;
+            }
+
+            const directorImage = document.getElementById('director-image-preview').querySelector('img');
+
+            const directorData = {
+                id: id || generateId(),
+                name,
+                position: 'Direktur',
+                vision,
+                phone,
+                status,
+                image: directorImage ? directorImage.src : null,
+                createdAt: id ? director.find(d => d.id === id).createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+
+            if (id) {
+                const index = director.findIndex(d => d.id === id);
+                if (index !== -1) {
+                    director[index] = directorData;
+                }
+            } else {
+                director.push(directorData);
+            }
+
+            localStorage.setItem('bumdes_director', JSON.stringify(director));
+            updateStats();
+            renderDirectorTable();
+            closeModal('director');
+            showNotification('Profil direktur berhasil disimpan!', 'success');
+        }
+
+        // Edit functions
         function editUnit(id) {
             openModal('unit', 'edit', id);
         }
 
-        // Edit documentation
         function editDocumentation(id) {
             openModal('documentation', 'edit', id);
         }
 
-        // Delete unit
+        function editStructure(id) {
+            openModal('structure', 'edit', id);
+        }
+
+        function editDirector(id) {
+            openModal('director', 'edit', id);
+        }
+
+        // Delete functions
         function deleteUnit(id) {
             if (confirm('Apakah Anda yakin ingin menghapus unit usaha ini?')) {
                 units = units.filter(u => u.id !== id);
@@ -2210,7 +2779,6 @@
             }
         }
 
-        // Delete documentation
         function deleteDocumentation(id) {
             if (confirm('Apakah Anda yakin ingin menghapus dokumentasi ini?')) {
                 documentations = documentations.filter(d => d.id !== id);
@@ -2218,6 +2786,16 @@
                 updateStats();
                 renderDocumentationTable();
                 showNotification('Dokumentasi berhasil dihapus!', 'success');
+            }
+        }
+
+        function deleteStructure(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus posisi ini?')) {
+                structure = structure.filter(s => s.id !== id);
+                localStorage.setItem('bumdes_structure', JSON.stringify(structure));
+                updateStats();
+                renderStructureTable();
+                showNotification('Posisi organisasi berhasil dihapus!', 'success');
             }
         }
 
@@ -2237,7 +2815,6 @@
         }
 
         function showNotification(message, type) {
-            // Create notification element
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -2258,12 +2835,10 @@
 
             document.body.appendChild(notification);
 
-            // Animate in
             setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
             }, 10);
 
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.transform = 'translateX(100%)';
                 setTimeout(() => {

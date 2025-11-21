@@ -1095,9 +1095,9 @@
                     <div class="structure-img-container">
                         <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80" alt="Direktur BUMDes">
                     </div>
-                    <h3>Anik Rubiyah</h3>
-                    <p class="position">Direktur</p>
-                    <p class="description">Mengelola operasional BUMDes, memimpin pengembangan usaha, dan memastikan pelaksanaan program berjalan efektif.</p>
+                    <h3>?</h3>
+                    <p class="position">Sekretaris</p>
+                    <p class="description">-</p>
                 </div>
 
                 <!-- Bendahara -->
