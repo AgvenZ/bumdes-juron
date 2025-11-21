@@ -1061,9 +1061,46 @@
         </div>
     </section>
 
-    <!-- Struktur Organisasi Section -->
+  <!-- Direktur BUMDes Section -->
+<section id="direktur" class="nature-section section-padding">
+    <div class="container mx-auto px-4 mt-20">
+        <div class="text-center mb-16 -mt-4 animate-fadeIn">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
+            <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto animate-slideInUp hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 ease-out transform hover:-translate-y-2 card-glow">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-2/5 relative">
+                    <div class="image-hover-glow h-full overflow-hidden">
+                        <img src="{{ asset('images/BuAnik.jpg') }}" alt="Direktur BUMDes" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <h3 class="text-2xl font-bold drop-shadow-lg">Anik Rubiyah</h3>
+                        <p class="text-secondary-light drop-shadow-md">Direktur BUMDes Gemah Ripah</p>
+                    </div>
+                </div>
+                <div class="md:w-3/5 p-8 md:p-12">
+                    <div class="mb-6">
+                        <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
+                        <p class="text-gray-600 mb-6 text-lg leading-relaxed transition-colors duration-300 hover:text-gray-800">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:scale-105">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Struktur Organisasi Section -->
     <section id="struktur" class="nature-section section-padding">
-        <div class="container mx-auto px-4 mt-20">
+        <div class="container mx-auto px-4">
             <div class="text-center mb-16 animate-fadeIn">
                 <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Struktur Organisasi</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto text-lg">Struktur organisasi BUMDes Gemah Ripah yang terdiri dari berbagai posisi penting untuk mengelola usaha desa secara profesional.</p>
@@ -1112,43 +1149,6 @@
             </div>
         </div>
     </section>
-
-  <!-- Direktur BUMDes Section -->
-<section id="direktur" class="nature-section section-padding">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16 -mt-4 animate-fadeIn">
-            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4 section-title">Direktur BUMDes</h2>
-            <p class="text-gray-600 max-w-3xl mx-auto text-lg">Menghadirkan profil direktur BUMDes Gemah Ripah yang berpengalaman dan berdedikasi untuk memajukan perekonomian desa.</p>
-        </div>
-
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-5xl mx-auto animate-slideInUp hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 ease-out transform hover:-translate-y-2 card-glow">
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-2/5 relative">
-                    <div class="image-hover-glow h-full overflow-hidden">
-                        <img src="{{ asset('images/BuAnik.jpg') }}" alt="Direktur BUMDes" class="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 text-white">
-                        <h3 class="text-2xl font-bold drop-shadow-lg">Anik Rubiyah</h3>
-                        <p class="text-secondary-light drop-shadow-md">Direktur BUMDes Gemah Ripah</p>
-                    </div>
-                </div>
-                <div class="md:w-3/5 p-8 md:p-12">
-                    <div class="mb-6">
-                        <h3 class="text-3xl font-bold text-primary mb-4 font-heading">Visi & Misi</h3>
-                        <p class="text-gray-600 mb-6 text-lg leading-relaxed transition-colors duration-300 hover:text-gray-800">Sebagai Direktur BUMDes Gemah Ripah, saya memiliki visi untuk membangun BUMDes yang profesional, mandiri, dan mampu menjadi penggerak utama perekonomian Desa Juron. Visi tersebut saya wujudkan melalui komitmen untuk mengembangkan unit usaha desa secara berkelanjutan, mengoptimalkan potensi lokal, serta memperkuat tata kelola yang transparan dan akuntabel. Saya juga berfokus pada peningkatan partisipasi masyarakat dalam kegiatan ekonomi desa dan pengembangan kapasitas para pengelola agar BUMDes Gemah Ripah dapat memberikan manfaat nyata bagi kesejahteraan bersama.</p>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://wa.me/6287736343790" target="_blank" class="btn-whatsapp hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300 transform hover:scale-105">
-                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Hubungi WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
     <!-- Unit Usaha Section -->
     <section id="usaha" class="nature-section section-padding">
