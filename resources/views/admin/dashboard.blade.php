@@ -1463,7 +1463,7 @@
                             <h2 class="section-title">Manajemen Struktur Organisasi</h2>
                             <div class="section-actions">
                                 <button class="btn btn-primary" id="add-structure-btn">
-                                    <i class="fas fa-plus"></i> Tambah Posisi
+                                    <i class="fas fa-edit"></i> Edit Struktur Organisasi
                                 </button>
                             </div>
                         </div>
@@ -1657,7 +1657,7 @@
     <div class="modal-overlay" id="structure-modal">
         <div class="modal">
             <div class="modal-header">
-                <h3 class="modal-title" id="structure-modal-title">Tambah Posisi Organisasi</h3>
+                <h3 class="modal-title" id="structure-modal-title">Edit Struktur Organisasi</h3>
                 <button class="modal-close" id="close-structure-modal">
                     <i class="fas fa-times"></i>
                 </button>
@@ -1723,10 +1723,6 @@
                     <div class="form-group">
                         <label class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control" id="director-name" placeholder="Masukkan nama lengkap direktur" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Posisi</label>
-                        <input type="text" class="form-control" id="director-position" value="Direktur" readonly>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Visi & Misi</label>
